@@ -1,5 +1,19 @@
 <?php get_header(); ?>
-
+	<nav>
+		<section class = "container-fluid fix-padding">
+			<div id="gallery_banner">
+				<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-description="Image 1 Description">
+					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s2.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s2.jpg"
+					data-description="Image 1 Description">
+					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-description="Image 1 Description">
+			</div>
+		</section>
+	</nav>
 	<main role="main" class = "container">
 		<!-- section -->
 		<section>
@@ -12,21 +26,15 @@
 
 		</section>
 		<!-- /section -->
-		<section>
-			<div class="row">
-				<div class="col-md-6">
-					revslider
-				</div>
-			</div>
-		</section>
+		
 		<section class="service mgin-bot-50">
-			<div class="row title-h1">
-			<h1><i class="fas fa-cogs"></i> DỊCH VỤ CHẤT LƯỢNG NHẤT <br> GIÁ TỐT NHẤT!</h1>
+			<div class="row title-h1 wow fadeInDown" data-wow-duration=".3" data-wow-delay=".3s">
+				<h1><i class="fas fa-cogs"></i> DỊCH VỤ</h1>
 			</div>
 			<div class="row">
 				<div class="col-md-4 ">
 					<div class="ser-box">
-						<div class=" ser-title">
+						<div class=" ser-title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".4s">
 							<i class="fas fa-laptop"></i>
 							<p>Sửa chữa vi tính</p> 
 						</div>
@@ -35,7 +43,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="ser-box">
-						<div class=" ser-title">
+						<div class=" ser-title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".4s">
 							<i class="fas fa-video"></i> 
 							<p>Lắp đặt và bảo trì Camera</p>
 						</div>
@@ -44,7 +52,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="ser-box">
-						<div class=" ser-title">
+						<div class=" ser-title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".4s">
 							<i class="fas fa-print"></i> 
 							<p>Sửa chữa, lắp đặt máy in</p>
 						</div>
@@ -55,7 +63,7 @@
 		</section>
 
 		<section class=" slogan mgin-bot-50">
-			<ul class="slogan-box">
+			<ul class="slogan-box wow fadeInDown" data-wow-duration=".3" data-wow-delay=".5s">
 				<li><i class="fas fa-award"></i> Tận tâm, uy tín, chuyên nghiệp</li>
 				<li><i class="fas fa-wrench"></i> Sửa chữa xem trực tiếp</li>
 				<li><i class="fas fa-infinity"></i> Bảo hành dài hạn</li>
@@ -64,7 +72,7 @@
 		</section>
 
 		<section class ="linkien mgin-bot-50">
-			<div class="linkien_title">
+			<div class="linkien_title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".5s">
 				<p>Linh kiện</p>
 			</div>
 			<div class="linkien_content  row">
@@ -176,7 +184,7 @@
 		</section>
 
 		<section class ="linkien mgin-bot-50">
-			<div class="linkien_title">
+			<div class="linkien_title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".5s">
 				<p>Phụ kiện</p>
 			</div>
 			<div class="linkien_content  row">
@@ -288,7 +296,7 @@
 		</section>
 
 		<section class = "custom-comment">
-			<div class="customer-title">
+			<div class="customer-title wow fadeInDown" data-wow-duration=".3" data-wow-delay=".5s">
 				NHẬN XÉT CỦA KHÁCH HÀNG VỀ PHONG THỊNH PHÁT	
 			</div>
 			<div class="row content-comment">
@@ -328,6 +336,17 @@
 		<section class ="img-company">
 			<div class="linkien_title">
 				<p>Một số hình ảnh của công ty</p>
+			</div>
+			<div id="gallery_cmpany">
+				<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-description="Image 1 Description">
+					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s2.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s2.jpg"
+					data-description="Image 1 Description">
+					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-image="<?php echo URL_IMG?>/banner/home-s1.jpg"
+					data-description="Image 1 Description">
 			</div>
 		</section>
 	</main>

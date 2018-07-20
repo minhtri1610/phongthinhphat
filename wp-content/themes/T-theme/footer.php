@@ -53,15 +53,54 @@
 		<!-- analytics -->
 		<script src="<?php echo URL_JS;?>/jquery-11.0.min.js"></script>
 		<script src="<?php echo URL_JS;?>/bootstrap.min.js"></script>
+		<script src="<?php echo URL_JS;?>/unitegallery.min.js"></script>
+		<script src="<?php echo URL_JS;?>/ug-theme-grid.js"></script>
+		<script src="<?php echo URL_JS;?>/wow.min.js"></script>
 		<script>
-
-		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-		ga('send', 'pageview');
+			(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+			(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+			l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
+			ga('send', 'pageview');
 		</script>
+		<script>
+			//section machinery
+			let width_carousel = window.innerWidth;
+			width_carousel = +width_carousel;
+			console.log(width_carousel);
+			jQuery("#gallery_cmpany").unitegallery({
+				gallery_theme: "grid",
+				theme_panel_position: "bottom",
+				gallery_carousel:true,	
+				slider_control_zoom: false,
+				slider_enable_text_panel: true,	
+				theme_panel_position: "right",
+				slider_enable_arrows: true,		
+				gridpanel_vertical_scroll: true,
+				gallery_width: 1130,	
+				gallery_autoplay:true,		
+				slider_enable_play_button: false
+			});
+			jQuery("#gallery_banner").unitegallery({
+				gallery_theme: "grid",
+				theme_panel_position: "bottom",
+				gallery_carousel:true,	
+				slider_control_zoom: false,
+				slider_enable_text_panel: true,	
+				theme_panel_position: "right",
+				slider_enable_arrows: true,		
+				gridpanel_vertical_scroll: true,
+				gallery_width: width_carousel,	
+				gallery_autoplay:true,		
+				slider_enable_play_button: false
+			});
+			
+		</script>
+		<script>
+			new WOW().init();
+		</script>
+
 
 	</body>
 </html>

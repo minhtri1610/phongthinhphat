@@ -13,8 +13,9 @@
 		<!-- add css -->
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/bootstrap.min.css" >
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/all.css" >
+		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/unite-gallery.css" >
+		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/animate.css">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" >
-		
 		<?php wp_head(); ?>
 
 	</head>

@@ -327,9 +327,9 @@ input:focus {
 	color: #000;
     padding: 5px;
     border: 1px solid #2196f3;
-	margin: 15px;
-	position: relative;
-	background: #fff;
+    margin: 15px;
+    position: relative;
+    background: #ffeb3b91;
 }
 .text-comment::after{
 	content: "";
@@ -340,7 +340,7 @@ input:focus {
     position: absolute;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 15px solid #fff;
+	border-top: 15px solid #b8bc5f;
 }
 .customer-title{
 	text-align: center;
@@ -363,6 +363,24 @@ input:focus {
 }
 .ser-title i{
 	color: #2196f3;
+}
+.content-news{
+overflow: hidden;
+}
+.fix-padding{
+	padding-left: 0;
+	padding-right: 0;
+}
+.box-news{
+	padding: 0;
+}
+.box-news .title-news{
+	font-size: 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+	background: #2196f3;
 }
 /*------------------------------------*\
     IMAGES
