@@ -16,13 +16,8 @@
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/unite-gallery.css" >
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/animate.css">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" >
-<<<<<<< .mine
-
-
-=======
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/child-style.css" >
 		
->>>>>>> .theirs
 		<?php wp_head(); ?>
 
 	</head>
