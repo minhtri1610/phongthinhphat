@@ -18,6 +18,7 @@
 define( 'URL_CSS', get_template_directory_uri().'/css' );
 define( 'URL_JS', get_template_directory_uri().'/js' );
 define( 'URL_IMG', get_template_directory_uri().'/img' );
+define('URL_ROOT', get_home_url());
 
 if (!isset($content_width))
 {

@@ -32,19 +32,28 @@
 							<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 						</div>
 						<div class="col-md-2">
-							<div class="row">Hotline</div>
+							<div class="row h-hotline"><i class="fas fa-mobile"></i> <span> Hotline</span> </div>
 							<div class="row">(+84)91111111111</div>
+
+							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
+								<div class="phonering-alo-ph-circle"></div>
+								<div class="phonering-alo-ph-circle-fill"></div>
+								<a href="tel:+84123456789" class="pps-btn-img" title="Liên hệ">
+									<div class="phonering-alo-ph-img-circle"></div>
+								</a>
+							</div>
+
 						</div>
 						<div class="col-md-2">
-							<div class="row">
-								Thời gian làm việc:
+							<div class="row h-time-work">
+								<i class="far fa-clock"></i> <span> Thời gian làm việc </span>
 							</div>
 							<div class="row">
 								T2-CN: 24/7
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="row">Địa chỉ:</div>
+							<div class="row h-point"> <i class="fas fa-map-marked-alt"></i> <span> Địa chỉ</span> </div>
 							<div class="row">Nguyễn Văn Quá, Quận 12, TP-HCM</div>
 						</div>
 					</div>
@@ -58,31 +67,27 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  container">
 							<li class="nav-item active">
-								<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Sửa vi tính
+									camera quan sát
 								</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Sửa máy in
+									máy chấm công
 								</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Lắp đặt camera
+									sửa chữa máy tính - máy in
 								</a>
 							</li>
+							
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Linh kiện máy tính
-								</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Phụ kiện
+									Linh - Phụ kiện máy tính
 								</a>
 							</li>
 							<li class="nav-item">
