@@ -998,6 +998,28 @@ overflow: hidden;
 .goto-top-page:hover{
 	background: #04A4CC;
 }
+
+/* form */
+.submit-form button{
+    min-width: 120px;
+}
+.submit-form{
+    text-align: center;
+}
+.contact-form .title-form{
+    padding-left: 0;
+}
+.title-contact{
+    margin: 25px 0;
+}
+.title-form{
+    padding-top: 8px;
+}
+.msg-contact p{
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+/* end form */
 /*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
