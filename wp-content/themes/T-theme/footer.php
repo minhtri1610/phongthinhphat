@@ -2,7 +2,7 @@
 		<div class="wapper-bottom">
 			<div class="container">
 				<div class="bottom-area row">
-					<div class="col-md-5 info-company">
+					<div class="col-md-8 info-company">
 						<div class="row">
 							<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 						</div>
@@ -12,20 +12,17 @@
 						<div class="row">
 							Sự hài lòng của khách hàng là trách nhiệm của chúng tôi.
 						</div>
-					</div>
-					<div class="contact col-md-4">
-						<div class="row f-contact">Liên hệ với chúng tôi</div>
 						<div class="row">
-							<p>Add: Nguyễn Văn Quá - Q12 - TP Hồ Chí Minh</p>
+							Add: Nguyễn Văn Quá - Q12 - TP Hồ Chí Minh
 						</div>
 						<div class="row">
-							<p>Phone: 0908784337</p>
+							Phone: 0908784337
 						</div>
 						<div class="row">
 							Email: phongthinhphat@gmail.com
 						</div>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<div class="row f-contact">
 							Fanpage FaceBook
 						</div>

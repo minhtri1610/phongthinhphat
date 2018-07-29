@@ -29,11 +29,13 @@
 				<div class="container">
 					<div class="row top-page">
 						<div class="col-md-4 logo">
-							<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
+							<a href="<?php echo URL_ROOT;?>">
+								<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
+							</a>
 						</div>
 						<div class="col-md-2">
 							<div class="row h-hotline"><i class="fas fa-mobile"></i> <span> Hotline</span> </div>
-							<div class="row">(+84)91111111111</div>
+							<div class="row">(+84)0908784337</div>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
 								<div class="phonering-alo-ph-circle"></div>
@@ -69,32 +71,32 @@
 							<li class="nav-item active">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<li class="nav-item ">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/camera-quan-sat">
 									camera quan sát
 								</a>
 							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<li class="nav-item ">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/may-cham-cong">
 									máy chấm công
 								</a>
 							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<li class="nav-item ">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">
 									sửa chữa máy tính - máy in
 								</a>
 							</li>
 							
-							<li class="nav-item dropdown">
-								<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<li class="nav-item ">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/linh-phu-kien">
 									Linh - Phụ kiện máy tính
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Tin tức</a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/tin-tuc">Tin tức</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Liên Hệ</a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he">Liên Hệ</a>
 							</li>
 						</ul>
 						<!-- <form class="form-inline my-2 my-lg-0">
