@@ -14,7 +14,7 @@
                     <p class = "" >Linh kiện máy tính</p>
                 </div>
                 <div class="row list-product">
-                    <div class="col-md-3 list-pro-pad-r">
+                    <div class="col-md-3 list-pro-pad-r">+
                         <div class="box-product">
                             <div class="img-item">
                                 <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">

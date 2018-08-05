@@ -158,84 +158,30 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/camera.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/camera.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0 </a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/camera.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
+				
+				<?php
+					$args = array(
+					'posts_per_page'   => 15,
+					'offset'           => 0,
+					'post_type'        => 'san-pham'
+					);
+					$mynote = get_posts( $args );
+					echo '<div class="row">';
+					foreach ( $mynote as $k ) {
+						$metas = get_post_meta($k->ID);
+						print_r($metas);
+						echo "<br>";
+						// print_r($k);
+						// echo '<div class="col-md-4 image_list text-center">';
+						// 	echo '<a target="_blank" href="' . site_url( 'mynote/' . $k->post_name ) . '"><img src="' . site_url( 'wp-content/uploads/' . $metas['img_1'][0] ) . '"></a><br />';
+						// 	echo '<h4>' . $k->post_title . '</h4>';
+						// 	echo '<button type="button" class="btn btn-primary">' . $metas['full_name'][0] . '</button>';
+						// 	echo '<button type="button" class="btn btn-warning">' . $metas['school_year'][0] . '</button>';
+						// 	echo '<button type="button" class="btn btn-success">' . $metas['school_subject'][0] . '</button>';
+						// echo '<br /><br /></div>';
+					}
+					echo '</div>';
+				?>
 			</div>
 		</section>
 
