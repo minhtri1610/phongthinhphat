@@ -7,7 +7,7 @@
 							<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 						</div>
 						<div class="row name-company">
-							Công ty <span>&nbsp;Phong Thịnh Phát </span> 
+							Công ty <span style ="color: #0b6b44">&nbsp;Phong </span><span style = "color: #ed3237">&nbsp; Thịnh </span> <span style ="color: #0b6b44">&nbsp; Phát </span> 
 						</div>
 						<div class="row">
 							Sự hài lòng của khách hàng là trách nhiệm của chúng tôi.
@@ -16,10 +16,10 @@
 							Add: Nguyễn Văn Quá - Q12 - TP Hồ Chí Minh
 						</div>
 						<div class="row">
-							Phone: 0908784337
+							Phone: 0908 784 337
 						</div>
 						<div class="row">
-							Email: phongthinhphat@gmail.com
+							Email: uyphong92pro@gmail.com
 						</div>
 					</div>
 					<div class="col-md-4">

@@ -56,17 +56,6 @@
 		</section>
 	</nav>
 	<main role="main" class = "container fix-container">
-		<!-- section -->
-		<section>
-
-			<h1><?php// _e( 'Latest Posts', 'html5blank' ); ?></h1>
-
-			<?php //get_template_part('loop'); ?>
-
-			<?php //get_template_part('pagination'); ?>
-
-		</section>
-		<!-- /section -->
 		
 		<section class="service mgin-bot-50">
 			<div class="row title-h1 ">
@@ -132,24 +121,51 @@
 				<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".5s">Camera Quan sát</p>
 			</div>
 			<div class="linkien_content  row">
+
+				<?php
+					$args = array(
+						'post_type' => 'camera',
+						'post_status' => 'publish',
+						'posts_per_page' => '10'
+					);
+					$products_loop = new WP_Query( $args );
+					if ( $products_loop->have_posts() ) :
+						while ( $products_loop->have_posts() ) : $products_loop->the_post();
+						// Set variables
+						$title = get_the_title();
+						$description = get_the_content();
+						$name_product = get_field('name_product');
+						$price_product = get_field('price_camera');
+						$price_promotion= get_field('price_promotion');
+						$img_1 = get_field('list_image');
+						$img_2 = get_field('image_2');
+						$img_3 = get_field('image_3');
+						$do_phan_giai = get_field('do_phan_giai');
+						$position = get_field('position_set_up');
+						$long_vision = get_field('long_vision');
+						$tg_bhanh = get_field('time_guarantee');
+						$lens = get_field('lens');
+						$name_marker = get_field('name_marker');
+
+				?>
 				<div class="col-md-3">
 					<div class="lk-item">
 						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/camera.jpg" alt="">
+							<img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">
 							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
+								<p><?php echo $name_product;?></p>
+								<p>Hãng sản xuất: <?php echo $name_marker; ?></p>
+								<p>Độ phân giải: <?php echo $price_product; ?></p>
+								<p>Vị trí: <?php echo $position; ?></p>
+								<p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
+								<p>Ống kính: <?php echo $lens;?></p>
 							</div>
 						</div>
 						<div class="item-title">
-							<a href="#" title="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">Laptop Acer F5-573-39Q0</a>
+							<a href="#" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
 						</div>
 						<div class="item-price">
-							10.100.000 đ
+							<?php echo $price_product. ' VNĐ';?>
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -158,29 +174,11 @@
 						</div>
 					</div>
 				</div>
-				
+					
 				<?php
-					$args = array(
-					'posts_per_page'   => 15,
-					'offset'           => 0,
-					'post_type'        => 'san-pham'
-					);
-					$mynote = get_posts( $args );
-					echo '<div class="row">';
-					foreach ( $mynote as $k ) {
-						$metas = get_post_meta($k->ID);
-						print_r($metas);
-						echo "<br>";
-						// print_r($k);
-						// echo '<div class="col-md-4 image_list text-center">';
-						// 	echo '<a target="_blank" href="' . site_url( 'mynote/' . $k->post_name ) . '"><img src="' . site_url( 'wp-content/uploads/' . $metas['img_1'][0] ) . '"></a><br />';
-						// 	echo '<h4>' . $k->post_title . '</h4>';
-						// 	echo '<button type="button" class="btn btn-primary">' . $metas['full_name'][0] . '</button>';
-						// 	echo '<button type="button" class="btn btn-warning">' . $metas['school_year'][0] . '</button>';
-						// 	echo '<button type="button" class="btn btn-success">' . $metas['school_subject'][0] . '</button>';
-						// echo '<br /><br /></div>';
-					}
-					echo '</div>';
+					endwhile;
+						wp_reset_postdata();
+					endif;
 				?>
 			</div>
 		</section>

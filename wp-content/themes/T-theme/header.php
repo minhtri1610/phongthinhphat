@@ -35,7 +35,7 @@
 						</div>
 						<div class="col-md-2">
 							<div class="row h-hotline"><i class="fas fa-mobile"></i> <span> Hotline</span> </div>
-							<div class="row">(+84)0908784337</div>
+							<div class="row">0908 784 337</div>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
 								<div class="phonering-alo-ph-circle"></div>

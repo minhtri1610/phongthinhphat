@@ -96,6 +96,12 @@ input:focus {
 	bottom: 40%;
 }
 /* logo */
+.logo{
+    margin-left: -30px;
+}
+.logo img{
+    max-width: 50%;
+}
 
 /* nav */
 .nav {
@@ -103,10 +109,10 @@ input:focus {
 }
 .bg-menu{
 	padding: 0px;
-	background: linear-gradient(#fed700, #FF9800);
+	background: linear-gradient(#21b378d9, #0b6b44);
 }
 #navbarSupportedContent ul li a{
-	color: #333;
+	color: #fff;
     text-transform: uppercase;
     padding: 5px;
     font-weight: bold;
@@ -127,6 +133,9 @@ input:focus {
 #navbarSupportedContent .navbar-nav .active{
 	background: #f5f5f5;
 	border-bottom: 3px solid #f5f5f5;
+}
+#navbarSupportedContent .navbar-nav .active a{
+    color: #ed3237;
 }
 /* sidebar */
 .sidebar {
@@ -157,7 +166,7 @@ input:focus {
 	padding: 20px;
 }
 .footer .name-company, .text-cpn{
-	color: orange;
+	color: #00da81;
 }
 .bottom-area{
 	color: #fff;
@@ -247,16 +256,17 @@ input:focus {
 	border-bottom: 4px solid #6f6f6f;
 }
 .linkien_title {
-	border-bottom: 1px solid #fdd504;
+	border-bottom: 1px solid #7eba49;
     display: flex;
     margin-bottom: 15px;
 }
 .linkien_title p{
-	background: #fdd504;
-    color: #333;
+	background: linear-gradient(#0f7149, #8bc34a);
+    color: #fff;
+    min-width: 210px;
     text-transform: uppercase;
     border-radius: 0px 6px 0px 0px;
-    padding: 5px 15px;
+    padding: 10px 15px;
 	margin: 0;
 	font-weight: bold;
 }
@@ -280,7 +290,7 @@ input:focus {
 }
 .btn-oder{
 	min-width: 120px;
-    background: linear-gradient(#31abec,#2196F3);
+    background: linear-gradient(#ed3237,#ed323761);
     border: none;
     border-radius: unset;
     margin: 0 auto;
@@ -459,7 +469,7 @@ overflow: hidden;
 }
 .h-hotline i, .h-point i, .h-time-work i{
 	font-size: 20px;
-    color: #2196F3;
+    color: #ed3237;
     /* line-height: 2; */
     margin: 0;
     padding: 0px 5px;
@@ -473,6 +483,9 @@ overflow: hidden;
 .info-company .name-company{
 	font-size: 25px;
     font-weight: bold;
+}
+.info-company img{
+    height: 125px;
 }
 .f-contact{
 	font-size: 20px;
