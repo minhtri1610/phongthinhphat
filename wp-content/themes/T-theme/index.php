@@ -126,12 +126,13 @@
 					$args = array(
 						'post_type' => 'camera',
 						'post_status' => 'publish',
-						'posts_per_page' => '10'
+						'posts_per_page' => '8'
 					);
 					$products_loop = new WP_Query( $args );
 					if ( $products_loop->have_posts() ) :
 						while ( $products_loop->have_posts() ) : $products_loop->the_post();
 						// Set variables
+						$link_camera = get_the_permalink();
 						$title = get_the_title();
 						$description = get_the_content();
 						$name_product = get_field('name_product');
@@ -162,10 +163,10 @@
 							</div>
 						</div>
 						<div class="item-title">
-							<a href="#" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
+							<a href="<?php echo $link_camera;?>" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
 						</div>
 						<div class="item-price">
-							<?php echo $price_product. ' VNĐ';?>
+							Giá: <?php echo $price_product. ' VNĐ';?>
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -188,24 +189,52 @@
 				<p class = " wow fadeIn" data-wow-duration=".3" data-wow-delay=".5s">Máy chấm công</p>
 			</div>
 			<div class="linkien_content  row">
+				<?php
+					$args_mcc = array(
+						'post_type' => 'may_cham_cong',
+						'post_status' => 'publish',
+						'posts_per_page' => '8'
+					);
+					$products_loop_mcc = new WP_Query( $args_mcc );
+					if ( $products_loop_mcc->have_posts() ) :
+						while ( $products_loop_mcc->have_posts() ) : $products_loop_mcc->the_post();
+						// Set variables
+						$title_mcc = get_the_title();
+						$link_mcc = get_the_permalink();
+						$description_mcc = get_the_content();
+						$name_product_mcc = get_field('name_product');
+						$price_product_mcc = get_field('price');
+						$price_promotion_mcc = get_field('price_promotion');
+						$img_1_mcc = get_field('img_1');
+						$img_2_mcc = get_field('img_2');
+						$img_3_mcc = get_field('img_3');
+						$knang_quan_ly = get_field('kha_nang_quan_ly');
+						$memory = get_field('memory');
+						$port_IO = get_field('port_IO');
+						$ngdien = get_field('electric_suply');
+						$size = get_field('size');
+						$name_maker_mcc = get_field('name_maker');
+
+				?>
 				<div class="col-md-3">
 					<div class="lk-item">
 						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/point.jpg" alt="">
+							<img src="<?php echo $img_1_mcc;?>" alt="<?php echo $name_product_mcc;?>">
 							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
+								<p><?php echo $name_product_mcc;?></p>
+								<p>Hãng sản xuất: <?php echo $name_maker_mcc;?></p>
+								<p>Khả năng quản lý: <?php echo $knang_quan_ly;?></p>
+								<p>Bộ nhớ: <?php echo $memory;?></p>
+								<p>Cổng giao tiếp:  <?php echo $port_IO;?></p>
+								<p>Nguồn điện: <?php echo $ngdien;?></p>
+								<p>Kích thước: <?php echo $size;?></p>
 							</div>
 						</div>
 						<div class="item-title">
-							<a href="#" title="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">Laptop Acer F5-573-39Q0</a>
+							<a href="<?php echo $link_mcc;?>" title="<?php echo $name_product_mcc;?>"><?php echo $name_product_mcc;?></a>
 						</div>
 						<div class="item-price">
-							10.100.000 đ
+							Giá: <?php echo $price_product_mcc;?>
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -214,110 +243,56 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/point.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/point.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0 </a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/point.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
+				<?php
+					endwhile;
+						wp_reset_postdata();
+					endif;
+				?>
 			</div>
 		</section>
 
 		<section class ="linkien mgin-bot-50">
 			<div class="linkien_title " >
-				<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Linh kiện máy tính</p>
+				<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Linh kiện - Phụ kiện máy tính</p>
 			</div>
 			<div class="linkien_content  row">
+				<?php
+					$args_lk = array(
+						'post_type' => 'linh_kien',
+						'post_status' => 'publish',
+						'posts_per_page' => '8'
+					);
+					$products_loop_lk = new WP_Query( $args_lk );
+					if ( $products_loop_lk->have_posts() ) :
+						while ( $products_loop_lk->have_posts() ) : $products_loop_lk->the_post();
+						// Set variables
+						$link_lk = get_the_permalink();
+						$title_lk = get_the_title();
+						$description_lk = get_the_content();
+						$name_product_lk = get_field('name_linh_kien');
+						$price_product_lk = get_field('price');
+						$price_promotion_lk = get_field('price_promotion');
+						$img_1_lk = get_field('img_1');
+						$img_2_lk = get_field('img_2');
+						$img_3_lk = get_field('img_3');
+						$time_baohanh = get_field('time_guarantee');
+						$name_maker = get_field('name_product');
+				?>
 				<div class="col-md-3">
 					<div class="lk-item">
 						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/laptop.jpg" alt="">
+							<img src="<?php echo $img_1_lk;?>" alt="">
 							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
+								<p><?php echo $name_product_lk;?></p>
+								<p>Hãng sản xuất: <?php echo $name_maker;?></p>
+								<p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
 							</div>
 						</div>
 						<div class="item-title">
-							<a href="#" title="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">Laptop Acer F5-573-39Q0</a>
+							<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
 						</div>
 						<div class="item-price">
-							10.100.000 đ
+							Giá: <?php echo $price_product_lk;?>
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -326,196 +301,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/laptop.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/laptop.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0 </a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/laptop.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class ="linkien mgin-bot-50">
-			<div class="linkien_title " >
-				<p class ="wow fadeIn" data-wow-duration=".3" data-wow-delay=".5s">Phụ kiện máy tính</p>
-			</div>
-			<div class="linkien_content  row">
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/pk.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#" title="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/pk.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/pk.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0 </a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo URL_IMG?>/product/pk.jpg" alt="">
-							<div class="box-shadow">
-								<p>Laptop Acer F5-573-39Q0</p>
-								<p>Intel core 7</p>
-								<p>Ram : 8GB</p>
-								<p>SSD: 1TB</p>
-								<p>Màn hình 32inch</p>
-								
-							</div>
-						</div>
-						<div class="item-title">
-							<a href="#">Laptop Acer F5-573-39Q0</a>
-						</div>
-						<div class="item-price">
-							10.100.000 đ
-						</div>
-						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
-							</button>
-						</div>
-					</div>
-				</div>
+				<?php
+					endwhile;
+						wp_reset_postdata();
+					endif;
+				?>
 			</div>
 		</section>
 

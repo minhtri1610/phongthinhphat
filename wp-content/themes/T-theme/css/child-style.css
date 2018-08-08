@@ -290,7 +290,7 @@ input:focus {
 }
 .btn-oder{
 	min-width: 120px;
-    background: linear-gradient(#ed3237,#ed323761);
+    background: linear-gradient(#da0000,#ed3237);
     border: none;
     border-radius: unset;
     margin: 0 auto;
@@ -298,7 +298,7 @@ input:focus {
 	margin-bottom: 15px;
 }
 .btn-oder:hover{
-	background: linear-gradient(#aaeeff,#2196F3);
+	background: linear-gradient(#79cbff,#008eff);
 }
 .btn-oder a{
 	color: #fff;
@@ -308,7 +308,8 @@ input:focus {
 	text-align: center;
 }
 .item-img img{
-	border-radius: 0 12px 0 0;
+    border-radius: 0 12px 0 0;
+    min-height: 230px;
 }
 .item-img:hover .box-shadow{
 	display: block;

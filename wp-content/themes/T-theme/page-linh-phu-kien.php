@@ -14,282 +14,56 @@
                     <p class = "" >Linh kiện máy tính</p>
                 </div>
                 <div class="row list-product">
-                    <div class="col-md-3 list-pro-pad-r">+
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB) </a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php
+                        $args_lk = array(
+                            'post_type' => 'linh_kien',
+                            'post_status' => 'publish',
+                            'posts_per_page' => '8'
+                        );
+                        $products_loop_lk = new WP_Query( $args_lk );
+                        if ( $products_loop_lk->have_posts() ) :
+                            while ( $products_loop_lk->have_posts() ) : $products_loop_lk->the_post();
+                            // Set variables
+                            $link_lk = get_the_permalink();
+                            $title_lk = get_the_title();
+                            $description_lk = get_the_content();
+                            $name_product_lk = get_field('name_linh_kien');
+                            $price_product_lk = get_field('price');
+                            $price_promotion_lk = get_field('price_promotion');
+                            $img_1_lk = get_field('img_1');
+                            $img_2_lk = get_field('img_2');
+                            $img_3_lk = get_field('img_3');
+                            $time_baohanh = get_field('time_guarantee');
+                            $name_maker = get_field('name_product');
+                    ?>
                     <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
+                        <div class="lk-item box-product">
+                            <div class="item-img">
+                                <img src="<?php echo $img_1_lk;?>" alt="">
+                                <div class="box-shadow">
+                                    <p><?php echo $name_product_lk;?></p>
+                                    <p>Hãng sản xuất: <?php echo $name_maker;?></p>
+                                    <p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
+                                </div>
                             </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
+                            <div class="item-title">
+                                <a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
                             </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
+                            <div class="item-price">
+                                Giá: <?php echo $price_product_lk;?>
                             </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
+                            <div class="item-btn-oder">
+                                <button class = "btn btn-primary btn-oder">
+                                    <a href="#">Mua</a>
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/ram.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Kit DDRam 4 AVEXIR 16GB/2800 (2*8GB)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 sp-left">
-                <div class="linkien_title row" >
-                    <p class = "" >Phụ kiện máy tính</p>
-                </div>
-                <div class="row list-product">
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng) </a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/keyboard.png" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Bàn phím Newmen KB808 Gaming (Trắng)</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <?php
+                        endwhile;
+                            wp_reset_postdata();
+                        endif;
+                    ?>
                 </div>
             </div>
         </div>

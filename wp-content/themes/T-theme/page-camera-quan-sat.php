@@ -14,45 +14,67 @@
                     <p class = "" >Camera quan sát</p>
                 </div>
                 <div class="row list-product">
-                    <div class="col-md-4 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/camera.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Camera xxxx</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/camera.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Camera xxxx</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        $args = array(
+                            'post_type' => 'camera',
+                            'post_status' => 'publish',
+                            'posts_per_page' => '8'
+                        );
+                        $products_loop = new WP_Query( $args );
+                        if ( $products_loop->have_posts() ) :
+                            while ( $products_loop->have_posts() ) : $products_loop->the_post();
+                            // Set variables
+                            $title = get_the_title();
+                            $link_lk = get_the_permalink();
+                            $description = get_the_content();
+                            $name_product = get_field('name_product');
+                            $price_product = get_field('price_camera');
+                            $price_promotion= get_field('price_promotion');
+                            $img_1 = get_field('list_image');
+                            $img_2 = get_field('image_2');
+                            $img_3 = get_field('image_3');
+                            $do_phan_giai = get_field('do_phan_giai');
+                            $position = get_field('position_set_up');
+                            $long_vision = get_field('long_vision');
+                            $tg_bhanh = get_field('time_guarantee');
+                            $lens = get_field('lens');
+                            $name_marker = get_field('name_marker');
 
+                    ?>
                     <div class="col-md-4 list-pro-pad-r">
+                        <div class="lk-item box-product">
+                            <div class="item-img">
+                                <img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">
+                                <div class="box-shadow">
+                                    <p><?php echo $name_product;?></p>
+                                    <p>Hãng sản xuất: <?php echo $name_marker; ?></p>
+                                    <p>Độ phân giải: <?php echo $price_product; ?></p>
+                                    <p>Vị trí: <?php echo $position; ?></p>
+                                    <p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
+                                    <p>Ống kính: <?php echo $lens;?></p>
+                                </div>
+                            </div>
+                            <div class="item-title">
+                                <a href="<?php echo $link_lk;?>" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
+                            </div>
+                            <div class="item-price">
+                                Giá: <?php echo $price_product. ' VNĐ';?>
+                            </div>
+                            <div class="item-btn-oder">
+                                <button class = "btn btn-primary btn-oder">
+                                    <a href="#">Mua</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <?php
+                        endwhile;
+                            wp_reset_postdata();
+                        endif;
+                    ?>
+                    <!-- <div class="col-md-4 list-pro-pad-r">
                         <div class="box-product">
                             <div class="img-item">
                                 <img src="<?php echo URL_IMG;?>/product/camera.jpg" alt="">
@@ -69,26 +91,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-4 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/camera.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Camera xxxx</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                     
                 </div>
             </div>
