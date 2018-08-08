@@ -109,7 +109,7 @@ input:focus {
 }
 .bg-menu{
 	padding: 0px;
-	background: linear-gradient(#21b378d9, #0b6b44);
+	background: linear-gradient(#0b6b44, #0b6b44);
 }
 #navbarSupportedContent ul li a{
 	color: #fff;
@@ -124,10 +124,10 @@ input:focus {
 #navbarSupportedContent ul li:hover{
 	/* border-bottom: 3px solid #2196f3; */
     transition: color 0.2s ease-out;
-    background-color: #f5f5f5;
+    background-color: #bfbfbf;
 }
 #navbarSupportedContent ul li:hover a{
-	color: #333;
+	color: #ed3237;
 }
 
 #navbarSupportedContent .navbar-nav .active{
@@ -261,14 +261,14 @@ input:focus {
     margin-bottom: 15px;
 }
 .linkien_title p{
-	background: linear-gradient(#0f7149, #8bc34a);
+    background: linear-gradient(#0f7149, #1db770);
     color: #fff;
     min-width: 210px;
     text-transform: uppercase;
     border-radius: 0px 6px 0px 0px;
-    padding: 10px 15px;
-	margin: 0;
-	font-weight: bold;
+    padding: 8px 15px;
+    margin: 0;
+    font-weight: bold;
 }
 .lk-item{
 	border: 1px solid #ddd;
