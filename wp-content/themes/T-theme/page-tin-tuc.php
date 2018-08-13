@@ -6,80 +6,48 @@
             </div>
         </div>
         <div class="ctn-news">
-            <div class="row item-box">
-                <div class="col-md-2 img-news">
-                    <img src="<?php echo URL_IMG;?>/news.jpg" alt="">
-                </div>
-                <div class="col-md-10">
-                    <div class="box-news">
-                        <div class="row tit-news"><h5><a href="http://">Tiều đề 1</a></h5></div>
-                        <div class="row post-date"><p>Ngày đăng: 29/07/2018</p></div>
-                        <div class="row content-date">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nobis provident ea. Voluptatum, incidunt fugit cum consectetur aspernatur quibusdam repudiandae doloribus voluptatibus officiis minus id eligendi beatae. Ducimus, veritatis voluptate?
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
+            <?php
+                $args_lk = array(
+                    'post_type' => 'news',
+                    'post_status' => 'publish',
+                    'posts_per_page' => '10'
+                );
+                $products_loop_lk = new WP_Query( $args_lk );
+                if ( $products_loop_lk->have_posts() ) :
+                    while ( $products_loop_lk->have_posts() ) : $products_loop_lk->the_post();
+                    // Set variables
+                    $link_lk = get_the_permalink();
+                    $title_lk = get_the_title();
+                    $description_lk = get_the_content();
+                    $date_post = get_the_date();
+            ?>
             <div class="row item-box">
                 <div class="col-md-2 img-news">
-                    <img src="<?php echo URL_IMG;?>/news.jpg" alt="">
+                    <?php if ( has_post_thumbnail() ) {?>
+                        <?php the_post_thumbnail(); ?>
+                    <?php } else{?>
+                        <img src="<?php echo URL_IMG."/news.jpg"?>"/>
+                    <?php } ?>
+                    
                 </div>
                 <div class="col-md-10">
                     <div class="box-news">
-                        <div class="row tit-news"><h5><a href="http://">Tiều đề 1</a></h5></div>
-                        <div class="row post-date"><p>Ngày đăng: 29/07/2018</p></div>
+                        <div class="row tit-news"><h5><a href="<?php echo $link_lk;?>"><?php echo $title_lk;?></a></h5></div>
+                        <div class="row post-date"><p>Ngày đăng: <?php echo $date_post;?></p></div>
                         <div class="row content-date">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nobis provident ea. Voluptatum, incidunt fugit cum consectetur aspernatur quibusdam repudiandae doloribus voluptatibus officiis minus id eligendi beatae. Ducimus, veritatis voluptate?
+                            <?php echo $description_lk;?>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row item-box">
-                <div class="col-md-2 img-news">
-                    <img src="<?php echo URL_IMG;?>/news.jpg" alt="">
-                </div>
-                <div class="col-md-10">
-                    <div class="box-news">
-                        <div class="row tit-news"><h5><a href="http://">Tiều đề 1</a></h5></div>
-                        <div class="row post-date"><p>Ngày đăng: 29/07/2018</p></div>
-                        <div class="row content-date">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nobis provident ea. Voluptatum, incidunt fugit cum consectetur aspernatur quibusdam repudiandae doloribus voluptatibus officiis minus id eligendi beatae. Ducimus, veritatis voluptate?
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row item-box">
-                <div class="col-md-2 img-news">
-                    <img src="<?php echo URL_IMG;?>/news.jpg" alt="">
-                </div>
-                <div class="col-md-10">
-                    <div class="box-news">
-                        <div class="row tit-news"><h5><a href="http://">Tiều đề 1</a></h5></div>
-                        <div class="row post-date"><p>Ngày đăng: 29/07/2018</p></div>
-                        <div class="row content-date">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nobis provident ea. Voluptatum, incidunt fugit cum consectetur aspernatur quibusdam repudiandae doloribus voluptatibus officiis minus id eligendi beatae. Ducimus, veritatis voluptate?
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row item-box">
-                <div class="col-md-2 img-news">
-                    <img src="<?php echo URL_IMG;?>/news.jpg" alt="">
-                </div>
-                <div class="col-md-10">
-                    <div class="box-news">
-                        <div class="row tit-news"><h5><a href="http://">Tiều đề 1</a></h5></div>
-                        <div class="row post-date"><p>Ngày đăng: 29/07/2018</p></div>
-                        <div class="row content-date">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nobis provident ea. Voluptatum, incidunt fugit cum consectetur aspernatur quibusdam repudiandae doloribus voluptatibus officiis minus id eligendi beatae. Ducimus, veritatis voluptate?
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                endwhile;
+                    wp_reset_postdata();
+                endif;
+            ?>
+            <!--  -->
         </div>
         
     </div>

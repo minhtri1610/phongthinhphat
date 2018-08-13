@@ -13,7 +13,7 @@
 							Sự hài lòng của khách hàng là trách nhiệm của chúng tôi.
 						</div>
 						<div class="row">
-							Add: Nguyễn Văn Quá - Q12 - TP Hồ Chí Minh
+							Add: 36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM
 						</div>
 						<div class="row">
 							Phone: 0908 784 337
@@ -61,6 +61,8 @@
 		<script src="<?php echo URL_JS;?>/ug-theme-slider.js"></script>
 		
 		<script src="<?php echo URL_JS;?>/wow.min.js"></script>
+		<script src="<?php echo URL_JS;?>/easyzoom.js"></script>
+		
 		<script>
 			(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
 			(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
@@ -117,7 +119,73 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 
-		
+		<script>
+			// Instantiate EasyZoom instances
+			var $easyzoom = $('.easyzoom').easyZoom();
+
+			// Setup thumbnails example
+			var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+			$('.thumbnails').on('click', 'a', function(e) {
+				var $this = $(this);
+
+				e.preventDefault();
+
+				// Use EasyZoom's `swap` method
+				api1.swap($this.data('standard'), $this.attr('href'));
+			});
+
+			// Setup toggles example
+			var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
+
+			$('.toggle').on('click', function() {
+				var $this = $(this);
+
+				if ($this.data("active") === true) {
+					$this.text("Switch on").data("active", false);
+					api2.teardown();
+				} else {
+					$this.text("Switch off").data("active", true);
+					api2._init();
+				}
+			});
+		</script>
+
+<script>
+        // function initialize(zoom) {
+        //     //get latitude and get longitude
+        //     var geocoder = new google.maps.Geocoder();
+        //     var getAddress = '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam';
+        //     geocoder.geocode( { 'address': getAddress}, function(results, status) {
+        //         if (status == google.maps.GeocoderStatus.OK) {
+        //             var latitude = results[0].geometry.location.lat();
+        //             var longitude = results[0].geometry.location.lng();
+        //             var myLatLng = {lat: latitude, lng: longitude};
+        //         // view maps 
+        //             var mapProp = {
+        //                 center:new google.maps.LatLng(latitude, longitude),
+        //                 zoom:zoom,
+        //                 mapTypeId:google.maps.MapTypeId.ROADMAP
+        //             };
+        //             var map=new google.maps.Map(document.getElementById("mapGoogle"),mapProp);
+        //             var marker = new google.maps.Marker ({
+        //                 position: myLatLng,
+        //                 map: map,
+        //                 title: '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam'
+        //             });
+        //             var infowindow = new google.maps.InfoWindow ({
+        //             content:'<div class="googleMap-title">Công ty Phong Thịnh Phát</div>'
+        //             });
+        //             infowindow.open(map,marker);
+        //             google.maps.event.addListener(marker, 'click', function() {
+        //             infowindow.open(map,marker);
+        //             });
+        //         } 
+        //     });
+        // }
+        // google.maps.event.addDomListener(window, 'load', initialize(15));
+    
+    </script>
 
 	</body>
 </html>

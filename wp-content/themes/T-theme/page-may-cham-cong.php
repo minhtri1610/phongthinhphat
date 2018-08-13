@@ -5,7 +5,7 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "li-active">Máy chấm công</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/may-cham-cong" class = "li-active">Máy chấm công</a></li>
             </ul>
         </div>
         <div class="row">
@@ -17,7 +17,7 @@
 
                     <?php
                         $args_mcc = array(
-                            'post_type' => 'may_cham_cong',
+                            'post_type' => 'maychamcong',
                             'post_status' => 'publish',
                             'posts_per_page' => '8'
                         );
@@ -44,6 +44,7 @@
                     ?>
                     <div class="col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
+                            <a href="<?php echo $link_mcc;?>">
                             <div class="item-img">
                                 <img src="<?php echo $img_1_mcc;?>" alt="<?php echo $name_product_mcc;?>">
                                 <div class="box-shadow">
@@ -56,6 +57,7 @@
                                     <p>Kích thước: <?php echo $size;?></p>
                                 </div>
                             </div>
+                            </a>
                             <div class="item-title">
                                 <a href="<?php echo $link_mcc;?>" title="<?php echo $name_product_mcc;?>"><?php echo $name_product_mcc;?></a>
                             </div>

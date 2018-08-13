@@ -41,11 +41,28 @@
 							<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Tin Tức</p>
 						</div>
 						<div class="news-content">
+						
 							<ul>
-								<li><a href="#">Tin tức 1</a></li>
-								<li><a href="#">Tin tức 2</a></li>
-								<li><a href="#">Tin tức 3</a></li>
-								<li><a href="#">Tin tức 4</a></li>
+							<?php
+								$args_news = array(
+									'post_type' => 'news',
+									'post_status' => 'publish',
+									'posts_per_page' => '8'
+								);
+								$products_loop_news = new WP_Query( $args_news  );
+								if ( $products_loop_news->have_posts() ) :
+									while ( $products_loop_news->have_posts() ) : $products_loop_news->the_post();
+									// Set variables
+									$link_news = get_the_permalink();
+									$title_news = get_the_title();
+									$description_news = get_the_content();
+							?>
+								<li><a href="<?php echo $link_news;?>"><?php echo $title_news;?></a></li>
+							<?php
+								endwhile;
+									wp_reset_postdata();
+								endif;
+							?>
 							</ul>
 						</div>
 					</div>
@@ -91,19 +108,19 @@
 				</div> -->
 				<div class="col-md-3 box-ser wow pulse"  data-wow-duration=".3" data-wow-delay=".1s">
 					<img src="<?php echo URL_IMG;?>/product/lap-dat-camera.jpg" alt="">
-					<p><a href="#">Lắp đặt <br> camera quan sát</a></p>
+					<p><a href="<?php echo URL_ROOT;?>/camera-quan-sat">Lắp đặt <br> camera quan sát</a></p>
 				</div>
 				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".2s">
 					<img src="<?php echo URL_IMG;?>/product/lap-dat-may-cham-cong.jpg" alt="">
-					<p><a href="#">Lắp đặt <br> máy chấm công</a></p>
+					<p><a href="<?php echo URL_ROOT;?>/may-cham-cong">Lắp đặt <br> máy chấm công</a></p>
 				</div>
 				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".3s">
 					<img src="<?php echo URL_IMG;?>/product/sua-chua-may-tinh-hcm.jpg" alt="">
-					<p><a href="#">Sữa chữa máy tính</a></p>
+					<p><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">Sữa chữa máy tính</a></p>
 				</div>
 				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".4s">
 					<img src="<?php echo URL_IMG;?>/product/do-muc-may-in.jpg" alt="">
-					<p><a href="#">Sửa chữa máy in</a></p>
+					<p><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">Sửa chữa máy in</a></p>
 				</div>
 			</div>
 		</section>
@@ -191,7 +208,7 @@
 			<div class="linkien_content  row">
 				<?php
 					$args_mcc = array(
-						'post_type' => 'may_cham_cong',
+						'post_type' => 'maychamcong',
 						'post_status' => 'publish',
 						'posts_per_page' => '8'
 					);
@@ -218,23 +235,25 @@
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo $img_1_mcc;?>" alt="<?php echo $name_product_mcc;?>">
-							<div class="box-shadow">
-								<p><?php echo $name_product_mcc;?></p>
-								<p>Hãng sản xuất: <?php echo $name_maker_mcc;?></p>
-								<p>Khả năng quản lý: <?php echo $knang_quan_ly;?></p>
-								<p>Bộ nhớ: <?php echo $memory;?></p>
-								<p>Cổng giao tiếp:  <?php echo $port_IO;?></p>
-								<p>Nguồn điện: <?php echo $ngdien;?></p>
-								<p>Kích thước: <?php echo $size;?></p>
+						<a href = "<?php echo $link_mcc;?>">
+							<div class="item-img">
+								<img src="<?php echo $img_1_mcc;?>" alt="<?php echo $name_product_mcc;?>">
+								<div class="box-shadow">
+									<p><?php echo $name_product_mcc;?></p>
+									<p>Hãng sản xuất: <?php echo $name_maker_mcc;?></p>
+									<p>Khả năng quản lý: <?php echo $knang_quan_ly;?></p>
+									<p>Bộ nhớ: <?php echo $memory;?></p>
+									<p>Cổng giao tiếp:  <?php echo $port_IO;?></p>
+									<p>Nguồn điện: <?php echo $ngdien;?></p>
+									<p>Kích thước: <?php echo $size;?></p>
+								</div>
 							</div>
-						</div>
+						</a>
 						<div class="item-title">
 							<a href="<?php echo $link_mcc;?>" title="<?php echo $name_product_mcc;?>"><?php echo $name_product_mcc;?></a>
 						</div>
 						<div class="item-price">
-							Giá: <?php echo $price_product_mcc;?>
+							Giá: <?php echo $price_product_mcc;?> VNĐ
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -258,7 +277,7 @@
 			<div class="linkien_content  row">
 				<?php
 					$args_lk = array(
-						'post_type' => 'linh_kien',
+						'post_type' => 'linhphukien',
 						'post_status' => 'publish',
 						'posts_per_page' => '8'
 					);
@@ -292,7 +311,7 @@
 							<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
 						</div>
 						<div class="item-price">
-							Giá: <?php echo $price_product_lk;?>
+							Giá: <?php echo $price_product_lk;?> VNĐ
 						</div>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder">
@@ -387,15 +406,51 @@
 				<p class = "wow fadeIn"  data-wow-duration=".3" data-wow-delay=".2s">Dự án đã thi công</p>
 			</div>
 			<div id="gallery_cmpany">
-				<img alt="Image 1 Title" src="<?php echo URL_IMG?>/project/p1.jpg"
-					data-image="<?php echo URL_IMG?>/project/p1.jpg"
-					data-description="Image 1 Description">
-					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/project/p1.jpg"
-					data-image="<?php echo URL_IMG?>/project/p1.jpg"
-					data-description="Image 1 Description">
-					<img alt="Image 1 Title" src="<?php echo URL_IMG?>/project/p1.jpg"
-					data-image="<?php echo URL_IMG?>/project/p1.jpg"
-					data-description="Image 1 Description">
+				<?php
+					$args_da = array(
+						'post_type' => 'duan',
+						'post_status' => 'publish',
+						'posts_per_page' => '10'
+					);
+					$products_loop_da = new WP_Query( $args_da );
+					$list_data = [];
+					if ( $products_loop_da->have_posts() ) :
+						while ( $products_loop_da->have_posts() ) : $products_loop_da->the_post();
+						// Set variables
+						$link_da = get_the_permalink();
+						$title_da = get_the_title();
+						$description_da = get_the_content();
+						$name_project = get_field('name_project');
+						$name_customer = get_field('name_customer');
+						// $img_01 = get_field('img_1');
+						// $img_02 = get_field('img_2');
+						// $img_03 = get_field('img_3');
+						// $img_04 = get_field('img_4');
+						// $img_05 = get_field('img_5');
+						// $img_06 = get_field('img_6');
+						// $img_07 = get_field('img_7');
+						// $img_08 = get_field('img_8');
+						// $img_09 = get_field('img_9');
+						// $img_10 = get_field('img_10');
+						for ($j=0; $j < 9; $j++) { 
+							$img_link = get_field('img_'.$j);
+							array_push($list_data, $img_link);
+						}
+						endwhile;
+						wp_reset_postdata();
+					endif;
+				?>
+				<?php 
+					$length_arr = count($list_data);
+					for ($i=0; $i < $length_arr; $i++) { 
+						if($list_data[$i] != ''){
+				?>
+					<img alt="Image 1 Title" src="<?php echo $list_data[$i];?>"
+					data-image="<?php echo $list_data[$i];?>">
+				<?php 		
+					}
+				}
+				?>
 			</div>
 		</section>
 	</main>

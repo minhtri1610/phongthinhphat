@@ -5,7 +5,7 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "li-active">Sửa chữa máy tính - máy in</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh" class = "li-active">Sửa chữa máy tính - máy in</a></li>
             </ul>
         </div>
         <div class="linkien_title row" >

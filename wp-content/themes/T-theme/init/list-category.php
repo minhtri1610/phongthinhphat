@@ -114,7 +114,7 @@
             'capability_type' => 'post' //
         );
      
-        register_post_type('may_cham_cong', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+        register_post_type('maychamcong', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
      
     }
     /* Kích hoạt hàm tạo custom post type */
@@ -131,12 +131,8 @@
             'singular_name' => 'Linh - Phụ kiện' //
             
         );
-     
-        /*
-         * Biến $args là những tham số quan trọng trong Post Type
-         */
         $args = array(
-            'labels' => $label, //Gọi các label trong biến $label ở trên
+        'labels' => $label, //Gọi các label trong biến $label ở trên
             'description' => 'Nhập sản phẩm', //Mô tả của post type
             'supports' => array(
                 'title',
@@ -157,7 +153,56 @@
             'show_in_nav_menus' => true, //Hiển thị trong Appearance -> Menus
             'show_in_admin_bar' => true, //Hiển thị trên thanh Admin bar màu đen.
             'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
-            'menu_icon' => 'dashicons-paperclip', //Đường dẫn tới icon sẽ hiển thị
+            'menu_icon' => 'dashicons-video-alt2', //Đường dẫn tới icon sẽ hiển thị
+            'can_export' => true, //Có thể export nội dung bằng Tools -> Export
+            'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+            'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
+            'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
+            'capability_type' => 'post' //
+        );
+        register_post_type('linhphukien', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+     
+    }
+    add_action('init', 'linhkien_custom_post_type');
+
+    /* Kích hoạt hàm tạo custom post type */
+   
+    function quan_ly_du_an()
+    {
+        /*
+         * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
+         */
+        $label = array(
+            'name' => 'Hình ảnh Dự án', //Tên post type dạng số nhiều
+            'singular_name' => 'Hình ảnh Dự án' //
+        );
+     
+        /*
+         * Biến $args là những tham số quan trọng trong Post Type
+         */
+        $args = array(
+            'labels' => $label, //Gọi các label trong biến $label ở trên
+            'description' => 'Nhập dữ liệu dự án', //Mô tả của post type
+            'supports' => array(
+                'title',
+                'editor',
+                'excerpt',
+                'author',
+                'thumbnail',
+                'comments',
+                'trackbacks',
+                'revisions',
+                'custom-fields'
+            ), //Các tính năng được hỗ trợ trong post type
+            'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+            'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
+            'public' => true, //Kích hoạt post type
+            'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+            'show_in_menu' => true, //Hiển thị trên Admin Menu (tay trái)
+            'show_in_nav_menus' => true, //Hiển thị trong Appearance -> Menus
+            'show_in_admin_bar' => true, //Hiển thị trên thanh Admin bar màu đen.
+            'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
+            'menu_icon' => 'dashicons-editor-paste-word', //Đường dẫn tới icon sẽ hiển thị
             'can_export' => true, //Có thể export nội dung bằng Tools -> Export
             'has_archive' => true, //Cho phép lưu trữ (month, date, year)
             'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
@@ -165,10 +210,58 @@
             'capability_type' => 'post' //
         );
      
-        register_post_type('linh_kien', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+        register_post_type('duan', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
      
     }
-    /* Kích hoạt hàm tạo custom post type */
-    add_action('init', 'linhkien_custom_post_type');
+    add_action('init', 'quan_ly_du_an');
+
+
+    function list_news()
+    {
+        /*
+         * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
+         */
+        $label = array(
+            'name' => 'Tin tức', //Tên post type dạng số nhiều
+            'singular_name' => 'Tin tức' //
+        );
+     
+        /*
+         * Biến $args là những tham số quan trọng trong Post Type
+         */
+        $args = array(
+            'labels' => $label, //Gọi các label trong biến $label ở trên
+            'description' => 'Nhập tin tức', //Mô tả của post type
+            'supports' => array(
+                'title',
+                'editor',
+                'excerpt',
+                'author',
+                'thumbnail',
+                'comments',
+                'trackbacks',
+                'revisions',
+                'custom-fields'
+            ), //Các tính năng được hỗ trợ trong post type
+            'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+            'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
+            'public' => true, //Kích hoạt post type
+            'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+            'show_in_menu' => true, //Hiển thị trên Admin Menu (tay trái)
+            'show_in_nav_menus' => true, //Hiển thị trong Appearance -> Menus
+            'show_in_admin_bar' => true, //Hiển thị trên thanh Admin bar màu đen.
+            'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
+            'menu_icon' => 'dashicons-admin-site', //Đường dẫn tới icon sẽ hiển thị
+            'can_export' => true, //Có thể export nội dung bằng Tools -> Export
+            'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+            'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
+            'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
+            'capability_type' => 'post' //
+        );
+     
+        register_post_type('news', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+     
+    }
+    add_action('init', 'list_news');
 
 ?>

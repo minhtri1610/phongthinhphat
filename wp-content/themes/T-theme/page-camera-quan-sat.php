@@ -39,13 +39,14 @@
                             $long_vision = get_field('long_vision');
                             $tg_bhanh = get_field('time_guarantee');
                             $lens = get_field('lens');
-                            $name_marker = get_field('name_marker');
+                            $name_marker = get_field('name_maker');
 
                     ?>
                     <div class="col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <div class="item-img">
                                 <img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">
+                                <a href="<?php echo $link_lk;?>">
                                 <div class="box-shadow">
                                     <p><?php echo $name_product;?></p>
                                     <p>Hãng sản xuất: <?php echo $name_marker; ?></p>
@@ -54,6 +55,7 @@
                                     <p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
                                     <p>Ống kính: <?php echo $lens;?></p>
                                 </div>
+                                </a>
                             </div>
                             <div class="item-title">
                                 <a href="<?php echo $link_lk;?>" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
@@ -102,11 +104,11 @@
                 <div class="row">
                     <div class="list-camera-title">
                         <ul>
-                            <li><a href="http://">Bộ Camera giá rẻ</a></li>
-                            <li><a href="http://">Bộ Camera trong nhà</a></li>
-                            <li><a href="http://">Bộ Camera ngoài trời</a></li>
-                            <li><a href="http://">Bộ Camera cao cấp</a></li>
-                            <li><a href="http://">Bộ Camera trong nhà</a></li>
+                            <li><a href="#">Bộ Camera giá rẻ</a></li>
+                            <li><a href="#">Bộ Camera trong nhà</a></li>
+                            <li><a href="#">Bộ Camera ngoài trời</a></li>
+                            <li><a href="#">Bộ Camera cao cấp</a></li>
+                            <li><a href="#">Bộ Camera trong nhà</a></li>
                         </ul>
                         
                     </div>
@@ -118,9 +120,9 @@
                 <div class="row">
                     <div class="list-ser-cam">
                         <ul>
-                            <li><a href="http://">Tư vấn lắp đặt camera</a></li>
-                            <li><a href="http://">Bảo trì camera</a></li>
-                            <li><a href="http://">Sửa chữa camera</a></li>
+                            <li><a href="#">Tư vấn lắp đặt camera</a></li>
+                            <li><a href="#">Bảo trì camera</a></li>
+                            <li><a href="#">Sửa chữa camera</a></li>
                         </ul>
                         
                     </div>

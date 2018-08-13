@@ -16,10 +16,10 @@
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/unite-gallery.css" >
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/animate.css">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" >
+		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/easyzoom.css">
+		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/pygments.css">
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/child-style.css" >
-		
 		<?php wp_head(); ?>
-
 	</head>
 	<body <?php body_class(); ?>>
 
@@ -56,7 +56,7 @@
 						</div>
 						<div class="col-md-4">
 							<div class="row h-point"> <i class="fas fa-map-marked-alt"></i> <span> Địa chỉ</span> </div>
-							<div class="row">Nguyễn Văn Quá, Quận 12, TP-HCM</div>
+							<div class="row">36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM</div>
 						</div>
 					</div>
 				</div>

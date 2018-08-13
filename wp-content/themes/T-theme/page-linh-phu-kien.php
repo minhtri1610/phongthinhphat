@@ -5,18 +5,18 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "li-active">Linh kiện - Phụ kiện máy tính</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/linh-phu-kien" class = "li-active">Linh kiện - Phụ kiện máy tính</a></li>
             </ul>
         </div>
         <div class="row">
             <div class="col-md-12 sp-left">
                 <div class="linkien_title row" >
-                    <p class = "" >Linh kiện máy tính</p>
+                    <p class = "" >Linh - phụ kiện máy tính</p>
                 </div>
                 <div class="row list-product">
                     <?php
                         $args_lk = array(
-                            'post_type' => 'linh_kien',
+                            'post_type' => 'linhphukien',
                             'post_status' => 'publish',
                             'posts_per_page' => '8'
                         );
@@ -38,14 +38,16 @@
                     ?>
                     <div class="col-md-3 list-pro-pad-r">
                         <div class="lk-item box-product">
-                            <div class="item-img">
-                                <img src="<?php echo $img_1_lk;?>" alt="">
-                                <div class="box-shadow">
-                                    <p><?php echo $name_product_lk;?></p>
-                                    <p>Hãng sản xuất: <?php echo $name_maker;?></p>
-                                    <p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
+                            <a href="<?php echo $link_lk;?>">
+                                <div class="item-img">
+                                    <img src="<?php echo $img_1_lk;?>" alt="">
+                                    <div class="box-shadow">
+                                        <p><?php echo $name_product_lk;?></p>
+                                        <p>Hãng sản xuất: <?php echo $name_maker;?></p>
+                                        <p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                             <div class="item-title">
                                 <a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
                             </div>

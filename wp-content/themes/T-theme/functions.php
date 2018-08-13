@@ -215,7 +215,7 @@ function my_remove_recent_comments_style()
 function html5wp_pagination()
 {
     global $wp_query;
-    $big = 999999999;
+    $big = 1;
     echo paginate_links(array(
         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'format' => '?paged=%#%',
@@ -259,6 +259,7 @@ function html5_blank_view_article($more)
     global $post;
     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
 }
+
 
 // Remove Admin bar
 function remove_admin_bar()
