@@ -124,15 +124,15 @@ input:focus {
 #navbarSupportedContent ul li:hover{
 	/* border-bottom: 3px solid #2196f3; */
     transition: color 0.2s ease-out;
-    background-color: #bfbfbf;
+    background-color: #dddfe2;
 }
 #navbarSupportedContent ul li:hover a{
 	color: #ed3237;
 }
 
 #navbarSupportedContent .navbar-nav .active{
-	background: #f5f5f5;
-	border-bottom: 3px solid #f5f5f5;
+    background: #dddfe2;
+    border-bottom: 3px solid #dddfe2;
 }
 #navbarSupportedContent .navbar-nav .active a{
     color: #ed3237;
@@ -472,8 +472,11 @@ overflow: hidden;
 	font-size: 20px;
     color: #ed3237;
     /* line-height: 2; */
+    text-align: center;
+    width: 32px;
     margin: 0;
     padding: 0px 5px;
+    float: left;
 }
 .h-hotline span, .h-point span, .h-time-work span{
 	font-weight: bold;

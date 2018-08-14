@@ -200,7 +200,7 @@
                             Giá: <?php echo $price_product_mcc;?> VNĐ
                         </div>
                         <div class="item-btn-oder">
-                            <button class = "btn btn-primary btn-oder">
+                            <button class = "btn btn-primary btn-oder" onclick="myFunction()">
                                 <a href="#">Mua</a>
                             </button>
                         </div>
@@ -213,6 +213,8 @@
                 endif;
             ?>
         </div>
+        
     </div>
+   
 </main>
 <?php get_footer(); ?>

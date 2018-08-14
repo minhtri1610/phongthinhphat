@@ -32,7 +32,7 @@
         ?>
         <div class="col-md-3">
             <div class="linkien_title row" >
-                <p class = "">Tin tức liên quan</p>
+                <p class = "">Tin mới nhất</p>
             </div>
             <div class="body-new">
                 <?php

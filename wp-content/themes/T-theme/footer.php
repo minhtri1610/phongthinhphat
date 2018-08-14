@@ -209,5 +209,11 @@
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 
+	 <script>
+		function myFunction() {
+			alert(1);
+		}
+	</script>
+
 	</body>
 </html>

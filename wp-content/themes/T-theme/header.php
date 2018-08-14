@@ -35,9 +35,13 @@
 								<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 							</a>
 						</div>
-						<div class="col-md-2">
-							<div class="row h-hotline"><i class="fas fa-mobile"></i> <span> Hotline</span> </div>
-							<div class="row">0908 784 337</div>
+						<div class="col-md-4">
+							<p><b>Chuyên:</b></p>
+							<ul>
+								<li>Lắp đặt camera quan sát</li>
+								<li>Lắp đặt máy chấm công</li>
+								<li>Bảo trì máy tính - máy in</li>
+							</ul>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
 								<div class="phonering-alo-ph-circle"></div>
@@ -48,17 +52,24 @@
 							</div>
 
 						</div>
-						<div class="col-md-2">
-							<div class="row h-time-work">
-								<i class="far fa-clock"></i> <span> Thời gian làm việc </span>
-							</div>
-							<div class="row">
-								T2-CN: 24/7
-							</div>
-						</div>
 						<div class="col-md-4">
-							<div class="row h-point"> <i class="fas fa-map-marked-alt"></i> <span> Địa chỉ</span> </div>
-							<div class="row">36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM</div>
+							<div class="row h-hotline">
+								<div class="col-md-4">
+									<i class="fas fa-mobile"></i> <span>Hotline: </span> 
+								</div>
+								<div class="col-md-8">
+									<b>0908 784 337</b>
+								</div>
+							</div>
+
+							<div class="row h-point"> 
+								<div class="col-md-4">
+									<i class="fas fa-map-marked-alt"></i> <span>Địa chỉ: </span> 
+								</div>
+								<div class="col-md-8">
+									<b>36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM</b>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -70,34 +81,34 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  container">
-							<li class="nav-item active">
+							<li class="nav-item <?php if(is_home()){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item ">
+							<li class="nav-item <?php if(is_page('camera-quan-sat')|| is_singular('camera')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/camera-quan-sat">
 									camera quan sát
 								</a>
 							</li>
-							<li class="nav-item ">
+							<li class="nav-item <?php if(is_page('may-cham-cong')|| is_singular('maychamcong')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/may-cham-cong">
 									máy chấm công
 								</a>
 							</li>
-							<li class="nav-item ">
+							<li class="nav-item <?php if(is_page('sua-chua-may-tinh-may-in')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">
 									sửa chữa máy tính - máy in
 								</a>
 							</li>
 							
-							<li class="nav-item ">
+							<li class="nav-item <?php if(is_page('linh-phu-kien')|| is_singular('linhphukien')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/linh-phu-kien">
 									Linh - Phụ kiện máy tính
 								</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item <?php if(is_page('tin-tuc') || is_singular('news')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/tin-tuc">Tin tức</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item <?php if(is_page('lien-he')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he">Liên Hệ</a>
 							</li>
 						</ul>

@@ -134,8 +134,6 @@
         <div class="fb-comments" xid="<?php the_ID(); ?>" width="100%" data-numposts="20" data-colorscheme="light" data-version="v2.3"></div>
         <div class="linkien_title sp-lienquan" >
             <p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Sản phẩm liên quan</p>
-
-            
         </div>
 
         <div class="linkien_content  row">
