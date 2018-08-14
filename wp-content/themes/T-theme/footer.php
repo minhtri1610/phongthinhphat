@@ -71,6 +71,9 @@
 			ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 			ga('send', 'pageview');
 		</script>
+
+		<?php if(is_home()):?>
+		<!-- gallery index -->
 		<script>
 			//section machinery
 			jQuery("#gallery_cmpany").unitegallery({
@@ -92,9 +95,11 @@
 			// 	gallery_height: 315,
 			// 	slider_control_zoom: false,
 			// });
-			
-			
 		</script>
+		<!-- end js gallery index -->
+		<?php endif;?>
+
+		<!-- js wowjs and scrolltop -->
 		<script>
 			new WOW().init();
 			$(window).scroll(function() {
@@ -110,7 +115,8 @@
 				}, 500);
 			});
 		</script>
-		
+		<!-- end js scrolltop -->
+
 		<script>(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
@@ -119,73 +125,89 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 
+	<!-- js for detail page  -->
+	<script>
+		// Instantiate EasyZoom instances
+		var $easyzoom = $('.easyzoom').easyZoom();
+
+		// Setup thumbnails example
+		var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+		$('.thumbnails').on('click', 'a', function(e) {
+			var $this = $(this);
+
+			e.preventDefault();
+
+			// Use EasyZoom's `swap` method
+			api1.swap($this.data('standard'), $this.attr('href'));
+		});
+
+		// Setup toggles example
+		var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
+
+		$('.toggle').on('click', function() {
+			var $this = $(this);
+
+			if ($this.data("active") === true) {
+				$this.text("Switch on").data("active", false);
+				api2.teardown();
+			} else {
+				$this.text("Switch off").data("active", true);
+				api2._init();
+			}
+		});
+	</script>
+
+	<!-- end js for detail page -->
+
+	<?php if(is_page('lien-he')):?>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5VTbb2knUqtDETsK93fKdPxS04_GSrs"></script>
 		<script>
-			// Instantiate EasyZoom instances
-			var $easyzoom = $('.easyzoom').easyZoom();
-
-			// Setup thumbnails example
-			var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
-
-			$('.thumbnails').on('click', 'a', function(e) {
-				var $this = $(this);
-
-				e.preventDefault();
-
-				// Use EasyZoom's `swap` method
-				api1.swap($this.data('standard'), $this.attr('href'));
-			});
-
-			// Setup toggles example
-			var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
-
-			$('.toggle').on('click', function() {
-				var $this = $(this);
-
-				if ($this.data("active") === true) {
-					$this.text("Switch on").data("active", false);
-					api2.teardown();
-				} else {
-					$this.text("Switch off").data("active", true);
-					api2._init();
-				}
-			});
+			function initialize(zoom) {
+				//get latitude and get longitude
+				var geocoder = new google.maps.Geocoder();
+				var getAddress = '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam';
+				geocoder.geocode( { 'address': getAddress}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						var latitude = results[0].geometry.location.lat();
+						var longitude = results[0].geometry.location.lng();
+						var myLatLng = {lat: latitude, lng: longitude};
+					// view maps 
+						var mapProp = {
+							center:new google.maps.LatLng(latitude, longitude),
+							zoom:zoom,
+							mapTypeId:google.maps.MapTypeId.ROADMAP
+						};
+						var map=new google.maps.Map(document.getElementById("mapGoogle"),mapProp);
+						var marker = new google.maps.Marker ({
+							position: myLatLng,
+							map: map,
+							title: '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam'
+						});
+						var infowindow = new google.maps.InfoWindow ({
+						content:'<div class="googleMap-title">Công ty Phong Thịnh Phát</div>'
+						});
+						infowindow.open(map,marker);
+						google.maps.event.addListener(marker, 'click', function() {
+						infowindow.open(map,marker);
+						});
+					} 
+				});
+			}
+			google.maps.event.addDomListener(window, 'load', initialize(16));
+			
 		</script>
+	<?php endif;?>
 
-<script>
-        // function initialize(zoom) {
-        //     //get latitude and get longitude
-        //     var geocoder = new google.maps.Geocoder();
-        //     var getAddress = '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam';
-        //     geocoder.geocode( { 'address': getAddress}, function(results, status) {
-        //         if (status == google.maps.GeocoderStatus.OK) {
-        //             var latitude = results[0].geometry.location.lat();
-        //             var longitude = results[0].geometry.location.lng();
-        //             var myLatLng = {lat: latitude, lng: longitude};
-        //         // view maps 
-        //             var mapProp = {
-        //                 center:new google.maps.LatLng(latitude, longitude),
-        //                 zoom:zoom,
-        //                 mapTypeId:google.maps.MapTypeId.ROADMAP
-        //             };
-        //             var map=new google.maps.Map(document.getElementById("mapGoogle"),mapProp);
-        //             var marker = new google.maps.Marker ({
-        //                 position: myLatLng,
-        //                 map: map,
-        //                 title: '36p đường số 12, Phường tân thới nhất, Quận 12, Hồ Chí Minh, Việt Nam'
-        //             });
-        //             var infowindow = new google.maps.InfoWindow ({
-        //             content:'<div class="googleMap-title">Công ty Phong Thịnh Phát</div>'
-        //             });
-        //             infowindow.open(map,marker);
-        //             google.maps.event.addListener(marker, 'click', function() {
-        //             infowindow.open(map,marker);
-        //             });
-        //         } 
-        //     });
-        // }
-        // google.maps.event.addDomListener(window, 'load', initialize(15));
-    
-    </script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=828266150704740&autoLogAppEvents=1';
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 	</body>
 </html>

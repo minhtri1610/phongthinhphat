@@ -20,6 +20,8 @@
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/pygments.css">
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/child-style.css" >
 		<?php wp_head(); ?>
+		<meta property="fb:app_id" content="828266150704740" />
+		<meta property="fb:admins" content="CxXykU9x7Ai"/>
 	</head>
 	<body <?php body_class(); ?>>
 
