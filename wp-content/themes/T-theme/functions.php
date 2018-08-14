@@ -175,6 +175,16 @@ function add_slug_to_body_class($classes)
     return $classes;
 }
 
+function my_login_logo_one() { 
+?> 
+<style type="text/css"> 
+body.login div#login h1 a {
+    background-image: url(<?php echo URL_IMG;?>/logo/logo.png);
+} 
+</style>
+<?php 
+} add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
+
 // If Dynamic Sidebar Exists
 if (function_exists('register_sidebar'))
 {
