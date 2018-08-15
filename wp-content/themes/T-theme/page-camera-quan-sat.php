@@ -40,7 +40,7 @@
                             $tg_bhanh = get_field('time_guarantee');
                             $lens = get_field('lens');
                             $name_marker = get_field('name_maker');
-
+                            $id_post_camera = get_the_ID();
                     ?>
                     <div class="col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
@@ -64,9 +64,7 @@
                                 Giá: <?php echo $price_product. ' VNĐ';?>
                             </div>
                             <div class="item-btn-oder">
-                                <button class = "btn btn-primary btn-oder">
-                                    <a href="#">Mua</a>
-                                </button>
+                                <button class = "btn btn-primary btn-oder" onclick = "show_info( 'camera', '<?php echo $name_product; ?>', '<?php echo $price_product; ?>', '<?php echo $price_promotion; ?>', '<?php echo $img_1; ?>', '<?php echo $id_post_camera; ?>', '<?php echo $link_lk; ?>')">Mua</button>
                             </div>
                         </div>
                     </div>
@@ -132,6 +130,53 @@
             
         </div>
     </div>
+
+    <!-- modal cart -->
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
+			Open modal
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal fade" id="modalOder">
+			<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			
+				<!-- Modal Header -->
+				<div class="modal-header">
+				<h4 class="modal-title">MUA HÀNG</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form action="" method = "POST">
+						<div class="form-group thumnail-product">
+							<img src="" alt="">
+						</div>
+						<div class="form-group">
+							<label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
+							<input type="text" readonly class="form-control" id="name_product">
+						</div>
+						<div class="form-group">
+							<label for="price">Giá: </label>
+							<input type="text" readonly class="form-control" id="price">
+						</div>
+						<div class="form-group">
+							<label for="price">Số lượng: </label>
+							<input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
+						</div>
+						<div class="form-group">
+							<label for="price">Thành tiền: </label>
+							<input type="text" readonly class="form-control" id="total_price">
+						</div>
+						<button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+					</form>
+				</div>
+				
+			</div>
+			</div>
+		</div>
 </main>
 
 <?php get_footer(); ?>

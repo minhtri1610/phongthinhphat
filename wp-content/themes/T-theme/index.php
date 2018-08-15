@@ -459,24 +459,26 @@
 				
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form action="" method = "POST">
-						<div class="form-group thumnail-product">
-							<img src="" alt="">
-						</div>
-						<div class="form-group">
-							<label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
-							<input type="text" class="form-control" id="name_product">
-						</div>
-						<div class="form-group">
-							<label for="price">Giá: </label>
-							<input type="text" class="form-control" id="price">
-						</div>
-						<div class="form-group">
-							<label for="price">Số lượng: </label>
-							<input type="number" class="form-control" id="quality">
-						</div>
-						<button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
-					</form>
+					<div class="form-group thumnail-product">
+						<img src="" alt="">
+					</div>
+					<div class="form-group">
+						<label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
+						<input type="text" readonly class="form-control" id="name_product">
+					</div>
+					<div class="form-group">
+						<label for="price">Giá: </label>
+						<input type="text" readonly class="form-control" id="price">
+					</div>
+					<div class="form-group">
+						<label for="price">Số lượng: </label>
+						<input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
+					</div>
+					<div class="form-group">
+						<label for="price">Thành tiền: </label>
+						<input type="text" readonly class="form-control" id="total_price">
+					</div>
+					<input type="button" data-dismiss="modal" value = "Thêm vào giỏ hàng" class="btn btn-primary btn_add_cart">
 				</div>
 				
 			</div>

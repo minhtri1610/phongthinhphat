@@ -210,11 +210,69 @@
 	</script>
 
 	<script>
-		function show_info(type, name, price, sale_price, link_img, id_post_camera, link_item) {
-			console.log(type);
-			console.log(price);
-			$('.show_modal_order').trigger('click');
+		function resetForm() {
+			$('.thumnail-product img').attr('src','');
+
+			$('#name_product').val('');
+			$('#name_product').attr('disabled','disabled');
+
+			$('#price').val('');
+			$('#price').attr('disabled','disabled');
+
+			$('#quality').val(1);
+			$('.link_item').attr('href', '');
+
+			$('#total_price').val('');
+			$('#total_price').attr('disabled','disabled');
 		}
+
+		function show_info(type, name, price, sale_price, link_img, id_post_camera, link_item) {
+			resetForm();
+			$('.show_modal_order').trigger('click');
+			$('.thumnail-product img').attr('src',link_img);
+			$('#name_product').val(name);
+			$('#price').val(price);
+			$('.link_item').attr('href', link_item);
+			$('#total_price').val(price);
+		}
+
+		function charged() {
+			let tmp_sll = $('#quality').val();
+			let tmp_price = $('#price').val();
+			tmp_price = +tmp_price;
+			let total_price = tmp_price*tmp_sll;
+			$('#total_price').val(total_price);
+		}
+
+		$('.btn_add_cart').click(function () {
+			$.ajax({
+				type : "post", //Phương thức truyền post hoặc get
+				dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
+				url : '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+				data : {
+					action: "saveSessionItem", //Tên action
+					website : 'levantoan.com',//Biến truyền vào xử lý. $_POST['website']
+				},
+				context: this,
+				beforeSend: function(){
+					//Làm gì đó trước khi gửi dữ liệu vào xử lý
+				},
+				success: function(response) {
+					//Làm gì đó khi dữ liệu đã được xử lý
+					if(response.success) {
+						alert(response.data);
+					}
+					else {
+						alert('Đã có lỗi xảy ra');
+					}
+				},
+				error: function( jqXHR, textStatus, errorThrown ){
+					//Làm gì đó khi có lỗi xảy ra
+					console.log( 'The following error occured: ' + textStatus, errorThrown );
+				}
+			})
+			return false;
+		})
 		
 	</script>
 
