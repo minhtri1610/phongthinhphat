@@ -57,7 +57,14 @@
 									$title_news = get_the_title();
 									$description_news = get_the_content();
 							?>
-								<li><a href="<?php echo $link_news;?>"><?php echo $title_news;?></a></li>
+								<li>
+								<?php if ( has_post_thumbnail() ) {?>
+									<?php the_post_thumbnail(); ?>
+								<?php } else{?>
+									<img src="<?php echo URL_IMG."/news.jpg"?>"/>
+								<?php } ?>
+									<a href="<?php echo $link_news;?>"><?php echo $title_news;?></a>
+								</li>
 							<?php
 								endwhile;
 									wp_reset_postdata();

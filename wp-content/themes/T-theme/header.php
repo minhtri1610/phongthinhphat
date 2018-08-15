@@ -37,7 +37,7 @@
 						</div>
 						<div class="col-md-4">
 							<p><b>Chuyên:</b></p>
-							<ul>
+							<ul class ="set_up">
 								<li>Lắp đặt camera quan sát</li>
 								<li>Lắp đặt máy chấm công</li>
 								<li>Bảo trì máy tính - máy in</li>
