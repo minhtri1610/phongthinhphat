@@ -74,38 +74,12 @@
 	</nav>
 	<main role="main" class = "container fix-container">
 		
+		<!-- dịch vụ -->
 		<section class="service mgin-bot-50">
 			<div class="row title-h1 ">
 				<h1><i class="fas fa-cogs"></i> DỊCH VỤ</h1>
 			</div>
 			<div class="row list-ser">
-				<!-- <div class="col-md-4 ">
-					<div class="ser-box">
-						<div class=" ser-title wow fadeIn" data-wow-duration=".3" data-wow-delay=".4s">
-							<i class="fas fa-laptop"></i>
-							<p>Sửa chữa vi tính</p> 
-						</div>
-						<div class=" ser-box-detail">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, perspiciatis quidem! Molestias deleniti, rerum odit illum, sed beatae quisquam numquam nemo assumenda asperiores ullam et exercitationem voluptatibus quo non iure.</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="ser-box">
-						<div class=" ser-title wow fadeIn" data-wow-duration=".3" data-wow-delay=".4s">
-							<i class="fas fa-video"></i> 
-							<p>Lắp đặt và bảo trì Camera</p>
-						</div>
-						<div class=" ser-box-detail">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, error aperiam est, labore ad explicabo optio quae nisi et dolores numquam consequuntur impedit corporis, aliquid iure natus suscipit amet unde.</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="ser-box">
-						<div class=" ser-title wow fadeIn" data-wow-duration=".3" data-wow-delay=".4s">
-							<i class="fas fa-print"></i> 
-							<p>Sửa chữa, lắp đặt máy in</p>
-						</div>
-						<div class=" ser-box-detail">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit officiis quis mollitia repudiandae numquam laboriosam dolorem? Aperiam laborum deserunt ipsum numquam repellat eos error quasi expedita vel, sint eum unde!</div>
-					</div>
-				</div> -->
 				<div class="col-md-3 box-ser wow pulse"  data-wow-duration=".3" data-wow-delay=".1s">
 					<img src="<?php echo URL_IMG;?>/product/lap-dat-camera.jpg" alt="">
 					<p><a href="<?php echo URL_ROOT;?>/camera-quan-sat">Lắp đặt <br> camera quan sát</a></p>
@@ -124,6 +98,7 @@
 				</div>
 			</div>
 		</section>
+		<!-- end dịch vụ -->
 
 		<section class=" slogan mgin-bot-50">
 			<ul class="slogan-box " >
@@ -133,6 +108,7 @@
 				<li class = "wow slideInDown" data-wow-duration=".3" data-wow-delay=".4s"><i class="fas fa-people-carry"></i> Dịch vụ chăm sóc tận nhà</li>
 			</ul>
 		</section>
+		<!-- Camera quan sat -->
 		<section class ="linkien mgin-bot-50">
 			<div class="linkien_title " >
 				<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".5s">Camera Quan sát</p>
@@ -149,12 +125,13 @@
 					if ( $products_loop->have_posts() ) :
 						while ( $products_loop->have_posts() ) : $products_loop->the_post();
 						// Set variables
+						$data_item = [];
 						$link_camera = get_the_permalink();
 						$title = get_the_title();
 						$description = get_the_content();
 						$name_product = get_field('name_product');
 						$price_product = get_field('price_camera');
-						$price_promotion= get_field('price_promotion');
+						$price_promotion = get_field('price_promotion');
 						$img_1 = get_field('list_image');
 						$img_2 = get_field('image_2');
 						$img_3 = get_field('image_3');
@@ -164,7 +141,7 @@
 						$tg_bhanh = get_field('time_guarantee');
 						$lens = get_field('lens');
 						$name_marker = get_field('name_marker');
-
+						$id_post_camera = get_the_ID();
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
@@ -186,8 +163,8 @@
 							Giá: <?php echo $price_product. ' VNĐ';?>
 						</div>
 						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
+							<button onclick = "show_info( 'camera', '<?php echo $name_product; ?>', '<?php echo $price_product; ?>', '<?php echo $price_promotion; ?>', '<?php echo $img_1; ?>', '<?php echo $id_post_camera; ?>', '<?php echo $link_camera; ?>')" class = "btn btn-primary btn-oder">
+								Mua
 							</button>
 						</div>
 					</div>
@@ -200,7 +177,9 @@
 				?>
 			</div>
 		</section>
+		<!-- end camera quan sats -->
 
+		<!-- Máy chấm công -->
 		<section class ="linkien mgin-bot-50">
 			<div class="linkien_title" >
 				<p class = " wow fadeIn" data-wow-duration=".3" data-wow-delay=".5s">Máy chấm công</p>
@@ -269,7 +248,9 @@
 				?>
 			</div>
 		</section>
+		<!-- end máy chấm công  -->
 
+		<!-- Linh phụ kiện -->
 		<section class ="linkien mgin-bot-50">
 			<div class="linkien_title " >
 				<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Linh kiện - Phụ kiện máy tính</p>
@@ -327,7 +308,9 @@
 				?>
 			</div>
 		</section>
-
+		<!-- end linh phụ kiện  -->
+					
+		<!-- comment -->
 		<section class = "custom-comment">
 			<div class="customer-title wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">
 				NHẬN XÉT CỦA KHÁCH HÀNG VỀ PHONG THỊNH PHÁT	
@@ -400,7 +383,9 @@
 
 			</div>
 		</section>
+		<!-- end comment -->
 
+		<!-- dự án image -->
 		<section class ="img-company mgin-bot-50">
 			<div class="linkien_title">
 				<p class = "wow fadeIn"  data-wow-duration=".3" data-wow-delay=".2s">Dự án đã thi công</p>
@@ -453,6 +438,51 @@
 				?>
 			</div>
 		</section>
+		<!-- end du an image -->
+		
+		<!-- modal cart -->
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
+			Open modal
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal fade" id="modalOder">
+			<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			
+				<!-- Modal Header -->
+				<div class="modal-header">
+				<h4 class="modal-title">MUA HÀNG</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form action="" method = "POST">
+						<div class="form-group thumnail-product">
+							<img src="" alt="">
+						</div>
+						<div class="form-group">
+							<label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
+							<input type="text" class="form-control" id="name_product">
+						</div>
+						<div class="form-group">
+							<label for="price">Giá: </label>
+							<input type="text" class="form-control" id="price">
+						</div>
+						<div class="form-group">
+							<label for="price">Số lượng: </label>
+							<input type="number" class="form-control" id="quality">
+						</div>
+						<button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+					</form>
+				</div>
+				
+			</div>
+			</div>
+		</div>
+
 	</main>
 
 <?php //get_sidebar(); ?>

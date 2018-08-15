@@ -209,10 +209,13 @@
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 
-	 <script>
-		function myFunction() {
-			alert(1);
+	<script>
+		function show_info(type, name, price, sale_price, link_img, id_post_camera, link_item) {
+			console.log(type);
+			console.log(price);
+			$('.show_modal_order').trigger('click');
 		}
+		
 	</script>
 
 	</body>
