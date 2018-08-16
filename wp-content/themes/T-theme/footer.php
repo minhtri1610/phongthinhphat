@@ -210,6 +210,7 @@
 	</script>
 
 	<script>
+		
 		function resetForm() {
 			$('.thumnail-product img').attr('src','');
 
@@ -233,7 +234,10 @@
 			$('#name_product').val(name);
 			$('#price').val(price);
 			$('.link_item').attr('href', link_item);
-			$('#total_price').val(price);
+			price = +price;
+			let formart_price  = price.toLocaleString('de-DE')  + " VNĐ";
+			$('#total_price').val(formart_price);
+			$('.id_item').val(id_post_camera);
 		}
 
 		function charged() {
@@ -241,17 +245,31 @@
 			let tmp_price = $('#price').val();
 			tmp_price = +tmp_price;
 			let total_price = tmp_price*tmp_sll;
-			$('#total_price').val(total_price);
+			let formart_price  = total_price.toLocaleString('de-DE') + " VNĐ";
+			$('#total_price').val(formart_price);
 		}
 
 		$('.btn_add_cart').click(function () {
+
+			let link_thumnail_img = $('.thumnail-product img').attr('src');
+			let name_product = $('#name_product').val();
+			let price = $('#price').val();
+			let link_item = $('.link_item').attr('href');
+			let tmp_sll = $('#quality').val();
+			let id_item = $('.id_item').val();
+			
 			$.ajax({
 				type : "post", //Phương thức truyền post hoặc get
 				dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
 				url : '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
 				data : {
 					action: "saveSessionItem", //Tên action
-					website : 'levantoan.com',//Biến truyền vào xử lý. $_POST['website']
+					link_thumnail_img : link_thumnail_img,
+					name_product : name_product,
+					price : price,
+					link_item : link_item,
+					tmp_sll : tmp_sll,
+					id_item : id_item
 				},
 				context: this,
 				beforeSend: function(){
@@ -260,7 +278,7 @@
 				success: function(response) {
 					//Làm gì đó khi dữ liệu đã được xử lý
 					if(response.success) {
-						alert(response.data);
+						console.log(response.data);
 					}
 					else {
 						alert('Đã có lỗi xảy ra');

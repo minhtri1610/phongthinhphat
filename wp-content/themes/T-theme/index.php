@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	print_r($_SESSION['data_cart']) ;
+?>
 <?php get_header(); ?>
 	<nav>
 		<section class = "container fix-padding">
@@ -80,7 +84,6 @@
 		</section>
 	</nav>
 	<main role="main" class = "container fix-container">
-		
 		<!-- dịch vụ -->
 		<section class="service mgin-bot-50">
 			<div class="row title-h1 ">
@@ -485,13 +488,15 @@
 						<label for="price">Thành tiền: </label>
 						<input type="text" readonly class="form-control" id="total_price">
 					</div>
+
+					<input type="hidden" name="id_item" class ="id_item">
 					<input type="button" data-dismiss="modal" value = "Thêm vào giỏ hàng" class="btn btn-primary btn_add_cart">
 				</div>
 				
 			</div>
 			</div>
 		</div>
-
+		
 	</main>
 
 <?php //get_sidebar(); ?>

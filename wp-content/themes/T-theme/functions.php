@@ -385,13 +385,45 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 
 // dev TRI customer
 
-add_action( 'wp_ajax_saveSessionItem', 'thongbao_init' );
-add_action( 'wp_ajax_nopriv_saveSessionItem', 'thongbao_init' );
-function thongbao_init() {
- 
-    //do bên js để dạng json nên giá trị trả về dùng phải encode
-    $website = (isset($_POST['website']))?esc_attr($_POST['website']) : '';
-    wp_send_json_success('Chào mừng bạn đến với '.$website);
+add_action( 'wp_ajax_saveSessionItem', 'order_init' );
+add_action( 'wp_ajax_nopriv_saveSessionItem', 'order_init' );
+add_action('init', 'session_start');
+function order_init() {
+    $link_thumnail_img  = (isset($_POST['link_thumnail_img']))?esc_attr($_POST['link_thumnail_img']) : '';
+    $name_product       = (isset($_POST['name_product']))?esc_attr($_POST['name_product']) : '';
+    $price              = (isset($_POST['price']))?esc_attr($_POST['price']) : '';
+    $link_item          = (isset($_POST['link_item']))?esc_attr($_POST['link_item']) : '';
+    $tmp_sll            = (isset($_POST['tmp_sll']))?esc_attr($_POST['tmp_sll']) : '';
+    $id_item            = (isset($_POST['id_item']))?esc_attr($_POST['id_item']) : '';
+
+    //session_cart
+    $item_order = [];
+    $item_order = ['id_item' => $id_item, 'name_product' => $name_product, 'price' => $price, 'tmp_sll' => $tmp_sll, 'link_thumnail_img' => $link_thumnail_img, 'link_item' => $link_item];
+
+    if(!empty($_SESSION['data_cart'])){
+        $tmp_data   = [];
+        $tmp_data   = $_SESSION['data_cart'];
+        $check_item = 0;
+        $_SESSION['data_cart'] = [];
+        foreach ($tmp_data as $key => $value) {
+            if(($value['id_item'] == $id_item) && ($name_product == $value['name_product'])){
+                $current_sl = $value['tmp_sll'];
+                $new_sl     = $current_sl + $tmp_sll;
+                $tmp_data[$key]['tmp_sll'] =  $new_sl;
+                $_SESSION['data_cart'] = $tmp_data;
+                $check_item = 1;
+                break;
+            }
+        }
+        if($check_item == 0){
+            $tmp_data[] = $item_order;
+            $_SESSION['data_cart'] = $tmp_data;
+        }
+    } else{
+        $_SESSION['data_cart'] = $item_order;
+    }
+    $count = count($_SESSION['data_cart']);
+    wp_send_json_success($count);
  
     die();//bắt buộc phải có khi kết thúc
 }
