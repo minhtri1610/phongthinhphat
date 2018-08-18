@@ -1,7 +1,4 @@
-<?php 
-	session_start();
-	print_r($_SESSION['data_cart']) ;
-?>
+
 <?php get_header(); ?>
 	<nav>
 		<section class = "container fix-padding">
@@ -160,7 +157,7 @@
 							<div class="box-shadow">
 								<p><?php echo $name_product;?></p>
 								<p>Hãng sản xuất: <?php echo $name_marker; ?></p>
-								<p>Độ phân giải: <?php echo $price_product; ?></p>
+								<p>Độ phân giải: <?php echo $do_phan_giai; ?></p>
 								<p>Vị trí: <?php echo $position; ?></p>
 								<p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
 								<p>Ống kính: <?php echo $lens;?></p>
@@ -169,9 +166,15 @@
 						<div class="item-title">
 							<a href="<?php echo $link_camera;?>" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
 						</div>
-						<div class="item-price">
-							Giá: <?php echo $price_product. ' VNĐ';?>
-						</div>
+						<?php if($price_promotion == ''){?>
+							<div class="item-price">
+								<?php echo $price_product. ' VNĐ';?>
+							</div>
+						<?php } else{?>
+								<span class="item-price"> <?php echo $price_promotion. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $price_product. ' VNĐ';?></span> 
+						<?php }?>
+
 						<div class="item-btn-oder">
 							<button onclick = "show_info( 'camera', '<?php echo $name_product; ?>', '<?php echo $price_product; ?>', '<?php echo $price_promotion; ?>', '<?php echo $img_1; ?>', '<?php echo $id_post_camera; ?>', '<?php echo $link_camera; ?>')" class = "btn btn-primary btn-oder">
 								Mua
@@ -220,7 +223,7 @@
 						$ngdien = get_field('electric_suply');
 						$size = get_field('size');
 						$name_maker_mcc = get_field('name_maker');
-
+						$id_post_mcc = get_the_ID();
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
@@ -241,12 +244,17 @@
 						<div class="item-title">
 							<a href="<?php echo $link_mcc;?>" title="<?php echo $name_product_mcc;?>"><?php echo $name_product_mcc;?></a>
 						</div>
-						<div class="item-price">
-							Giá: <?php echo $price_product_mcc;?> VNĐ
-						</div>
+
+						<?php if($price_promotion_mcc == ''){?>
+							<div class="item-price">
+								<?php echo $price_product_mcc. ' VNĐ';?>
+							</div>
+						<?php } else{?>
+								<span class="item-price"> <?php echo $price_promotion_mcc. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $price_product_mcc. ' VNĐ';?></span> 
+						<?php }?>
 						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
+							<button class = "btn btn-primary btn-oder" onclick = "show_info( 'maychamcong', '<?php echo $name_product_mcc; ?>', '<?php echo $price_product_mcc; ?>', '<?php echo $price_promotion_mcc; ?>', '<?php echo $img_1_mcc; ?>', '<?php echo $id_post_mcc; ?>', '<?php echo $link_mcc; ?>')" >Mua
 							</button>
 						</div>
 					</div>
@@ -287,6 +295,7 @@
 						$img_3_lk = get_field('img_3');
 						$time_baohanh = get_field('time_guarantee');
 						$name_maker = get_field('name_product');
+						$id_post_lk = get_the_ID();
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
@@ -301,12 +310,17 @@
 						<div class="item-title">
 							<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
 						</div>
-						<div class="item-price">
-							Giá: <?php echo $price_product_lk;?> VNĐ
-						</div>
+
+						<?php if($price_promotion_lk == ''){?>
+							<div class="item-price">
+								<?php echo $price_product_lk. ' VNĐ';?>
+							</div>
+						<?php } else{?>
+								<span class="item-price"> <?php echo $price_promotion_lk. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $price_product_lk. ' VNĐ';?></span> 
+						<?php }?>
 						<div class="item-btn-oder">
-							<button class = "btn btn-primary btn-oder">
-								<a href="#">Mua</a>
+							<button class = "btn btn-primary btn-oder" onclick = "show_info( 'lk', '<?php echo $name_product_lk; ?>', '<?php echo $price_product_lk; ?>', '<?php echo $price_promotion_lk; ?>', '<?php echo $img_1_lk; ?>', '<?php echo $id_post_lk; ?>', '<?php echo $link_lk; ?>')" > Mua
 							</button>
 						</div>
 					</div>

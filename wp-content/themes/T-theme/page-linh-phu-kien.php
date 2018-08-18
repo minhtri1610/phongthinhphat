@@ -51,12 +51,16 @@
                             <div class="item-title">
                                 <a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
                             </div>
-                            <div class="item-price">
-                                Giá: <?php echo $price_product_lk;?>
-                            </div>
+                            <?php if($price_promotion_lk == ''){?>
+                                <div class="item-price">
+                                    <?php echo $price_product_lk. ' VNĐ';?>
+                                </div>
+                            <?php } else{?>
+                                    <span class="item-price"> <?php echo $price_promotion_lk. ' VNĐ';?> </span>
+                                    <span class = "promotion_price"><?php echo $price_product_lk. ' VNĐ';?></span> 
+                            <?php }?>
                             <div class="item-btn-oder">
-                                <button class = "btn btn-primary btn-oder">
-                                    <a href="#">Mua</a>
+                                <button class = "btn btn-primary btn-oder" onclick = "show_info( 'lk', '<?php echo $name_product_lk; ?>', '<?php echo $price_product_lk; ?>', '<?php echo $price_promotion_lk; ?>', '<?php echo $img_1_lk; ?>', '<?php echo $id_post_lk; ?>', '<?php echo $link_lk; ?>')" > Mua
                                 </button>
                             </div>
                         </div>
@@ -70,6 +74,53 @@
             </div>
         </div>
     </div>
+
+    <!-- modal cart -->
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
+			Open modal
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal fade" id="modalOder">
+			<div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">MUA HÀNG</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group thumnail-product">
+                            <img src="" alt="">
+                        </div>
+                        <div class="form-group">
+                            <label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
+                            <input type="text" readonly class="form-control" id="name_product">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Giá: </label>
+                            <input type="text" readonly class="form-control" id="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Số lượng: </label>
+                            <input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Thành tiền: </label>
+                            <input type="text" readonly class="form-control" id="total_price">
+                        </div>
+
+                        <input type="hidden" name="id_item" class ="id_item">
+                        <input type="button" data-dismiss="modal" value = "Thêm vào giỏ hàng" class="btn btn-primary btn_add_cart">
+                    </div>
+                    
+                </div>
+			</div>
+		</div>
 </main>
 
 <?php get_footer(); ?>

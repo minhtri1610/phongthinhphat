@@ -384,10 +384,147 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 }
 
 // dev TRI customer
+add_action('init', 'myStartSession', 1);
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
+// đặt hàng
+$url_link = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/T-theme/';
+require ( $url_link . 'PHPMailer/src/PHPMailer.php' );
+require ( $url_link . 'PHPMailer/src/Exception.php' );
+require ( $url_link . 'PHPMailer/src/SMTP.php' );
+function prefix_send_email_to_admin() {
+    
+    $name = $_POST['name_custome'];
+    $email = $_POST['email'];
+    $tel    = $_POST['tel'];
+    $add    = $_POST['add'];
+
+    if(isset($_SESSION["data_cart"])){
+        $tmp_cart = $_SESSION["data_cart"];
+        $html = '';
+        $html .= '<tr>';
+            $html .= '<td style = "width: 250px">';
+                $html .= '<b>Tên sản phẩm</b>';
+            $html .= '</td>';
+            $html .= '<td style = "width: 150px">';
+                $html .= '<b>Số lượng</b>';
+            $html .= '</td>';
+            $html .= '<td style = "width: 250px">';
+                $html .= '<b>Giá</b>( /1 sản phẩm)';
+            $html .= '</td>';
+        $html .= '</tr>';
+        foreach ($tmp_cart as $key => $value) {
+            
+            $html .= '<tr>';
+                $html .= '<td>';
+                    $html .= $value[0]['name_product'];
+                $html .= '</td>';
+                $html .= '<td>';
+                    $html .= $value[0]['tmp_sll'];
+                $html .= '</td>';
+                $html .= '<td>';
+                    $html .= formatMoney($value[0]['price']);
+                $html .= '</td>';
+            $html .= '</tr>';
+                    
+        }
+        $html .= '<p><b>SĐT đặt hàng:</b>'.$tel.'</p>';
+        $html .= '<p><b>Địa chỉ nhận hàng:</b>'.$add.'</p>';
+
+        $html .= '<p><b>Công ty Phong Thịnh Phát</b></p>';
+        $html .= '<p><b>Địa chỉ</b>: 36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM</p>';
+        $html .= '<p><b>Số điện thoại</b>: 0908 784 337</p>';
+        
+        
+        $mail = new PHPMailer\PHPMailer\PHPMailer();                              // Passing `true` enables exceptions
+        //Server settings
+        // $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'dgfsolomid@gmail.com';                 // SMTP username
+        $mail->Password = '3872365abc';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
+
+        //Recipients
+        $mail->setFrom('uyphong92pro@gmail.com', 'Công ty Phong Thịnh Phát');
+        $mail->addAddress($email, $name);     // Add a recipient
+        $mail->AddCC('dgfsolomid@gmail.com');
+        //Content
+        $mail->isHTML(true);                               // Set email format to HTML
+        $mail->Subject = 'Xác nhận đơn hàng từ Công ty Phong Thịnh Phát';
+        $mail->CharSet = "UTF-8";
+            $body_mail = '<b>Cám ơn '.$name.'! Bạn đã đặt hàng thành công. Chúng tôi sẽ liên lạc sớm nhất để xác nhận đơn hàng.</b> <br />'.
+                    'Nội dung đơn hàng<br />'
+                    .'----------------------<br>'
+                    .$html;
+        $mail->Body    = $body_mail;
+        $mail->IsHTML(true); 
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        if ( $mail->send() ) {
+            session_destroy();
+            wp_redirect(URL_ROOT."/success");
+        }
+    }
+    
+}
+add_action( 'admin_post_nopriv_contact_form', 'prefix_send_email_to_admin' );
+add_action( 'admin_post_contact_form', 'prefix_send_email_to_admin' );
+
+
+add_action( 'wp_ajax_delItemSessionItem', 'del_order_init' );
+add_action( 'wp_ajax_nopriv_delItemSessionItem', 'del_order_init' );
+function del_order_init() {
+    $id_item            = (isset($_POST['id_del']))?esc_attr($_POST['id_del']) : '';
+
+    if(!empty($_SESSION['data_cart'])){
+        $tmp_data   = $_SESSION['data_cart'];
+        foreach ($tmp_data as $key => $value) {
+            if(($value[0]['id_item'] == $id_item)){
+                unset($tmp_data[$key]);
+                $_SESSION['data_cart'] = $tmp_data;
+                break;
+            }
+        }
+    }
+    wp_send_json_success($tmp_data);
+    die();
+}
+
+add_action( 'wp_ajax_editSessionItem', 'edit_order_init' );
+add_action( 'wp_ajax_nopriv_editSessionItem', 'edit_order_init' );
+function edit_order_init() {
+    $id_item            = (isset($_POST['id_edit']))?esc_attr($_POST['id_edit']) : '';
+    $num                = (isset($_POST['num_sll']))?esc_attr($_POST['num_sll']) : '';
+
+    if(!empty($_SESSION['data_cart'])){
+        $tmp_data   = $_SESSION['data_cart'];
+        foreach ($tmp_data as $key => $value) {
+            if(($value[0]['id_item'] == $id_item)){
+                $tmp_data[$key][0]['tmp_sll'] =  $num;
+                $_SESSION['data_cart'] = $tmp_data;
+                break;
+            }
+        }
+    }
+    wp_send_json_success($num);
+    die();
+}
 
 add_action( 'wp_ajax_saveSessionItem', 'order_init' );
 add_action( 'wp_ajax_nopriv_saveSessionItem', 'order_init' );
-add_action('init', 'session_start');
+
 function order_init() {
     $link_thumnail_img  = (isset($_POST['link_thumnail_img']))?esc_attr($_POST['link_thumnail_img']) : '';
     $name_product       = (isset($_POST['name_product']))?esc_attr($_POST['name_product']) : '';
@@ -398,7 +535,7 @@ function order_init() {
 
     //session_cart
     $item_order = [];
-    $item_order = ['id_item' => $id_item, 'name_product' => $name_product, 'price' => $price, 'tmp_sll' => $tmp_sll, 'link_thumnail_img' => $link_thumnail_img, 'link_item' => $link_item];
+    $item_order[] = ['id_item' => $id_item, 'name_product' => $name_product, 'price' => $price, 'tmp_sll' => $tmp_sll, 'link_thumnail_img' => $link_thumnail_img, 'link_item' => $link_item];
 
     if(!empty($_SESSION['data_cart'])){
         $tmp_data   = [];
@@ -406,10 +543,10 @@ function order_init() {
         $check_item = 0;
         $_SESSION['data_cart'] = [];
         foreach ($tmp_data as $key => $value) {
-            if(($value['id_item'] == $id_item) && ($name_product == $value['name_product'])){
-                $current_sl = $value['tmp_sll'];
+            if(($value[0]['id_item'] == $id_item) && ($name_product == $value[0]['name_product'])){
+                $current_sl = $value[0]['tmp_sll'];
                 $new_sl     = $current_sl + $tmp_sll;
-                $tmp_data[$key]['tmp_sll'] =  $new_sl;
+                $tmp_data[$key][0]['tmp_sll'] =  $new_sl;
                 $_SESSION['data_cart'] = $tmp_data;
                 $check_item = 1;
                 break;
@@ -420,8 +557,10 @@ function order_init() {
             $_SESSION['data_cart'] = $tmp_data;
         }
     } else{
-        $_SESSION['data_cart'] = $item_order;
+        $tmp_data[] = $item_order;
+        $_SESSION['data_cart'] = $tmp_data;
     }
+    $count = 0;
     $count = count($_SESSION['data_cart']);
     wp_send_json_success($count);
  
@@ -438,6 +577,20 @@ body.login div#login h1 a {
 <?php 
 } add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
 
-
+add_action('init', 'formatMoney');
+function formatMoney($number, $fractional=false) { 
+    if ($fractional) { 
+        $number = sprintf('%.2f', $number); 
+    } 
+    while (true) { 
+        $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1.$2', $number); 
+        if ($replaced != $number) { 
+            $number = $replaced; 
+        } else { 
+            break; 
+        } 
+    } 
+    return $number; 
+} 
 
 ?>

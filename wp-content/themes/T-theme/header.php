@@ -35,12 +35,12 @@
 								<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 							</a>
 						</div>
-						<div class="col-md-4">
-							<p><b>Chuyên:</b></p>
+						<div class="col-md-4 list-task">
+							<p><b>Công Ty Phong Thịnh Phát</b></p>
 							<ul class ="set_up">
-								<li>Lắp đặt camera quan sát</li>
-								<li>Lắp đặt máy chấm công</li>
-								<li>Bảo trì máy tính - máy in</li>
+								<li><i class="fas fa-chevron-circle-right"></i> Camera quan sát - Báo động - Báo cháy</li>
+								<li><i class="fas fa-chevron-circle-right"></i> Mấy chấm công - cửa từ - bộ đàm</li>
+								<li><i class="fas fa-chevron-circle-right"></i> Máy tính - máy in - TB văn phòng</li>
 							</ul>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
@@ -52,6 +52,7 @@
 							</div>
 
 						</div>
+
 						<div class="col-md-4">
 							<div class="row h-hotline">
 								<div class="col-md-4">
@@ -68,6 +69,18 @@
 								</div>
 								<div class="col-md-8">
 									<b>36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM</b>
+								</div>
+							</div>
+							<div class="row h-point"> 
+								<div class="col-md-12">
+								<?php 
+									$cnt_cart = 0;
+									if(!empty($_SESSION['data_cart'])){
+										$cnt_cart = count($_SESSION['data_cart']);
+									}
+									
+								?>
+								<a href="<?php echo URL_ROOT;?>/gio-hang"><i class="fas fa-cart-arrow-down"></i> <b>Giỏ hàng:</b> &nbsp;&nbsp;&nbsp;&nbsp;<span class="num_cart"><?php echo $cnt_cart;?></span> sản phẩm </a>
 								</div>
 							</div>
 						</div>

@@ -7,7 +7,7 @@
 							<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 						</div>
 						<div class="row name-company">
-							Công ty <span style ="color: #0b6b44">&nbsp;Phong </span><span style = "color: #ed3237">&nbsp; Thịnh </span> <span style ="color: #0b6b44">&nbsp; Phát </span> 
+							Công ty <span style ="color: #1fb97b">&nbsp;Phong </span><span style = "color: #1fb97b">&nbsp; Thịnh </span> <span style ="color: #1fb97b">&nbsp; Phát </span> 
 						</div>
 						<div class="row">
 							Sự hài lòng của khách hàng là trách nhiệm của chúng tôi.
@@ -160,7 +160,7 @@
 
 	<!-- end js for detail page -->
 
-	<?php if(is_page('lien-he')):?>
+	<?php if(is_page('lien-he') || is_page('sua-chua-may-tinh-may-in')):?>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5VTbb2knUqtDETsK93fKdPxS04_GSrs"></script>
 		<script>
 			function initialize(zoom) {
@@ -229,13 +229,20 @@
 
 		function show_info(type, name, price, sale_price, link_img, id_post_camera, link_item) {
 			resetForm();
+			
+			let tmp_price;
 			$('.show_modal_order').trigger('click');
 			$('.thumnail-product img').attr('src',link_img);
 			$('#name_product').val(name);
-			$('#price').val(price);
+			if(sale_price != ''){
+				$('#price').val(sale_price);
+				tmp_price = +sale_price;
+			} else{
+				$('#price').val(price);
+				tmp_price = +price;
+			}
 			$('.link_item').attr('href', link_item);
-			price = +price;
-			let formart_price  = price.toLocaleString('de-DE')  + " VNĐ";
+			let formart_price  = tmp_price.toLocaleString('de-DE')  + " VNĐ";
 			$('#total_price').val(formart_price);
 			$('.id_item').val(id_post_camera);
 		}
@@ -278,7 +285,10 @@
 				success: function(response) {
 					//Làm gì đó khi dữ liệu đã được xử lý
 					if(response.success) {
-						console.log(response.data);
+						$('#modalOder').modal('hide');
+						$('.num_cart').html(response.data);
+						
+						// console.log(response.data);
 					}
 					else {
 						alert('Đã có lỗi xảy ra');
@@ -291,6 +301,97 @@
 			})
 			return false;
 		})
+
+		function changed_sll(id_changed) {
+			let id_sll = '#' + id_changed + " .num-sll input";
+			let num_sll = $(id_sll).val();
+			if(num_sll >= 1){
+				$(id_sll).attr('disabled','disabled');
+				$.ajax({
+					type : "post", //Phương thức truyền post hoặc get
+					dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
+					url : '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+					data : {
+						action: "editSessionItem", //Tên action
+						id_edit : id_changed,
+						num_sll : num_sll
+					},
+					context: this,
+					beforeSend: function(){
+						//Làm gì đó trước khi gửi dữ liệu vào xử lý
+					},
+					success: function(response) {
+						$(id_sll).removeAttr('disabled');
+						//Làm gì đó khi dữ liệu đã được xử lý
+						if(response.success) {
+							$(this).removeAttr('disabled');
+							let tmp_total = 0;
+							$( ".item-gh" ).each(function( index ) {
+								let tmp_price = $( this ).find( ".price_hidden" ).val();
+								let tmp_num = $( this ).find( ".sl_item" ).val();
+								tmp_price =  +tmp_price;
+								tmp_num = +tmp_num;
+								let tmp_tinh = tmp_price*tmp_num;
+								tmp_total +=  tmp_tinh;
+							});
+							$('.total_price_hidden').val(tmp_total);
+							tmp_total = +tmp_total;
+							let formart_price  = tmp_total.toLocaleString('de-DE') + "VNĐ";
+							$('.total_price').html(formart_price);
+							
+						}
+						else {
+							$(this).removeAttr('disabled');
+							alert('Đã có lỗi xảy ra');
+						}
+					},
+					error: function( jqXHR, textStatus, errorThrown ){
+						//Làm gì đó khi có lỗi xảy ra
+						console.log( 'The following error occured: ' + textStatus, errorThrown );
+					}
+				})
+			} else {
+				$(id_sll).val(1);
+			}
+			
+			return false;
+		}
+
+		function del_item(id) {
+			console.log(id);
+			if (confirm("Bạn có muốn xóa sản phẩm này không?")) {
+				$.ajax({
+					type : "post", //Phương thức truyền post hoặc get
+					dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
+					url : '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+					data : {
+						action: "delItemSessionItem", //Tên action
+						id_del : id,
+					},
+					context: this,
+					beforeSend: function(){
+						//Làm gì đó trước khi gửi dữ liệu vào xử lý
+					},
+					success: function(response) {
+						//Làm gì đó khi dữ liệu đã được xử lý
+						if(response.success) {
+							//reload
+							location.reload();
+						}
+						else {
+							$(this).removeAttr('disabled');
+							alert('Đã có lỗi xảy ra');
+						}
+					},
+					error: function( jqXHR, textStatus, errorThrown ){
+						//Làm gì đó khi có lỗi xảy ra
+						console.log( 'The following error occured: ' + textStatus, errorThrown );
+					}
+				})
+			}
+			
+			return false;
+		}
 		
 	</script>
 
