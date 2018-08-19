@@ -16,11 +16,11 @@
                 Phong Thịnh Phát hoạt động với phương châm lấy uy tín, chất lượng là hàng đầu, chúng tôi với nhiệt huyết của mình luôn mong muốn và lỗ lực hết sức mình để cung cấp dịch vụ sửa máy vi tính uy tín.
             </p>
         </div>
-        <div class="row">
+        <div class="row repair-img">
             <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com1.jpg" alt=""></div>
             <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com2.jpg" alt=""></div>
-            <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com1.jpg" alt=""></div>
-            <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com2.jpg" alt=""></div>
+            <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com3.jpg" alt=""></div>
+            <div class="col-md-3"><img src="<?php echo URL_IMG;?>/product/repair-com4.png" alt=""></div>
         </div>
         <div class="row">
             <p>
@@ -124,7 +124,7 @@
             <li>Máy in được 1 tờ rồi ngưng không in, tắt máy lại in tiếp 1 tờ rồi ngưng.</li>
         </ul>
         
-        <div class="row">
+        <div class="row marginbot25">
             <div class="col-md-6 contact-form">
                 <div class="title-contact">
                     Liên lạc với chúng tôi:
@@ -135,7 +135,7 @@
             <!-- <div class="col-md-6 img-top">
                 <img src="<?php echo URL_IMG?>/icons/bro.png" alt="">
             </div> -->
-            <div class="col-md-6 margin0">
+            <div class="col-md-6 margin10">
                 <div class="cpn-name">
                     <h4>Công ty <span class = "text-cpn"> Phong Thịnh Phát <span></h4>
                 </div>

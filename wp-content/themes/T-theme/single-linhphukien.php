@@ -9,6 +9,8 @@
             $name_product = get_field('name_linh_kien');
             $price_product = get_field('price');
             $price_promotion= get_field('price_promotion');
+            $view_price = formatMoney($price_product);
+            $view_price_pro = formatMoney($price_promotion);
             $img_1 = get_field('img_1');
             $img_2 = get_field('img_2');
             $img_3 = get_field('img_3');
@@ -57,17 +59,18 @@
                     <h3><?php echo $name_product;?></h3>
                     <p>Hãng sản xuất: <span class = "green-color"><?php echo $name_marker;?></span></p>
                     <?php if($price_promotion != ""){?>
-                        <p>Giá: <span class ="un_price"><?php echo $price_product;?> VNĐ </span></p>
+                        <p>Giá: <span class ="un_price"><?php echo $view_price;?> VNĐ </span></p>
                         
-                        <p>Giá khuyến mãi: <span class="price"><?php echo $price_promotion;?> VNĐ</span></p>
+                        <p>Giá khuyến mãi: <span class="price"><?php echo $view_price_pro;?> VNĐ</span></p>
                     <?php } else {?>
-                        <p>Giá: <span class ="price"><?php echo $price_product;?> VNĐ</span></p>
+                        <p>Giá: <span class ="price"><?php echo $view_price;?> VNĐ</span></p>
 
                     <?php }?>
                     <p>Bảo hành: <span class = "green-color"><?php echo $tg_bhanh;?> tháng</span></p>
                 </div>
                 <div class="box-order">
-                    <button class="btn btn-primary">Mua Ngay</button>
+                <button class = "btn btn-primary btn-oder" onclick = "show_info( 'lk', '<?php echo $name_product; ?>', '<?php echo $price_product; ?>', '<?php echo $price_promotion; ?>', '<?php echo $img_1; ?>', '<?php echo $id_post; ?>', '<?php echo $tmp_link; ?>')" > Mua
+                        </button>
                 </div>
             </div>
         </div>
@@ -136,6 +139,8 @@
                     $name_product_lk = get_field('name_linh_kien');
                     $price_product_lk = get_field('price');
                     $price_promotion_lk = get_field('price_promotion');
+                    $view_price = formatMoney($price_product_lk);
+                    $view_price_pro = formatMoney($price_promotion_lk);
                     $img_1_lk = get_field('img_1');
                     $img_2_lk = get_field('img_2');
                     $img_3_lk = get_field('img_3');
@@ -157,12 +162,16 @@
                     <div class="item-title">
                         <a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
                     </div>
-                    <div class="item-price">
-                        Giá: <?php echo $price_product_lk;?> VNĐ
-                    </div>
+                    <?php if($price_promotion == ''){?>
+                        <div class="item-price">
+                            <?php echo $view_price. ' VNĐ';?>
+                        </div>
+                    <?php } else{?>
+                            <span class="item-price"> <?php echo $view_price_pro. ' VNĐ';?> </span>
+                            <span class = "promotion_price"><?php echo $view_price. ' VNĐ';?></span> 
+                    <?php }?>
                     <div class="item-btn-oder">
-                        <button class = "btn btn-primary btn-oder">
-                            <a href="#">Mua</a>
+                        <button class = "btn btn-primary btn-oder" onclick = "show_info( 'lk', '<?php echo $name_product_lk; ?>', '<?php echo $price_product_lk; ?>', '<?php echo $price_promotion; ?>', '<?php echo $img_1_lk; ?>', '<?php echo $id_post_item; ?>', '<?php echo $link_lk; ?>')" > Mua
                         </button>
                     </div>
                 </div>
@@ -173,6 +182,62 @@
                     wp_reset_postdata();
                 endif;
             ?>
+        </div>
+    </div>
+
+    <!-- modal cart -->
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
+        Open modal
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="modalOder">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Thêm vào giỏ hàng</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 box-left-cart">
+                        <div class="form-group thumnail-product">
+                            <img src="" alt="">
+                        </div>
+                        <input type="hidden" name="id_item" class ="id_item">
+                        <input type="button" data-dismiss="modal" value = "Chọn Mua" class="btn btn-primary btn_add_cart">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="name_product"><a class="link_item" href = ""><b>Tên sản phẩm</b></a></label>
+                            <input type="text" readonly class="form-control" id="name_product">
+                        </div>
+                        <div class="form-group">
+                            <label for="price"><b>Giá</b></label>
+                            <input type="text" readonly class="form-control" id="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="price"><b>Số lượng</b></label>
+                            <input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
+                        </div>
+                        <div class="form-group">
+                            <label for="price"><b>Thành tiền</b></label>
+                            <input type="text" readonly class="form-control" id="total_price">
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+                
+            </div>
+            
+        </div>
         </div>
     </div>
 </main>

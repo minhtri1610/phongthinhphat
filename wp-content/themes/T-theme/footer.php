@@ -23,14 +23,16 @@
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="row f-contact">
-							Fanpage FaceBook
-						</div>
-						<div class="row">
-							<div id="fb-root">
-								<div class="fb-page" data-href="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/" data-small-header="false" data-adapt-container-width="false" data-width="340px" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/">Phong Thịnh Phát</a></blockquote></div>
+						<?php if(is_home()):?>
+							<div class="row f-contact">
+								Fanpage FaceBook
 							</div>
-						</div>
+							<div class="row">
+								<div id="fb-root">
+									<div class="fb-page" data-href="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/" data-small-header="false" data-adapt-container-width="false" data-width="340px" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Phong-Th&#x1ecb;nh-Ph&#xe1;t-200546387283823/">Phong Thịnh Phát</a></blockquote></div>
+								</div>
+							</div>
+						<?php endif;?>
 					</div>
 				</div>
 			</div>
@@ -62,7 +64,7 @@
 		
 		<script src="<?php echo URL_JS;?>/wow.min.js"></script>
 		<script src="<?php echo URL_JS;?>/easyzoom.js"></script>
-		
+<!-- 		
 		<script>
 			(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
 			(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
@@ -70,7 +72,7 @@
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 			ga('send', 'pageview');
-		</script>
+		</script> -->
 
 		<?php if(is_home()):?>
 		<!-- gallery index -->

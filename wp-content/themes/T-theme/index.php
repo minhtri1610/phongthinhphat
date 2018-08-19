@@ -7,24 +7,44 @@
 					<div id="gallery_banner" class="carousel slide" data-ride="carousel">
 
 						<!-- Indicators -->
-						<ul class="carousel-indicators">
-							<li data-target="#gallery_banner" data-slide-to="0" class="active"></li>
-							<li data-target="#gallery_banner" data-slide-to="1"></li>
-							<li data-target="#gallery_banner" data-slide-to="2"></li>
-						</ul>
+						<?php 
+							$args_banner = array(
+								'post_type' => 'list_banner',
+								'post_status' => 'publish',
+								'posts_per_page' => '10'
+							);
+							$list_banner = new WP_Query( $args_banner );
 
+						?>
 						<!-- The slideshow -->
 						<div class="carousel-inner">
-							<div class="carousel-item active ">
-								<img src="<?php echo URL_IMG?>/banner/3.png" alt="">
+						<?php
+							$tmp = 0;
+							if ( $list_banner->have_posts() ) :
+								while ( $list_banner->have_posts() ) : $list_banner->the_post();
+								
+								$tmp_img_link = get_field('img');
+								$link_img = $tmp_img_link['url'];
+								$stt = get_field('stt');
+								if($stt == "Hiện"){
+								$tmp++;
+						?>
+							<div class="carousel-item <?php if($tmp == 1){ echo 'active';}?>">
+								<img src="<?php echo $link_img;?>" alt="Phong Thịnh Phát">
 							</div>
-							<div class="carousel-item ">
-								<img src="<?php echo URL_IMG?>/banner/1.jpg" alt="">
-							</div>
-							<div class="carousel-item ">
-								<img src="<?php echo URL_IMG?>/banner/2.jpg" alt="">
-							</div>
+						<?php
+								}
+								endwhile;
+								wp_reset_postdata();
+							endif;
+						?>
 						</div>
+
+						<ul class="carousel-indicators">
+							<?php for ($i=0; $i < $tmp; $i++) {?>
+								<li data-target="#gallery_banner" data-slide-to="<?php echo $i;?>" class="<?php if($i == 0){ echo 'active';}?>"></li>
+							<?php }?>
+						</ul>
 
 						<!-- Left and right controls -->
 						<a class="carousel-control-prev" href="#gallery_banner" data-slide="prev">
@@ -139,6 +159,8 @@
 						$name_product = get_field('name_product');
 						$price_product = get_field('price_camera');
 						$price_promotion = get_field('price_promotion');
+						$view_price = formatMoney($price_product);
+						$view_price_pro = formatMoney($price_promotion);
 						$img_1 = get_field('list_image');
 						$img_2 = get_field('image_2');
 						$img_3 = get_field('image_3');
@@ -152,27 +174,29 @@
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">
-							<div class="box-shadow">
-								<p><?php echo $name_product;?></p>
-								<p>Hãng sản xuất: <?php echo $name_marker; ?></p>
-								<p>Độ phân giải: <?php echo $do_phan_giai; ?></p>
-								<p>Vị trí: <?php echo $position; ?></p>
-								<p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
-								<p>Ống kính: <?php echo $lens;?></p>
+						<a href="<?php echo $link_camera;?>" title="<?php echo $name_product;?>">
+							<div class="item-img">
+								<img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">
+								<div class="box-shadow">
+									<p><?php echo $name_product;?></p>
+									<p>Hãng sản xuất: <?php echo $name_marker; ?></p>
+									<p>Độ phân giải: <?php echo $do_phan_giai; ?></p>
+									<p>Vị trí: <?php echo $position; ?></p>
+									<p>Tầm nhìn tối đa: <?php echo $long_vision;?> </p>
+									<p>Ống kính: <?php echo $lens;?></p>
+								</div>
 							</div>
-						</div>
+						</a>
 						<div class="item-title">
 							<a href="<?php echo $link_camera;?>" title="<?php echo $name_product;?>"> <?php echo $name_product;?></a>
 						</div>
 						<?php if($price_promotion == ''){?>
 							<div class="item-price">
-								<?php echo $price_product. ' VNĐ';?>
+								<?php echo $view_price. ' VNĐ';?>
 							</div>
 						<?php } else{?>
-								<span class="item-price"> <?php echo $price_promotion. ' VNĐ';?> </span>
-								<span class = "promotion_price"><?php echo $price_product. ' VNĐ';?></span> 
+								<span class="item-price"> <?php echo $view_price_pro. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $view_price. ' VNĐ';?></span> 
 						<?php }?>
 
 						<div class="item-btn-oder">
@@ -214,6 +238,8 @@
 						$name_product_mcc = get_field('name_product');
 						$price_product_mcc = get_field('price');
 						$price_promotion_mcc = get_field('price_promotion');
+						$view_price_mcc = formatMoney($price_product_mcc);
+						$view_price_pro_mcc = formatMoney($price_promotion_mcc);
 						$img_1_mcc = get_field('img_1');
 						$img_2_mcc = get_field('img_2');
 						$img_3_mcc = get_field('img_3');
@@ -247,11 +273,11 @@
 
 						<?php if($price_promotion_mcc == ''){?>
 							<div class="item-price">
-								<?php echo $price_product_mcc. ' VNĐ';?>
+								<?php echo $view_price_mcc. ' VNĐ';?>
 							</div>
 						<?php } else{?>
-								<span class="item-price"> <?php echo $price_promotion_mcc. ' VNĐ';?> </span>
-								<span class = "promotion_price"><?php echo $price_product_mcc. ' VNĐ';?></span> 
+								<span class="item-price"> <?php echo $view_price_pro_mcc. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $view_price_mcc. ' VNĐ';?></span> 
 						<?php }?>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder" onclick = "show_info( 'maychamcong', '<?php echo $name_product_mcc; ?>', '<?php echo $price_product_mcc; ?>', '<?php echo $price_promotion_mcc; ?>', '<?php echo $img_1_mcc; ?>', '<?php echo $id_post_mcc; ?>', '<?php echo $link_mcc; ?>')" >Mua
@@ -290,6 +316,8 @@
 						$name_product_lk = get_field('name_linh_kien');
 						$price_product_lk = get_field('price');
 						$price_promotion_lk = get_field('price_promotion');
+						$view_pri_lk = formatMoney($price_product_lk);
+						$view_pri_lk_pro = formatMoney($price_promotion_lk);
 						$img_1_lk = get_field('img_1');
 						$img_2_lk = get_field('img_2');
 						$img_3_lk = get_field('img_3');
@@ -299,25 +327,27 @@
 				?>
 				<div class="col-md-3">
 					<div class="lk-item">
-						<div class="item-img">
-							<img src="<?php echo $img_1_lk;?>" alt="">
-							<div class="box-shadow">
-								<p><?php echo $name_product_lk;?></p>
-								<p>Hãng sản xuất: <?php echo $name_maker;?></p>
-								<p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
+						<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>">
+							<div class="item-img">
+								<img src="<?php echo $img_1_lk;?>" alt="">
+								<div class="box-shadow">
+									<p><?php echo $name_product_lk;?></p>
+									<p>Hãng sản xuất: <?php echo $name_maker;?></p>
+									<p>Thời gian bảo hành: <?php echo $time_baohanh;?></p>
+								</div>
 							</div>
-						</div>
+						</a>
 						<div class="item-title">
 							<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>"><?php echo $name_product_lk;?></a>
 						</div>
 
 						<?php if($price_promotion_lk == ''){?>
 							<div class="item-price">
-								<?php echo $price_product_lk. ' VNĐ';?>
+								<?php echo $view_pri_lk. ' VNĐ';?>
 							</div>
 						<?php } else{?>
-								<span class="item-price"> <?php echo $price_promotion_lk. ' VNĐ';?> </span>
-								<span class = "promotion_price"><?php echo $price_product_lk. ' VNĐ';?></span> 
+								<span class="item-price"> <?php echo $view_pri_lk_pro. ' VNĐ';?> </span>
+								<span class = "promotion_price"><?php echo $view_pri_lk. ' VNĐ';?></span> 
 						<?php }?>
 						<div class="item-btn-oder">
 							<button class = "btn btn-primary btn-oder" onclick = "show_info( 'lk', '<?php echo $name_product_lk; ?>', '<?php echo $price_product_lk; ?>', '<?php echo $price_promotion_lk; ?>', '<?php echo $img_1_lk; ?>', '<?php echo $id_post_lk; ?>', '<?php echo $link_lk; ?>')" > Mua
@@ -340,63 +370,54 @@
 				NHẬN XÉT CỦA KHÁCH HÀNG VỀ PHONG THỊNH PHÁT	
 			</div>
 			<div id="gallery_comment" class="carousel slide" data-ride="carousel">
-
-				<!-- Indicators -->
-				<ul class="carousel-indicators">
-					<li data-target="#gallery_comment" data-slide-to="0" class="active"></li>
-					<li data-target="#gallery_comment" data-slide-to="1"></li>
-					<li data-target="#gallery_comment" data-slide-to="2"></li>
-				</ul>
-
 				<!-- The slideshow -->
 				<div class="carousel-inner">
-					<div class="carousel-item active content-comment">
+					<?php
+						$cnt = 0;
+						$args = array(
+							'post_type' => 'list_feedback',
+							'post_status' => 'publish',
+							'posts_per_page' => '8'
+						);
+						$list_feedback = new WP_Query( $args );
+						if ( $list_feedback->have_posts() ) :
+							while ( $list_feedback->have_posts() ) : $list_feedback->the_post();
+							// Set variables
+							$name_cuss = get_field('name_cus');
+							$avt = get_field('avt');
+							$job = get_field('job');
+							$comment_text = get_field('content_feed');
+							$url_avt = $avt['url'];
+							$cnt++;
+					?>
+				
+					<div class="carousel-item <?php if($cnt == 1){ echo "active";}?> content-comment">
 						<div class="text-comment">
-							<span>"</span>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque est minus illum quae expedita! Alias corrupti doloribus adipisci dignissimos, illo eius vitae. Magnam incidunt, ratione est tempora eveniet fuga reprehenderit?</p>
+							<?php echo $comment_text;?>
 						</div>
 						<div class="img-comment">
 							<div class="avatar-comment">
-								<img src="<?php echo URL_IMG;?>/product/pk.jpg" alt="">
+								<img src="<?php echo $url_avt;?>" alt="">
 							</div>
 							<div class="name-comment">
-								<p>TRAN MINH TRI</p>
-								<p>DEV</p>
+								<p><?php echo $name_cuss;?></p>
+								<p><?php echo $job;?></p>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item content-comment">
-						<div class="text-comment">
-							<span>"</span>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque est minus illum quae expedita! Alias corrupti doloribus adipisci dignissimos, illo eius vitae. Magnam incidunt, ratione est tempora eveniet fuga reprehenderit?</p>
-						</div>
-						<div class="img-comment">
-							<div class="avatar-comment">
-								<img src="<?php echo URL_IMG;?>/product/pk.jpg" alt="">
-							</div>
-							<div class="name-comment">
-								<p>TRAN MINH TRI</p>
-								<p>DEV</p>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item content-comment">
-						<div class="text-comment">
-							<span>"</span>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque est minus illum quae expedita! Alias corrupti doloribus adipisci dignissimos, illo eius vitae. Magnam incidunt, ratione est tempora eveniet fuga reprehenderit?</p>
-						</div>
-						<div class="img-comment">
-							<div class="avatar-comment">
-								<img src="<?php echo URL_IMG;?>/product/pk.jpg" alt="">
-							</div>
-							<div class="name-comment">
-								<p>TRAN MINH TRI</p>
-								<p>DEV</p>
-							</div>
-						</div>
-					</div>
-				</div>
 
+					<?php
+						endwhile;
+							wp_reset_postdata();
+						endif;
+					?>
+					
+				</div>
+				<ul class="carousel-indicators">
+					<?php for ($j=0; $j < $cnt; $j++) {?>
+						<li data-target="#gallery_comment" data-slide-to="<?php echo $j;?>" class="<?php if($i == 0){ echo 'active';}?>"></li>
+					<?php }?>
+				</ul>
 				<!-- Left and right controls -->
 				<a class="carousel-control-prev" href="#gallery_comment" data-slide="prev">
 					<span class="carousel-control-prev-icon"></span>
@@ -477,34 +498,43 @@
 			
 				<!-- Modal Header -->
 				<div class="modal-header">
-				<h4 class="modal-title">MUA HÀNG</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Thêm vào giỏ hàng</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				
 				<!-- Modal body -->
 				<div class="modal-body">
-					<div class="form-group thumnail-product">
-						<img src="" alt="">
+					<div class="row">
+						<div class="col-md-4 box-left-cart">
+							<div class="form-group thumnail-product">
+								<img src="" alt="">
+							</div>
+							<input type="hidden" name="id_item" class ="id_item">
+							<input type="button" data-dismiss="modal" value = "Chọn Mua" class="btn btn-primary btn_add_cart">
+						</div>
+						<div class="col-md-8">
+							<div class="form-group">
+								<label for="name_product"><a class="link_item" href = ""><b>Tên sản phẩm</b></a></label>
+								<input type="text" readonly class="form-control" id="name_product">
+							</div>
+							<div class="form-group">
+								<label for="price"><b>Giá</b></label>
+								<input type="text" readonly class="form-control" id="price">
+							</div>
+							<div class="form-group">
+								<label for="price"><b>Số lượng</b></label>
+								<input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
+							</div>
+							<div class="form-group">
+								<label for="price"><b>Thành tiền</b></label>
+								<input type="text" readonly class="form-control" id="total_price">
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
-						<input type="text" readonly class="form-control" id="name_product">
-					</div>
-					<div class="form-group">
-						<label for="price">Giá: </label>
-						<input type="text" readonly class="form-control" id="price">
-					</div>
-					<div class="form-group">
-						<label for="price">Số lượng: </label>
-						<input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
-					</div>
-					<div class="form-group">
-						<label for="price">Thành tiền: </label>
-						<input type="text" readonly class="form-control" id="total_price">
-					</div>
+					
+					
 
-					<input type="hidden" name="id_item" class ="id_item">
-					<input type="button" data-dismiss="modal" value = "Thêm vào giỏ hàng" class="btn btn-primary btn_add_cart">
+					
 				</div>
 				
 			</div>

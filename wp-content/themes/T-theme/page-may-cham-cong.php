@@ -9,7 +9,7 @@
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-9 sp-left">
+            <div class="col-md-12 sp-left">
                 <div class="linkien_title row" >
                     <p class = "" >Máy chấm công</p>
                 </div>
@@ -31,6 +31,8 @@
                             $name_product_mcc = get_field('name_product');
                             $price_product_mcc = get_field('price');
                             $price_promotion_mcc = get_field('price_promotion');
+                            $view_price_mcc = formatMoney($price_product_mcc);
+                            $view_price_pro_mcc = formatMoney($price_promotion_mcc);
                             $img_1_mcc = get_field('img_1');
                             $img_2_mcc = get_field('img_2');
                             $img_3_mcc = get_field('img_3');
@@ -40,9 +42,10 @@
                             $ngdien = get_field('electric_suply');
                             $size = get_field('size');
                             $name_maker_mcc = get_field('name_maker');
+                            $id_post_mcc = get_the_ID();
 
                     ?>
-                    <div class="col-md-4 list-pro-pad-r">
+                    <div class="col-md-3 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <a href="<?php echo $link_mcc;?>">
                             <div class="item-img">
@@ -63,11 +66,11 @@
                             </div>
                             <?php if($price_promotion_mcc == ''){?>
                                 <div class="item-price">
-                                    <?php echo $price_product_mcc. ' VNĐ';?>
+                                    <?php echo $view_price_mcc. ' VNĐ';?>
                                 </div>
                             <?php } else{?>
-                                    <span class="item-price"> <?php echo $price_promotion_mcc. ' VNĐ';?> </span>
-                                    <span class = "promotion_price"><?php echo $price_product_mcc. ' VNĐ';?></span> 
+                                    <span class="item-price"> <?php echo $view_price_pro_mcc. ' VNĐ';?> </span>
+                                    <span class = "promotion_price"><?php echo $view_price_mcc. ' VNĐ';?></span> 
                             <?php }?>
                             <div class="item-btn-oder">
                                 <button class = "btn btn-primary btn-oder" onclick = "show_info( 'maychamcong', '<?php echo $name_product_mcc; ?>', '<?php echo $price_product_mcc; ?>', '<?php echo $price_promotion_mcc; ?>', '<?php echo $img_1_mcc; ?>', '<?php echo $id_post_mcc; ?>', '<?php echo $link_mcc; ?>')" >Mua
@@ -107,49 +110,53 @@
     <!-- modal cart -->
 		<!-- Button to Open the Modal -->
 		<button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
-			Open modal
-		</button>
+        Open modal
+    </button>
 
-		<!-- The Modal -->
-		<div class="modal fade" id="modalOder">
-			<div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                    <h4 class="modal-title">MUA HÀNG</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    
-                    <!-- Modal body -->
-                    <div class="modal-body">
+    <!-- The Modal -->
+    <div class="modal fade" id="modalOder">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Thêm vào giỏ hàng</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 box-left-cart">
                         <div class="form-group thumnail-product">
                             <img src="" alt="">
                         </div>
+                        <input type="hidden" name="id_item" class ="id_item">
+                        <input type="button" data-dismiss="modal" value = "Chọn Mua" class="btn btn-primary btn_add_cart">
+                    </div>
+                    <div class="col-md-8">
                         <div class="form-group">
-                            <label for="name_product"><a class="link_item" href = "">Tên sản phẩm </a></label>
+                            <label for="name_product"><a class="link_item" href = ""><b>Tên sản phẩm</b></a></label>
                             <input type="text" readonly class="form-control" id="name_product">
                         </div>
                         <div class="form-group">
-                            <label for="price">Giá: </label>
+                            <label for="price"><b>Giá</b></label>
                             <input type="text" readonly class="form-control" id="price">
                         </div>
                         <div class="form-group">
-                            <label for="price">Số lượng: </label>
+                            <label for="price"><b>Số lượng</b></label>
                             <input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
                         </div>
                         <div class="form-group">
-                            <label for="price">Thành tiền: </label>
+                            <label for="price"><b>Thành tiền</b></label>
                             <input type="text" readonly class="form-control" id="total_price">
                         </div>
-
-                        <input type="hidden" name="id_item" class ="id_item">
-                        <input type="button" data-dismiss="modal" value = "Thêm vào giỏ hàng" class="btn btn-primary btn_add_cart">
                     </div>
-                    
                 </div>
-			</div>
-		</div>
+            </div>
+        </div>
+        </div>
+    </div>
 </main>
 
 <?php get_footer(); ?>

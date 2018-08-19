@@ -104,7 +104,11 @@ input:focus {
     margin-left: -30px;
 }
 .logo img{
+    max-height: 100px;
     max-width: 50%;
+}
+.logo p{
+    font-size: 20px;
 }
 
 /* nav */
@@ -363,13 +367,14 @@ input:focus {
 	float: left;
 }
 .text-comment{
-	color: #000;
+	color: rgb(255, 255, 255);
     padding: 5px;
     border: 1px solid #2196f3;
     margin: 15px;
     position: relative;
-	background: #ffeb3b91;
-	width: 50%;
+	background: #c4c4c491;
+    width: 50%;
+    min-height: 100px;
 }
 .text-comment::after{
 	content: "";
@@ -380,7 +385,7 @@ input:focus {
     position: absolute;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-	border-top: 15px solid #b8bc5f;
+	border-top: 15px solid #c4c4c491;
 }
 .customer-title{
 	text-align: center;
@@ -515,7 +520,7 @@ overflow: hidden;
 #phonering-alo-phoneIcon{
 	z-index: 99;
 	position: fixed;
-	top: 10%;
+	top: 2%;
 	right: 12%;
 }
 .phonering-alo-phone.phonering-alo-static {
@@ -1392,6 +1397,8 @@ a img.aligncenter {
 .box-order button{
     text-transform: uppercase;
     min-width: 120px;
+    margin-left: 0;
+    margin-top: 5px;
 }
 .tab-content{
     background: #fff;
@@ -1559,11 +1566,15 @@ a img.aligncenter {
 .list-task p{
     margin-bottom: 0;
     color: #1fb97b;
-    font-size: 24px;
+    font-size: 30px;
 }
 .list-task ul li{
     list-style: none;
 
+}
+.list-task{
+
+    margin-top: 33px;
 }
 .list-task ul {
     margin-left: 0;
@@ -1571,6 +1582,89 @@ a img.aligncenter {
 }
 .set_up i{
     color: #ed3237;
+}
+.box-tt{
+    margin-top: 80px;
+}
+
+#modalOder .thumnail-product{
+    text-align: center;
+    border: 1px solid #dcdcdc;
+}
+
+#modalOder .thumnail-product img{
+    max-width: 100%;
+    max-height: 150px;
+}
+#modalOder .modal-header{
+    background: #009688;
+    color: #fff;
+}
+#modalOder .btn_add_cart{
+    min-width: 120px;
+    margin: 5px 55px;
+    background: #ed3237;
+    color: #fff;
+    border: 1px solid #ed3237;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+.box-left-cart{
+    margin-top: 5px;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff;
+}
+.repair-img{
+    margin: 15px 0;
+}
+.repair-img img{
+    min-height: 185px;
+}
+.wpcf7-form p{
+    margin-bottom: 0;
+}
+.wpcf7-form p label{
+    font-weight: bold;
+}
+.wpcf7-form p label input{
+    padding: 5px;
+}
+.wpcf7-submit{
+    min-width: 120px;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+    background: #ed3237;
+}
+.marginbot25{
+    margin-bottom: 25px;
+}
+@-webkit-keyframes my {
+    0% { color: #ed3237; } 
+    50% { color: #fff;  } 
+    100% { color: #ed3237;  } 
+}
+@-moz-keyframes my { 
+    0% { color: #ed3237;  } 
+    50% { color: #fff;  }
+    100% { color: #ed3237;  } 
+}
+@-o-keyframes my { 
+    0% { color: #ed3237; } 
+    50% { color: #fff; } 
+    100% { color: #ed3237;  } 
+}
+@keyframes my { 
+    0% { color: #ed3237;  } 
+    50% { color: #fff;  }
+    100% { color: #ed3237;  } 
+} 
+.box-cart .fa-cart-arrow-down {
+    -webkit-animation: my 700ms infinite;
+    -moz-animation: my 700ms infinite; 
+    -o-animation: my 700ms infinite; 
+	 animation: my 700ms infinite;
 }
 @media only screen and (min-width:320px) {
 
