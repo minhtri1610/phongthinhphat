@@ -16,10 +16,10 @@
 							Add: 36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM
 						</div>
 						<div class="row">
-							Phone: 0908 784 337
+							Phone: 0935 088 669 - 0908 784 337
 						</div>
 						<div class="row">
-							Email: uyphong92pro@gmail.com
+							Email: phongthinhphatvn@gmail.com
 						</div>
 					</div>
 					<div class="col-md-4">

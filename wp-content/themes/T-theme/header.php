@@ -47,7 +47,7 @@
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
 								<div class="phonering-alo-ph-circle"></div>
 								<div class="phonering-alo-ph-circle-fill"></div>
-								<a href="tel:+84123456789" class="pps-btn-img" title="Liên hệ">
+								<a href="tel:+840935088669" class="pps-btn-img" title="Liên hệ">
 									<div class="phonering-alo-ph-img-circle"></div>
 								</a>
 							</div>
@@ -60,8 +60,8 @@
 									<div class="col-md-4">
 										<i class="fas fa-mobile"></i> <span>Hotline: </span> 
 									</div>
-									<div class="col-md-8">
-										<b>0908 784 337</b>
+									<div class="col-md-8" style = "padding-right: 0;">
+										<b>0935 088 669 - 0908 784 337</b>
 									</div>
 								</div>
 
@@ -91,10 +91,17 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  container">
-							<li class="nav-item <?php if(is_home()){ echo 'active';}?>">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+							<li class="nav-item">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>">
+									<i class="fas fa-list"></i> Danh Mục Sản Phẩm
+								</a>
 							</li>
-							<li class="nav-item <?php if(is_page('camera-quan-sat')|| is_singular('camera')){ echo 'active';}?>">
+							<li class="nav-item <?php if(is_home()){ echo 'active';}?>">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
+							</li>
+							
+							
+							<!-- <li class="nav-item <?php if(is_page('camera-quan-sat')|| is_singular('camera')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/camera-quan-sat">
 									camera quan sát
 								</a>
@@ -114,12 +121,18 @@
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/linh-phu-kien">
 									Linh - Phụ kiện máy tính
 								</a>
+							</li> -->
+							<li class="nav-item <?php if(is_page('download')){ echo 'active';}?>">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/download"> <i class="far fa-building"></i> Giới Thiệu</a>
+							</li>
+							<li class="nav-item <?php if(is_page('download')){ echo 'active';}?>">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/download"> <i class="fas fa-download"></i> download</a>
 							</li>
 							<li class="nav-item <?php if(is_page('tin-tuc') || is_singular('news')){ echo 'active';}?>">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>/tin-tuc">Tin tức</a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/tin-tuc"> <i class="far fa-newspaper"></i> Tin tức</a>
 							</li>
 							<li class="nav-item <?php if(is_page('lien-he')){ echo 'active';}?>">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he">Liên Hệ</a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he"><i class="fas fa-phone"></i> Liên Hệ</a>
 							</li>
 							
 						</ul>

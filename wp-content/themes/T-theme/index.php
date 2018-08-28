@@ -3,7 +3,74 @@
 	<nav>
 		<section class = "container fix-padding">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-3">
+					<!-- <div class="top-news">
+						<div class="linkien_title" >
+							<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Tin Tức</p>
+						</div>
+						<div class="news-content">
+						
+							<ul>
+							<?php
+								$args_news = array(
+									'post_type' => 'news',
+									'post_status' => 'publish',
+									'posts_per_page' => '8'
+								);
+								$products_loop_news = new WP_Query( $args_news  );
+								if ( $products_loop_news->have_posts() ) :
+									while ( $products_loop_news->have_posts() ) : $products_loop_news->the_post();
+									// Set variables
+									$link_news = get_the_permalink();
+									$title_news = get_the_title();
+									$description_news = get_the_content();
+							?>
+								<li>
+								<?php if ( has_post_thumbnail() ) {?>
+									<?php the_post_thumbnail(); ?>
+								<?php } else{?>
+									<img src="<?php echo URL_IMG."/news.jpg"?>"/>
+								<?php } ?>
+									<a href="<?php echo $link_news;?>"><?php echo $title_news;?></a>
+								</li>
+							<?php
+								endwhile;
+									wp_reset_postdata();
+								endif;
+							?>
+							</ul>
+						</div>
+					</div> -->
+					<div class="list-menu">
+						<ul class = "ul-parent">
+							<li>
+								<a href="http://">Camera quan sát</a>
+								<ul class = "sub-ul">
+									<li><a href="http://">Camera dahua</a></li>
+									<li><a href="http://">Camera hikvison</a></li>
+									<li><a href="http://">Camera paragon</a></li>
+									<li><a href="http://">Camera kbvison</a></li>
+								</ul>
+							</li>
+							<li >
+								<a href="http://">Máy chấm công</a>
+								<ul class = "sub-ul">
+									<li><a href="http://">Máy Vân Tay</a></li>
+									<li><a href="http://">Máy thẻ giấy</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="http://">Linh Kiện máy tính</a>
+							</li>
+							<li>
+								<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">sửa chữa máy tính - máy in
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-9">
 					<div id="gallery_banner" class="carousel slide" data-ride="carousel">
 
 						<!-- Indicators -->
@@ -56,45 +123,7 @@
 
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="top-news">
-						<div class="linkien_title" >
-							<p class = "wow fadeIn" data-wow-duration=".3" data-wow-delay=".2s">Tin Tức</p>
-						</div>
-						<div class="news-content">
-						
-							<ul>
-							<?php
-								$args_news = array(
-									'post_type' => 'news',
-									'post_status' => 'publish',
-									'posts_per_page' => '8'
-								);
-								$products_loop_news = new WP_Query( $args_news  );
-								if ( $products_loop_news->have_posts() ) :
-									while ( $products_loop_news->have_posts() ) : $products_loop_news->the_post();
-									// Set variables
-									$link_news = get_the_permalink();
-									$title_news = get_the_title();
-									$description_news = get_the_content();
-							?>
-								<li>
-								<?php if ( has_post_thumbnail() ) {?>
-									<?php the_post_thumbnail(); ?>
-								<?php } else{?>
-									<img src="<?php echo URL_IMG."/news.jpg"?>"/>
-								<?php } ?>
-									<a href="<?php echo $link_news;?>"><?php echo $title_news;?></a>
-								</li>
-							<?php
-								endwhile;
-									wp_reset_postdata();
-								endif;
-							?>
-							</ul>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			
 			

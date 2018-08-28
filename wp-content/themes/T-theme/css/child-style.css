@@ -1640,6 +1640,26 @@ a img.aligncenter {
 .marginbot25{
     margin-bottom: 25px;
 }
+.cart-list{
+    margin-bottom: 25px;
+}
+.ul-parent, .sub-ul{
+    padding-left: 0;
+    margin-bottom: 0px;
+}
+.ul-parent li{
+    list-style: none;
+}
+.list-menu{
+    border: 1px solid #ddd;
+    background: #fff;
+}
+.ul-parent li{
+    padding: 5px 15px;
+}
+.sub-ul{
+    display: none;
+}
 @-webkit-keyframes my {
     0% { color: #ed3237; } 
     50% { color: #fff;  } 

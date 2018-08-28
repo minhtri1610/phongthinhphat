@@ -446,15 +446,15 @@ function prefix_send_email_to_admin() {
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'dgfsolomid@gmail.com';                 // SMTP username
-        $mail->Password = '3872365abc';                           // SMTP password
+        $mail->Username = 'phongthinhphatvn@gmail.com';                 // SMTP username
+        $mail->Password = 'uyphong6689';                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('uyphong92pro@gmail.com', 'Công ty Phong Thịnh Phát');
+        $mail->setFrom('phongthinhphatvn@gmail.com', 'Công ty Phong Thịnh Phát');
         $mail->addAddress($email, $name);     // Add a recipient
-        $mail->AddCC('dgfsolomid@gmail.com');
+        $mail->AddCC('phongthinhphatvn@gmail.com');
         //Content
         $mail->isHTML(true);                               // Set email format to HTML
         $mail->Subject = 'Xác nhận đơn hàng từ Công ty Phong Thịnh Phát';
