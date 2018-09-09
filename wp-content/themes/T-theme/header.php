@@ -8,8 +8,9 @@
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" type="image/x-icon">
 		<!-- add css -->
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/bootstrap.min.css" >
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/all.css" >
@@ -30,13 +31,13 @@
 
 				<div class="container">
 					<div class="row top-page">
-						<div class="col-md-4 logo">
+						<div class="col-md-4 logo sp-padding">
 							<a href="<?php echo URL_ROOT;?>">
 								<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 							</a>
 							<p><b>Công Ty Phong Thịnh Phát</b></p>
 						</div>
-						<div class="col-md-4 list-task">
+						<div class="col-md-4 list-task sp-padding">
 							<span style = "color: red">*</span> <b>Chuyên </b>
 							<ul class ="set_up">
 								<li><i class="fas fa-chevron-circle-right"></i> Camera quan sát - Báo động - Báo cháy</li>
@@ -54,19 +55,23 @@
 
 						</div>
 
-						<div class="col-md-4">
+						<div class="col-md-4 sp-padding">
 							<div class="box-tt">
-								<div class="row h-hotline">
-									<div class="col-md-4">
+								<div class="row h-hotline hot-line-pc">
+									<div class="col-md-4 col-xl-4 sp-padding">
 										<i class="fas fa-mobile"></i> <span>Hotline: </span> 
 									</div>
-									<div class="col-md-8" style = "padding-right: 0;">
+									<div class="col-md-8 col-xl-8 sp-padding" style = "padding-right: 0;">
 										<b>0935 088 669 - 0908 784 337</b>
 									</div>
 								</div>
 
+								<div class="hot-line-sp h-hotline">
+									<i class="fas fa-mobile"></i> <span>&nbsp;Hotline: <b> 0935 088 669 - 0908 784 337</b></span>
+								</div>
+
 								<div class="row h-point box-cart"> 
-									<div class="col-md-12">
+									<div class="col-md-12 sp-padding">
 										<?php 
 											$cnt_cart = 0;
 											if(!empty($_SESSION['data_cart'])){
@@ -91,10 +96,43 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav  container">
-							<li class="nav-item">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>">
+							<li class="nav-item list-sp">
+								<a class="nav-link">
 									<i class="fas fa-list"></i> Danh Mục Sản Phẩm
 								</a>
+								<?php if(!is_home()){ ?>
+									<div class="list-menu menu-diff-home">
+										<ul class = "ul-parent">
+											<li class = "li-sub">
+												<a href="<?php echo URL_ROOT;?>/camera-quan-sat">&raquo; Camera quan sát</a>
+												<ul class = "sub-ul">
+													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a></li>
+													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvison</a></li>
+													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a></li>
+													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvison</a></li>
+												</ul>
+											</li>
+											<li class = "li-sub">
+												<a href="<?php echo URL_ROOT;?>/may-cham-cong">&raquo; Máy chấm công</a>
+												<ul class = "sub-ul">
+													<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-van-tay">Máy Vân Tay</a></li>
+													<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">Máy thẻ giấy</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="<?php echo URL_ROOT;?>/linh-phu-kien">&raquo; Linh Kiện máy tính</a>
+											</li>
+											<li>
+												<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy tính
+												</a>
+											</li>
+											<li>
+												<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy in
+												</a>
+											</li>
+										</ul>
+									</div>
+								<?php }?>
 							</li>
 							<li class="nav-item <?php if(is_home()){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>"><i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
@@ -122,8 +160,8 @@
 									Linh - Phụ kiện máy tính
 								</a>
 							</li> -->
-							<li class="nav-item <?php if(is_page('download')){ echo 'active';}?>">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>/download"> <i class="far fa-building"></i> Giới Thiệu</a>
+							<li class="nav-item <?php if(is_page('gioi-thieu')){ echo 'active';}?>">
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/gioi-thieu"> <i class="far fa-building"></i> Giới Thiệu</a>
 							</li>
 							<li class="nav-item <?php if(is_page('download')){ echo 'active';}?>">
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/download"> <i class="fas fa-download"></i> download</a>
@@ -132,7 +170,7 @@
 								<a class="nav-link" href="<?php echo URL_ROOT;?>/tin-tuc"> <i class="far fa-newspaper"></i> Tin tức</a>
 							</li>
 							<li class="nav-item <?php if(is_page('lien-he')){ echo 'active';}?>">
-								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he"><i class="fas fa-phone"></i> Liên Hệ</a>
+								<a class="nav-link" href="<?php echo URL_ROOT;?>/lien-he"><i class="fas fa-headset"></i> Liên Hệ</a>
 							</li>
 							
 						</ul>
@@ -143,5 +181,7 @@
 					</div>
 				</nav>
 				<!-- end menu -->
+
+
 			</header>
 			<!-- /header -->

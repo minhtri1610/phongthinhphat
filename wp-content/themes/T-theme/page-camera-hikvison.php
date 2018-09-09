@@ -5,13 +5,14 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "li-active">Camera quan sát</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat">Camera quan sát</a>  &#8811;</li>
+                <li><a href="<?php echo URL_ROOT;?>/camera-dahua" class = "li-active">Camera HIKVISON</a></li>  
             </ul>
         </div>
         <div class="row">
             <div class="col-md-9 sp-left">
                 <div class="linkien_title row" >
-                    <p class = "" >Camera quan sát</p>
+                    <p class = "" >Camera HIKVISON</p>
                 </div>
                 <div class="row list-product">
 
@@ -21,28 +22,34 @@
                             'post_status' => 'publish',
                             'posts_per_page' => '8'
                         );
+                        $tmp_print = 0;
                         $products_loop = new WP_Query( $args );
                         if ( $products_loop->have_posts() ) :
                             while ( $products_loop->have_posts() ) : $products_loop->the_post();
                             // Set variables
-                            $title = get_the_title();
-                            $link_lk = get_the_permalink();
-                            $description = get_the_content();
-                            $name_product = get_field('name_product');
-                            $price_product = get_field('price_camera');
-                            $price_promotion= get_field('price_promotion');
-                            $view_price = formatMoney($price_product);
-                            $view_price_pro = formatMoney($price_promotion);
-                            $img_1 = get_field('list_image');
-                            $img_2 = get_field('image_2');
-                            $img_3 = get_field('image_3');
-                            $do_phan_giai = get_field('do_phan_giai');
-                            $position = get_field('position_set_up');
-                            $long_vision = get_field('long_vision');
-                            $tg_bhanh = get_field('time_guarantee');
-                            $lens = get_field('lens');
-                            $name_marker = get_field('name_maker');
-                            $id_post_camera = get_the_ID();
+                            $tmp_category = get_the_category();
+                            $name_category = $tmp_category[0]->category_nicename;
+
+                            if($name_category == "camera-hikvison"){
+                                $tmp_print = 1;
+                                $title = get_the_title();
+                                $link_lk = get_the_permalink();
+                                $description = get_the_content();
+                                $name_product = get_field('name_product');
+                                $price_product = get_field('price_camera');
+                                $price_promotion= get_field('price_promotion');
+                                $view_price = formatMoney($price_product);
+                                $view_price_pro = formatMoney($price_promotion);
+                                $img_1 = get_field('list_image');
+                                $img_2 = get_field('image_2');
+                                $img_3 = get_field('image_3');
+                                $do_phan_giai = get_field('do_phan_giai');
+                                $position = get_field('position_set_up');
+                                $long_vision = get_field('long_vision');
+                                $tg_bhanh = get_field('time_guarantee');
+                                $lens = get_field('lens');
+                                $name_marker = get_field('name_maker');
+                                $id_post_camera = get_the_ID();
                     ?>
                     <div class="col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
@@ -77,14 +84,23 @@
                     </div>
                         
                     <?php
+                    
+                        } 
                         endwhile;
+                        if($tmp_print == 0){
+                            echo "<div>
+                                    <h6>Không có sản phẩm nào!</h6>
+                                </div>";
+                        }
                             wp_reset_postdata();
-                        else:
+                    else:
+
                     ?>
                         <div>
-                            <h6>Không có sản phẩm nào.</h6>
+                            <h6>Không có sản phẩm nào!</h6>
                         </div>
-                    <?php
+                    <?php 
+                    
                         endif;
                     ?>
                     <!-- <div class="col-md-4 list-pro-pad-r">

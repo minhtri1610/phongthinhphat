@@ -24,11 +24,12 @@
             $time_maintain = get_field('time_bao_hanh');
             $type_feature = get_field('type_features');
             $content_pro = get_field('other_description');
+            $link_download = get_field('link_download');
         ?>
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "">Máy chấm công</a> &#8811;</li>
+                <li><a href="<?php echo URL_ROOT;?>/may-cham-cong" class = "">Máy chấm công</a> &#8811;</li>
                 <li><a href="<?php echo $link_mcc;?>" class = "li-active"><?php echo $name_product_mcc;?></a></li>
             </ul>
         </div>
@@ -130,6 +131,14 @@
                     <tr>
                         <td>Hình thức chấm công</td>
                         <td><?php echo $type_feature;?></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Link Download
+                        </td>
+                        <td>
+                            <?php echo $link_download;?>
+                        </td>
                     </tr>
                 </table>
 

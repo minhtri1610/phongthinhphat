@@ -5,13 +5,14 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/may-cham-cong" class = "li-active">Máy chấm công</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/may-cham-cong">Máy chấm công</a>  &#8811;</li>
+                <li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay" class = "li-active">Máy thẻ giấy</a></li>
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-12 sp-left">
+            <div class="col-md-9 sp-left">
                 <div class="linkien_title row" >
-                    <p class = "" >Máy chấm công</p>
+                    <p class = "" >Máy thẻ giấy</p>
                 </div>
                 <div class="row list-product">
 
@@ -21,31 +22,35 @@
                             'post_status' => 'publish',
                             'posts_per_page' => '8'
                         );
+                        $tmp_print = 0;
                         $products_loop_mcc = new WP_Query( $args_mcc );
                         if ( $products_loop_mcc->have_posts() ) :
                             while ( $products_loop_mcc->have_posts() ) : $products_loop_mcc->the_post();
                             // Set variables
-                            $title_mcc = get_the_title();
-                            $link_mcc = get_the_permalink();
-                            $description_mcc = get_the_content();
-                            $name_product_mcc = get_field('name_product');
-                            $price_product_mcc = get_field('price');
-                            $price_promotion_mcc = get_field('price_promotion');
-                            $view_price_mcc = formatMoney($price_product_mcc);
-                            $view_price_pro_mcc = formatMoney($price_promotion_mcc);
-                            $img_1_mcc = get_field('img_1');
-                            $img_2_mcc = get_field('img_2');
-                            $img_3_mcc = get_field('img_3');
-                            $knang_quan_ly = get_field('kha_nang_quan_ly');
-                            $memory = get_field('memory');
-                            $port_IO = get_field('port_IO');
-                            $ngdien = get_field('electric_suply');
-                            $size = get_field('size');
-                            $name_maker_mcc = get_field('name_maker');
-                            $id_post_mcc = get_the_ID();
+                            $tmp_category = get_the_category();
+                            $name_category = $tmp_category[0]->category_nicename;
+                            if($name_category == "may-cham-cong-the-giay"){
+                                $title_mcc = get_the_title();
+                                $link_mcc = get_the_permalink();
+                                $description_mcc = get_the_content();
+                                $name_product_mcc = get_field('name_product');
+                                $price_product_mcc = get_field('price');
+                                $price_promotion_mcc = get_field('price_promotion');
+                                $view_price_mcc = formatMoney($price_product_mcc);
+                                $view_price_pro_mcc = formatMoney($price_promotion_mcc);
+                                $img_1_mcc = get_field('img_1');
+                                $img_2_mcc = get_field('img_2');
+                                $img_3_mcc = get_field('img_3');
+                                $knang_quan_ly = get_field('kha_nang_quan_ly');
+                                $memory = get_field('memory');
+                                $port_IO = get_field('port_IO');
+                                $ngdien = get_field('electric_suply');
+                                $size = get_field('size');
+                                $name_maker_mcc = get_field('name_maker');
+                                $id_post_mcc = get_the_ID();
 
                     ?>
-                    <div class="col-md-3 list-pro-pad-r">
+                    <div class="col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <a href="<?php echo $link_mcc;?>">
                             <div class="item-img">
@@ -79,6 +84,7 @@
                         </div>
                     </div>
                     <?php
+                        }
                         endwhile;
                             wp_reset_postdata();
                         endif;
@@ -104,11 +110,40 @@
                 </div>
             </div>
             
+            <div class="col-md-3 sp-right">
+                <div class="linkien_title row" >
+                    <p class = "" >Danh Mục</p>
+                </div>
+                <div class="row">
+                    <div class="list-camera-title">
+                        <ul>
+                            <li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">&#8811; Máy thẻ giấy</a></li>
+                            <li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-van-tay">&#8811; Máy vân tay</a></li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="linkien_title row" >
+                    <p class = "" >Dịch vụ</p>
+                </div>
+                <div class="row">
+                    <div class="list-ser-cam">
+                        <ul>
+                            <li><a href="#">Tư vấn lắp đặt máy chấm công</a></li>
+                            <li><a href="#">Sửa chữa máy chấm công</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 
     <!-- modal cart -->
-    <?php get_template_part( 'init/popup' ); ?>
+	<?php get_template_part( 'init/popup' ); ?>
 </main>
 
 <?php get_footer(); ?>

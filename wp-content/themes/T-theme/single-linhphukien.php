@@ -21,7 +21,7 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat" class = "">Linh - Phụ kiện</a> &#8811;</li>
+                <li><a href="<?php echo URL_ROOT;?>/linh-phu-kien" class = "">Linh - Phụ kiện</a> &#8811;</li>
                 <li><a href="<?php echo $tmp_link;?>" class = "li-active"><?php echo $name_product;?></a></li>
             </ul>
         </div>

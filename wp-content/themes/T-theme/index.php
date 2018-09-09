@@ -43,27 +43,31 @@
 					</div> -->
 					<div class="list-menu">
 						<ul class = "ul-parent">
-							<li>
-								<a href="http://">Camera quan sát</a>
+							<li class = "li-sub">
+								<a href="<?php echo URL_ROOT;?>/camera-quan-sat">&raquo; Camera quan sát</a>
 								<ul class = "sub-ul">
-									<li><a href="http://">Camera dahua</a></li>
-									<li><a href="http://">Camera hikvison</a></li>
-									<li><a href="http://">Camera paragon</a></li>
-									<li><a href="http://">Camera kbvison</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvison</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvison</a></li>
 								</ul>
 							</li>
-							<li >
-								<a href="http://">Máy chấm công</a>
+							<li class = "li-sub">
+								<a href="<?php echo URL_ROOT;?>/may-cham-cong">&raquo; Máy chấm công</a>
 								<ul class = "sub-ul">
-									<li><a href="http://">Máy Vân Tay</a></li>
-									<li><a href="http://">Máy thẻ giấy</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-van-tay">Máy Vân Tay</a></li>
+									<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">Máy thẻ giấy</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="http://">Linh Kiện máy tính</a>
+								<a href="<?php echo URL_ROOT;?>/linh-phu-kien">&raquo; Linh Kiện máy tính</a>
 							</li>
 							<li>
-								<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">sửa chữa máy tính - máy in
+								<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy tính
+								</a>
+							</li>
+							<li>
+								<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy in
 								</a>
 							</li>
 						</ul>
@@ -513,62 +517,7 @@
 			</div>
 		</section>
 		<!-- end du an image -->
-		
-		<!-- modal cart -->
-		<!-- Button to Open the Modal -->
-		<button type="button" class="btn btn-primary show_modal_order" style="display: none;" data-toggle="modal" data-target="#modalOder">
-			Open modal
-		</button>
-
-		<!-- The Modal -->
-		<div class="modal fade" id="modalOder">
-			<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-			
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">Thêm vào giỏ hàng</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				
-				<!-- Modal body -->
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-4 box-left-cart">
-							<div class="form-group thumnail-product">
-								<img src="" alt="">
-							</div>
-							<input type="hidden" name="id_item" class ="id_item">
-							<input type="button" data-dismiss="modal" value = "Chọn Mua" class="btn btn-primary btn_add_cart">
-						</div>
-						<div class="col-md-8">
-							<div class="form-group">
-								<label for="name_product"><a class="link_item" href = ""><b>Tên sản phẩm</b></a></label>
-								<input type="text" readonly class="form-control" id="name_product">
-							</div>
-							<div class="form-group">
-								<label for="price"><b>Giá</b></label>
-								<input type="text" readonly class="form-control" id="price">
-							</div>
-							<div class="form-group">
-								<label for="price"><b>Số lượng</b></label>
-								<input type="number" onchange = "charged()" class="form-control" id="quality" min = 1 max = 1000>
-							</div>
-							<div class="form-group">
-								<label for="price"><b>Thành tiền</b></label>
-								<input type="text" readonly class="form-control" id="total_price">
-							</div>
-						</div>
-					</div>
-					
-					
-
-					
-				</div>
-				
-			</div>
-			</div>
-		</div>
+		<?php get_template_part( 'init/popup' ); ?>
 		
 	</main>
 

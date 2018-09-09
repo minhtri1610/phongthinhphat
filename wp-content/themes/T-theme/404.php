@@ -6,19 +6,14 @@
 
 			<!-- article -->
 			<article id="post-404">
-
-				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
-				</h2>
-
+				<img src="<?php echo URL_IMG?>/404.svg" alt="">
+				<button><a href="<?php echo home_url(); ?>"><?php _e( 'Trang chủ', 'html5blank' ); ?></a></button>
+			
 			</article>
 			<!-- /article -->
 
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

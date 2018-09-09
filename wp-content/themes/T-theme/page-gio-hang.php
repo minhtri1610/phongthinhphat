@@ -13,7 +13,7 @@
         <div class="row nav-sub">
             <ul>
                 <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
-                <li><a href="<?php echo URL_ROOT;?>/gio-hang" class = "">Giỏ hàng</a></li>
+                <li><a href="<?php echo URL_ROOT;?>/gio-hang" class = "li-active">Giỏ hàng</a></li>
             </ul>
         </div>
         <div class="linkien_title row" >
