@@ -45,7 +45,7 @@
                             $id_post_mcc = get_the_ID();
 
                     ?>
-                    <div class="col-md-3 list-pro-pad-r">
+                    <div class="col-lg-3 col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <a href="<?php echo $link_mcc;?>">
                             <div class="item-img">

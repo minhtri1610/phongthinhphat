@@ -1031,7 +1031,7 @@ overflow: hidden;
 	position: fixed;
     width: 50px;
     display: table;
-    height: 40px;
+    height: 50px;
     text-align: center;
     bottom: 10px;
     right: 10px;
@@ -1044,8 +1044,7 @@ overflow: hidden;
     font-size: 30px;
     height: 50px;
     text-align: center;
-    border-radius: 50%;
-    top: 300px;
+    bottom: 70px;
     right: 10px;
     background: #ffa500;
 }
@@ -1817,8 +1816,9 @@ a img.aligncenter {
     z-index: 9999;
     display: none;
     bottom: 0;
+    border: 1px solid #9E9E9E;
     right: 5%;
-    background: #dcdcdc;
+    background: #eceaea;
     padding: 10px;
 }
 .hide_form i:nth-child(2){
@@ -1827,7 +1827,7 @@ a img.aligncenter {
 }
 .hide_form{
     padding: 5px 10px;
-    background: #00ad66;
+    background: #2196f3;
     color: #fff;
     margin-left: -10px;
     margin-right: -10px;
@@ -1875,6 +1875,10 @@ span.wpcf7-not-valid-tip{
 #post-404 button a{
     color: #fff;
 }
+#mapGoogle{
+    width: 100%;
+    height: 80%;
+}
 @media only screen and (min-width:320px) {
 
 }
@@ -1902,7 +1906,75 @@ span.wpcf7-not-valid-tip{
 	   only screen and (min-resolution:144dpi) {
 
 }
+@media only screen and (max-width:768px) {
+    .box-ser {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .top-page{
+        margin: 0;
+    }
+    .logo {
+        margin-left: 0px;
+        padding-top: 50px;
+    }
+    #phonering-alo-phoneIcon{
+        display: none;
+    }
+    .sub-ul{
+        display: none;
+        top: unset;
+        position: relative;
+        left: unset;
+        width: unset;
+        z-index: unset;
+        border: unset;
+    }
+    .menu-diff-home{
+        position: relative;
+        z-index: unset;
+        top: unset;
+        margin-left: unset;
+        display: none;
+    }
+    .list-menu{
+        height: unset;
+    }
+    .list-menu li:hover{
+        background: inherit;
+    }
+    .navbar-nav {
+        padding: unset;
+    }
+    .customer-title{
+        font-size: 23px;
+    }
+}
+
 @media only screen and (max-width:414px) {
+    .img-item{
+        margin-bottom: 10px;
+    }
+    #mapGoogle{
+        height: 350px;
+    }
+    .title-contact{
+        margin: unset;
+    }
+    #navbarSupportedContent ul li:hover{
+        background: inherit;
+    }
+    .box-cart{
+        margin-top: 5px;
+    }
+    .info-cart .img-cart{
+        max-height: unset;
+    }
+    .box-tt {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
     .hot-line-sp{
         display: block;
     }
@@ -1972,7 +2044,6 @@ span.wpcf7-not-valid-tip{
         width: 92%;
     }
     .list-menu {
-        height: 245px;
         margin-bottom: 10px;
     }
     .fb-page,
@@ -1980,9 +2051,13 @@ span.wpcf7-not-valid-tip{
     .fb-page span iframe[style] {
         max-width: 100% !important;
     }
-    #phonering-alo-phoneIcon{
+    .info-cart>.tit-info-cart:nth-child(1){
         display: none;
     }
+    .price-item{
+        padding-top: 0;
+    }
+    
 }
 @media only screen and (max-width:320px) {
     .box-ser {

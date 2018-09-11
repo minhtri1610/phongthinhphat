@@ -1,5 +1,11 @@
 <?php get_header(); ?>
-    <div class="container">
+    <div class="container page-contact p-camera">
+        <div class="row nav-sub">
+            <ul>
+                <li><a href="<?php echo URL_ROOT;?>">Home</a> &#8811;</li>
+                <li><a href="<?php echo URL_ROOT;?>/tin-tuc" class = "li-active">Tin Tức</a></li>
+            </ul>
+        </div>
         <div class="title-contact">
             <div class="linkien_title row" >
                 <p class = "">Tin tức</p>

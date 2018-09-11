@@ -140,19 +140,19 @@
 				<h1><i class="fas fa-cogs"></i> DỊCH VỤ</h1>
 			</div>
 			<div class="row list-ser">
-				<div class="col-md-3 box-ser wow pulse"  data-wow-duration=".3" data-wow-delay=".1s">
+				<div class="col-lg-3 col-md-6 box-ser wow pulse"  data-wow-duration=".3" data-wow-delay=".1s">
 					<img src="<?php echo URL_IMG;?>/product/lap-dat-camera.jpg" alt="">
 					<p><a href="<?php echo URL_ROOT;?>/camera-quan-sat">Lắp đặt <br> camera quan sát</a></p>
 				</div>
-				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".2s">
+				<div class="col-lg-3 col-md-6 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".2s">
 					<img src="<?php echo URL_IMG;?>/product/lap-dat-may-cham-cong.jpg" alt="">
 					<p><a href="<?php echo URL_ROOT;?>/may-cham-cong">Lắp đặt <br> máy chấm công</a></p>
 				</div>
-				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".3s">
+				<div class="col-lg-3 col-md-6 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".3s">
 					<img src="<?php echo URL_IMG;?>/product/sua-chua-may-tinh-hcm.jpg" alt="">
 					<p><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">Sữa chữa máy tính</a></p>
 				</div>
-				<div class="col-md-3 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".4s">
+				<div class="col-lg-3 col-md-6 box-ser wow pulse" data-wow-duration=".3" data-wow-delay=".4s">
 					<img src="<?php echo URL_IMG;?>/product/do-muc-may-in.jpg" alt="">
 					<p><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">Sửa chữa máy in</a></p>
 				</div>
@@ -205,7 +205,7 @@
 						$name_marker = get_field('name_marker');
 						$id_post_camera = get_the_ID();
 				?>
-				<div class="col-md-3">
+				<div class="col-lg-3 col-md-4">
 					<div class="lk-item">
 						<a href="<?php echo $link_camera;?>" title="<?php echo $name_product;?>">
 							<div class="item-img">
@@ -284,7 +284,7 @@
 						$name_maker_mcc = get_field('name_maker');
 						$id_post_mcc = get_the_ID();
 				?>
-				<div class="col-md-3">
+				<div class="col-lg-3 col-md-4">
 					<div class="lk-item">
 						<a href = "<?php echo $link_mcc;?>">
 							<div class="item-img">
@@ -358,7 +358,7 @@
 						$name_maker = get_field('name_product');
 						$id_post_lk = get_the_ID();
 				?>
-				<div class="col-md-3">
+				<div class="col-lg-3 col-md-4">
 					<div class="lk-item">
 						<a href="<?php echo $link_lk;?>" title="<?php echo $name_product_lk;?>">
 							<div class="item-img">

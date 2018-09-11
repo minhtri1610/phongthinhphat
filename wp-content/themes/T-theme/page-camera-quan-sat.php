@@ -44,7 +44,7 @@
                             $name_marker = get_field('name_maker');
                             $id_post_camera = get_the_ID();
                     ?>
-                    <div class="col-md-4 list-pro-pad-r">
+                    <div class="col-lg-4 col-md-6 col-sm-12 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <div class="item-img">
                                 <img src="<?php echo $img_1;?>" alt="<?php echo $name_product;?>">

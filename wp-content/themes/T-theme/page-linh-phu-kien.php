@@ -39,7 +39,7 @@
                             $name_maker = get_field('name_product');
                             $id_post_lk = get_the_ID();
                     ?>
-                    <div class="col-md-3 list-pro-pad-r">
+                    <div class="col-lg-3 col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <a href="<?php echo $link_lk;?>">
                                 <div class="item-img">
