@@ -24,8 +24,12 @@
                     <?php echo  $description_mcc;?>
                 </div>
                 <br>
-                <div class="fb-comments" xid="<?php the_ID(); ?>" width="100%" data-numposts="20" data-colorscheme="light" data-version="v2.3"></div>
+            <div class="fb-share-button" 
+                data-href="<?php echo $link_lk;?>" 
+                data-layout="button" data-size = "small">
             </div>
+            <div class="fb-comments" xid="<?php the_ID(); ?>" width="100%" data-numposts="20" data-colorscheme="light" data-version="v2.3"></div>
+        </div>
         <?php
             
             endwhile;

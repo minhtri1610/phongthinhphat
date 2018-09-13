@@ -518,7 +518,10 @@
 		</section>
 		<!-- end du an image -->
 		<?php get_template_part( 'init/popup' ); ?>
-		
+
+		<!-- popup -->
+		<?php echo do_shortcode('[sg_popup id=208]');?>
+				
 	</main>
 
 <?php //get_sidebar(); ?>

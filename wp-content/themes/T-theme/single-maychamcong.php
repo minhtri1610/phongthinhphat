@@ -75,6 +75,10 @@
 
                     <?php }?>
                     <p>Bảo hành: <span class = "green-color"><?php echo $time_maintain;?> tháng</span></p>
+                    <div class="fb-share-button" 
+                        data-href="<?php echo $link_lk;?>" 
+                        data-layout="button" data-size = "small">
+                    </div>
                 </div>
                 <div class="box-order">
                     <button class = "btn btn-primary btn-oder" onclick = "show_info( 'maychamcong', '<?php echo $name_product_mcc; ?>', '<?php echo $price_product_mcc; ?>', '<?php echo $price_promotion_mcc; ?>', '<?php echo $img_1_mcc; ?>', '<?php echo $id_post; ?>', '<?php echo $link_mcc; ?>')" >Mua</button>

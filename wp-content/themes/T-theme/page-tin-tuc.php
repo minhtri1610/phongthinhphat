@@ -45,6 +45,12 @@
                         <div class="row content-date">
                             <?php echo $description_lk;?>
                         </div>
+                        <div class="row">
+                            <div class="fb-share-button" 
+                                data-href="<?php echo $link_lk;?>" 
+                                data-layout="button" data-size = "small">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
