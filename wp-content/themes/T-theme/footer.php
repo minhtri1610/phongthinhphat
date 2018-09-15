@@ -451,9 +451,11 @@
 		
 		$( ".btn-toggle" ).click(function() {
 			$( "#contact-all" ).toggle( "fast" );
+			$('.btn-toggle').hide();
 		});
 		$( ".hide_form" ).click(function() {
 			$( "#contact-all" ).toggle( "fast" );
+			$('.btn-toggle').show();
 		});
 	</script>
 

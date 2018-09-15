@@ -38,11 +38,11 @@
 							<p><b>Công Ty Phong Thịnh Phát</b></p>
 						</div>
 						<div class="col-md-4 list-task sp-padding">
-							<span style = "color: red">*</span> <b>Chuyên </b>
 							<ul class ="set_up">
-								<li><i class="fas fa-chevron-circle-right"></i> Camera quan sát - Báo động - Báo cháy</li>
-								<li><i class="fas fa-chevron-circle-right"></i> Mấy chấm công - cửa từ - bộ đàm</li>
-								<li><i class="fas fa-chevron-circle-right"></i> Máy tính - máy in - TB văn phòng</li>
+								<li><b>Chuyên </b></li>
+								<li><span style = "color: red">&#8811;</span> Camera quan sát - Báo động - Báo cháy</li>
+								<li><span style = "color: red">&#8811;</span> Mấy chấm công - Cửa từ - Bộ đàm</li>
+								<li><span style = "color: red">&#8811;</span> Máy tính - Máy in - TB văn phòng</li>
 							</ul>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">

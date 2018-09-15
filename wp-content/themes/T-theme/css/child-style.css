@@ -155,7 +155,7 @@ input:focus {
 
 }
 .wapper-bottom{
-	background-color: #1aa867;
+    background: linear-gradient(#00b169, #0b6b44);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
@@ -1763,9 +1763,14 @@ a img.aligncenter {
 #contact-all .wpcf7-form p label input {
     /* padding: 2px; */
     border: 1px solid #dcdcdc;
+    border-radius: 24px;
 }
 #contact-all label{
     margin-bottom: 0;
+    color: #fff;
+}
+#contact-all textarea {
+    border-radius: 12px;
 }
 #contact-all p:nth-child(5){
     display: none;
@@ -1816,18 +1821,32 @@ a img.aligncenter {
     z-index: 9999;
     display: none;
     bottom: 0;
-    border: 1px solid #9E9E9E;
+    /* border: 1px solid #9E9E9E; */
     right: 5%;
-    background: #eceaea;
+    background: #00ab668f;
     padding: 10px;
+}
+#contact-all .wpcf7-submit{
+    border: 1px solid #00ab668f;
+    background: linear-gradient(#da0000,#ed3237);
+}
+#contact-all div.wpcf7-validation-errors,#contact-all div.wpcf7-acceptance-missing{
+    border: none;
+    color: red;
+}
+#contact-all .wpcf7-form p:nth-child(7){
+    text-align: center;
 }
 .hide_form i:nth-child(2){
     float: right;
     padding: 5px;
 }
+.hide_form h5{
+    text-align: center;
+}
 .hide_form{
+    background: linear-gradient(#0f7149, #1db770);
     padding: 5px 10px;
-    background: #2196f3;
     color: #fff;
     margin-left: -10px;
     margin-right: -10px;
@@ -1839,12 +1858,13 @@ a img.aligncenter {
     display: block;
     width: 300px;
     bottom: 5px;
-    right: 5%;
+    right: 2%;
     padding: 5px 15px;
 }
 .btn-toggle button{
-    background: #dc0606;
-    border: 1px solid #db0405;
+    background: linear-gradient(#0f7149, #1db770);
+    border: 1px solid #0f754b;
+    border-radius: 5px 5px 0 0;
     color: #fff;
     font-size: 18px;
     padding: 5px 15px;
@@ -1914,6 +1934,7 @@ span.wpcf7-not-valid-tip{
 
     .top-page{
         margin: 0;
+        margin-top: 15px;
     }
     .logo {
         margin-left: 0px;
@@ -2005,9 +2026,6 @@ span.wpcf7-not-valid-tip{
         width: 261px;
         right: unset;
         padding: 5px 0;
-    }
-    .btn-toggle button {
-        background: #dc0606c9;
     }
     .goto-top-page, .goto-cart{
         background:#ffa50094;
