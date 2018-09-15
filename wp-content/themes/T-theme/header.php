@@ -40,9 +40,9 @@
 						<div class="col-md-4 list-task sp-padding">
 							<ul class ="set_up">
 								<li><b>Chuyên </b></li>
-								<li><span style = "color: red">&#8811;</span> Camera quan sát - Báo động - Báo cháy</li>
-								<li><span style = "color: red">&#8811;</span> Mấy chấm công - Cửa từ - Bộ đàm</li>
-								<li><span style = "color: red">&#8811;</span> Máy tính - Máy in - TB văn phòng</li>
+								<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat"><span style = "color: red">&#8811;</span> Camera quan sát - Báo động - Báo cháy</a></li>
+								<li><a href="<?php echo URL_ROOT;?>/may-cham-cong"><span style = "color: red">&#8811;</span> Mấy chấm công - Cửa từ - Bộ đàm</a></li>
+								<li><a href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in"><span style = "color: red">&#8811;</span> Máy tính - Máy in - TB văn phòng</a></li>
 							</ul>
 
 							<div class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
@@ -79,7 +79,7 @@
 											}
 											
 										?>
-										<a href="<?php echo URL_ROOT;?>/gio-hang"><i class="fas fa-cart-arrow-down"></i> <b>Giỏ hàng:</b> &nbsp;&nbsp;&nbsp;&nbsp;<span class="num_cart"><?php echo $cnt_cart;?></span> sản phẩm </a>
+										<a href="<?php echo URL_ROOT;?>/gio-hang"><i class="fas fa-cart-arrow-down"></i> <b>&nbsp;Giỏ hàng:</b> &nbsp;&nbsp;&nbsp;&nbsp;<span class="num_cart"><?php echo $cnt_cart;?></span> sản phẩm </a>
 									</div>
 								</div>
 

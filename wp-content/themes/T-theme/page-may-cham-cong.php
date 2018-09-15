@@ -9,7 +9,7 @@
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-12 sp-left">
+            <div class="col-md-9 sp-left">
                 <div class="linkien_title row" >
                     <p class = "" >Máy chấm công</p>
                 </div>
@@ -45,7 +45,7 @@
                             $id_post_mcc = get_the_ID();
 
                     ?>
-                    <div class="col-lg-3 col-md-4 list-pro-pad-r">
+                    <div class="col-lg-4 col-md-4 list-pro-pad-r">
                         <div class="lk-item box-product">
                             <a href="<?php echo $link_mcc;?>">
                             <div class="item-img">
@@ -103,7 +103,35 @@
                     </div> -->
                 </div>
             </div>
-            
+            <div class="col-md-3 sp-right">
+                <div class="linkien_title row" >
+                    <p class = "" >Danh Mục</p>
+                </div>
+                <div class="row">
+                    <div class="list-camera-title">
+                        <ul>
+                            <li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">&#8811; Máy thẻ giấy</a></li>
+                            <li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-van-tay">&#8811; Máy vân tay</a></li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="linkien_title row" >
+                    <p class = "" >Dịch vụ</p>
+                </div>
+                <div class="row">
+                    <div class="list-ser-cam">
+                        <ul>
+                            <li><a href="#">Tư vấn lắp đặt máy chấm công</a></li>
+                            <li><a href="#">Sửa chữa máy chấm công</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 

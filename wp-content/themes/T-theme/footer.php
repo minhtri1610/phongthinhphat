@@ -2,7 +2,7 @@
 		<div class="wapper-bottom">
 			<div class="container">
 				<div class="row menu-footer">
-					<div class="col-md-4">
+					<div class="col-md-4 padlef">
 						<ul class = "list-footer">
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat"><h5>Camera quan sát</h5></a></li>
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">&#8811; Camera DAHUA</a></li>
@@ -11,7 +11,7 @@
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">&#8811; Camera KBVISON</a></li>
 						</ul>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 padlef">
 						<ul class = "list-footer">
 							<li><a href="<?php echo URL_ROOT;?>/may-cham-cong"><h5>Máy chấm công</h5></a></li>
 							<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-van-tay">&#8811; Máy chấm công vân tay</a></li>
@@ -19,7 +19,7 @@
 							
 						</ul>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 padlef">
 						<?php if(is_home()):?>
 							<div class="row f-contact">
 								<h5>Fanpage FaceBook</h5>
@@ -27,7 +27,7 @@
 							<div class="row">
 								<div id="fb-root">
 									
-									<div class="fb-page" data-href="https://www.facebook.com/uyphong6689/" data-small-header="false" data-adapt-container-width="true" " data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/uyphong6689/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/uyphong6689/">Phong Thịnh Phát</a></blockquote></div>
+									<div class="fb-page" data-href="https://www.facebook.com/uyphong6689/" data-width="320" data-small-header="false"  " data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/uyphong6689/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/uyphong6689/">Phong Thịnh Phát</a></blockquote></div>
 								</div>
 								
 							</div>
@@ -39,19 +39,19 @@
 					<div class="row info-company">
 						<img src="<?php echo URL_IMG?>/logo/logo.png" alt="">
 					</div>
-					<div class="row name-company">
+					<div class="row name-company text-leftt">
 						<h3>Công ty PHONG THỊNH PHÁT</h3>
 					</div>
-					<div class="row">
+					<div class="row text-leftt">
 						Sự hài lòng của khách hàng là trách nhiệm của chúng tôi.
 					</div>
-					<div class="row">
+					<div class="row text-leftt">
 						Add: 36p, Đường số 12, Phường Tân Thới Nhất, Quận 12, TP-HCM
 					</div>
-					<div class="row">
+					<div class="row text-leftt">
 						Phone: 0935 088 669 - 0908 784 337
 					</div>
-					<div class="row">
+					<div class="row text-leftt">
 						Email: phongthinhphatvn@gmail.com
 					</div>
 				</div>
@@ -73,6 +73,13 @@
 					
 				?>
 				<a href="<?php echo URL_ROOT;?>/gio-hang"><i class="fas fa-cart-arrow-down"></i><span class="num_cart"><?php echo $cnt_cart;?></span></a>
+			</div>
+		</section>
+		<section>
+			<div class="item-call">
+				<a href="tel:+840935088669" class="pps-btn-img" title="Liên hệ">
+					<i class="fas fa-phone-square"></i>
+				</a>
 			</div>
 		</section>
 
@@ -159,6 +166,13 @@
 					$('.goto-cart').fadeIn(200);    // Fade in the arrow
 				} else {
 					$('.goto-cart').fadeOut(200);   // Else fade out the arrow
+				}
+			});
+			$(window).scroll(function() {
+				if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+					$('.item-call').fadeIn(200);    // Fade in the arrow
+				} else {
+					$('.item-call').fadeOut(200);   // Else fade out the arrow
 				}
 			});
 			$('.goto-top-page').click(function() {      // When arrow is clicked
