@@ -17,18 +17,19 @@
                 <div class="row list-product">
 
                     <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
                         $args_mcc = array(
                             'post_type' => 'maychamcong',
                             'post_status' => 'publish',
-                            'posts_per_page' => '8'
+                            'meta_key'		=> 'type_camera',
+	                        'meta_value'	=> 'may-cham-cong-van-tay',
+                            'posts_per_page' => '20',
+                            'paged' => $paged
                         );
                         $products_loop_mcc = new WP_Query( $args_mcc );
                         if ( $products_loop_mcc->have_posts() ) :
                             while ( $products_loop_mcc->have_posts() ) : $products_loop_mcc->the_post();
                             // Set variables
-                            $tmp_category = get_the_category();
-                            $name_category = $tmp_category[0]->category_nicename;
-                            if($name_category == "may-cham-cong-van-tay"){
                                 $title_mcc = get_the_title();
                                 $link_mcc = get_the_permalink();
                                 $description_mcc = get_the_content();
@@ -83,29 +84,13 @@
                         </div>
                     </div>
                     <?php
-                        }
                         endwhile;
                             wp_reset_postdata();
                         endif;
                     ?>
-                    <!-- <div class="col-md-4 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/lap-dat-may-cham-cong.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Máy chấm công xxxx</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
+                </div>
+                <div class="row pagination-list">
+                    <?php if (function_exists('devvn_wp_corenavi')) devvn_wp_corenavi($products_loop_mcc);?>
                 </div>
             </div>
             <div class="col-md-3 sp-right">

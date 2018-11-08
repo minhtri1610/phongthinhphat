@@ -15,10 +15,12 @@
                 </div>
                 <div class="row list-product">
                     <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
                         $args_lk = array(
                             'post_type' => 'linhphukien',
                             'post_status' => 'publish',
-                            'posts_per_page' => '8'
+                            'posts_per_page' => '50',
+                            'paged' => $paged
                         );
                         $products_loop_lk = new WP_Query( $args_lk );
                         if ( $products_loop_lk->have_posts() ) :

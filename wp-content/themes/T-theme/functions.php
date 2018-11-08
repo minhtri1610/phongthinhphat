@@ -390,7 +390,6 @@ function myStartSession() {
         session_start();
     }
 }
-
 // đặt hàng
 $url_link = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/T-theme/';
 require ( $url_link . 'PHPMailer/src/PHPMailer.php' );
@@ -526,12 +525,12 @@ add_action( 'wp_ajax_saveSessionItem', 'order_init' );
 add_action( 'wp_ajax_nopriv_saveSessionItem', 'order_init' );
 
 function order_init() {
-    $link_thumnail_img  = (isset($_POST['link_thumnail_img']))?esc_attr($_POST['link_thumnail_img']) : '';
-    $name_product       = (isset($_POST['name_product']))?esc_attr($_POST['name_product']) : '';
-    $price              = (isset($_POST['price']))?esc_attr($_POST['price']) : '';
-    $link_item          = (isset($_POST['link_item']))?esc_attr($_POST['link_item']) : '';
-    $tmp_sll            = (isset($_POST['tmp_sll']))?esc_attr($_POST['tmp_sll']) : '';
-    $id_item            = (isset($_POST['id_item']))?esc_attr($_POST['id_item']) : '';
+    $link_thumnail_img  = (isset($_POST['link_thumnail_img']))? $_POST['link_thumnail_img'] : '';
+    $name_product       = (isset($_POST['name_product']))? $_POST['name_product'] : '';
+    $price              = (isset($_POST['price']))? $_POST['price'] : '';
+    $link_item          = (isset($_POST['link_item']))? $_POST['link_item'] : '';
+    $tmp_sll            = (isset($_POST['tmp_sll']))?$_POST['tmp_sll'] : '';
+    $id_item            = (isset($_POST['id_item']))?$_POST['id_item'] : '';
 
     //session_cart
     $item_order = [];
@@ -593,4 +592,49 @@ function formatMoney($number, $fractional=false) {
     return $number; 
 } 
 
+//Code phan trang
+function devvn_wp_corenavi($custom_query = null, $paged = null) {
+    global $wp_query;
+    if($custom_query) $main_query = $custom_query;
+    else $main_query = $wp_query;
+    $paged = ($paged) ? $paged : get_query_var('paged');
+    $big = 999999999;
+    $total = isset($main_query->max_num_pages)?$main_query->max_num_pages:'';
+    if($total > 1) echo '<div class="pagenavi">';
+    echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, $paged ),
+        'total' => $total,
+        'mid_size' => '10', // Số trang hiển thị khi có nhiều trang trước khi hiển thị ...
+        'prev_text'    => __('<< Prev','devvn'),
+        'next_text'    => __('Next >>','devvn'),
+    ) );
+    if($total > 1) echo '</div>';
+}
+
+if (!function_exists( 'thinhweb_pagination' )){
+
+function thinhweb_pagination(){
+
+    if ( $GLOBALS['wp_query']->max_num_pages <2 ){ return ''; } ?>
+
+        <nav class="pagination" role="navigation">
+
+            <?php if ( get_next_posts_link() ) : ?>
+
+                <div><?php next_posts_link( __('Older Posts', 'thinhweb') ); ?></div>
+
+            <?php endif; ?>
+
+            <?php if ( get_previous_posts_link() ) :?>
+
+                <div ><?php previous_posts_link(__('Newest Posts', 'thinhweb') ); ?></div>
+
+            <?php endif; ?>
+
+        </nav>
+
+<?php }
+}
 ?>

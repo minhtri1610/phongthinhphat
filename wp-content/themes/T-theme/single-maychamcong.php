@@ -148,7 +148,7 @@
 
                 <!-- content sp -->
                 <div class="cotent-detail-pro">
-                    <?php echo $content_pro;?>
+                    <?php echo  nl2br($content_pro);?>
                 </div>
                 <!-- end sp -->
             </div>

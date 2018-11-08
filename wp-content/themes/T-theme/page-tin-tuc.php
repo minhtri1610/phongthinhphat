@@ -15,10 +15,12 @@
            
 
             <?php
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
                 $args_lk = array(
                     'post_type' => 'news',
                     'post_status' => 'publish',
-                    'posts_per_page' => '10'
+                    'posts_per_page' => '20',
+                    'paged' => $paged
                 );
                 $products_loop_lk = new WP_Query( $args_lk );
                 if ( $products_loop_lk->have_posts() ) :
@@ -26,13 +28,13 @@
                     // Set variables
                     $link_lk = get_the_permalink();
                     $title_lk = get_the_title();
-                    $description_lk = get_the_content();
+                    $description_lk = get_the_excerpt();
                     $date_post = get_the_date();
             ?>
             <div class="row item-box">
                 <div class="col-md-2 img-news">
                     <?php if ( has_post_thumbnail() ) {?>
-                        <?php the_post_thumbnail(); ?>
+                        <?php nl2br(the_post_thumbnail()); ?>
                     <?php } else{?>
                         <img src="<?php echo URL_IMG."/news.jpg"?>"/>
                     <?php } ?>
@@ -43,7 +45,7 @@
                         <div class="row tit-news"><h5><a href="<?php echo $link_lk;?>"><?php echo $title_lk;?></a></h5></div>
                         <div class="row post-date"><p>Ngày đăng: <?php echo $date_post;?></p></div>
                         <div class="row content-date">
-                            <?php echo $description_lk;?>
+                            <?php echo nl2br($description_lk);?>
                         </div>
                         <div class="row">
                             <div class="fb-share-button" 
@@ -61,6 +63,8 @@
             ?>
             <!--  -->
         </div>
-        
+        <div class="row pagination-list">
+            <?php if (function_exists('devvn_wp_corenavi')) devvn_wp_corenavi($products_loop_lk);?>
+        </div>
     </div>
 <?php get_footer(); ?>

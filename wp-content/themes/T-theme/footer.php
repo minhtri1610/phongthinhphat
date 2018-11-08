@@ -9,6 +9,7 @@
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">&#8811; Camera HIKVISON</a></li>
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">&#8811; Camera PARAGON</a></li>
 							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">&#8811; Camera KBVISON</a></li>
+							<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-ip-da-nang">&#8811; Camera IP ĐA NĂNG</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 padlef">
@@ -26,8 +27,13 @@
 							</div>
 							<div class="row">
 								<div id="fb-root">
+										<div class="fb-page" 
+										data-href="https://www.facebook.com/uyphong6689/"
+										data-width="300" 
+										data-hide-cover="false"
+										data-show-facepile="false"></div>
 									
-									<div class="fb-page" data-href="https://www.facebook.com/uyphong6689/" data-width="320" data-small-header="false"  " data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/uyphong6689/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/uyphong6689/">Phong Thịnh Phát</a></blockquote></div>
+									<!-- <div class="fb-page" data-href="https://www.facebook.com/uyphong6689/" data-width="320" data-small-header="false"  " data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/uyphong6689/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/uyphong6689/">Phong Thịnh Phát</a></blockquote></div> -->
 								</div>
 								
 							</div>

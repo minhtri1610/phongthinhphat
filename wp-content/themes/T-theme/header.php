@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" >
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/easyzoom.css">
 		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/pygments.css">
-		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/child-style.css" >
+		<link rel="stylesheet" href="<?php echo URL_CSS; ?>/child-style.css?<?php echo '11h4330102018' ?>" >
 		<?php wp_head(); ?>
 		<meta property="fb:app_id" content="828266150704740" />
 		<meta property="fb:admins" content="CxXykU9x7Ai"/>
@@ -106,10 +106,37 @@
 											<li class = "li-sub">
 												<a href="<?php echo URL_ROOT;?>/camera-quan-sat">&raquo; Camera quan sát</a>
 												<ul class = "sub-ul">
-													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a></li>
-													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvison</a></li>
-													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a></li>
-													<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvison</a></li>
+													<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a>
+														<ul class = "sub2-ul">
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/camera-ip-dahua">Camera Ip</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/dau-ghi-dahua">Đầu ghi</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/tvl-dahua">Tvl</a></li>
+														</ul>
+													</li>
+													<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvision</a>
+														<ul class = "sub2-ul">
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/camera-ip-hikvision">Camera Ip</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/dau-ghi-hikvision">Đầu ghi</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/tvl-hikvision">Tvl</a></li>
+														</ul>
+													</li>
+													<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a>
+														<ul class = "sub2-ul">
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/camera-ip-paragon">Camera Ip</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/dau-ghi-paragon">Đầu ghi</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/tvl-paragon">Tvl</a></li>
+														</ul>
+													</li>
+													<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvision</a>
+														<ul class = "sub2-ul">
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/camera-ip-kbvision">Camera Ip</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/dau-ghi-kbvision">Đầu ghi</a></li>
+															<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/tvl-kbvision">Tvl</a></li>
+														</ul>
+													</li>
+													<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-ip-da-nang">Camera IP đa năng</a>
+													</li>
+													
 												</ul>
 											</li>
 											<li class = "li-sub">
@@ -119,8 +146,30 @@
 													<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">Máy thẻ giấy</a></li>
 												</ul>
 											</li>
-											<li>
+											<li class ="li-sub">
 												<a href="<?php echo URL_ROOT;?>/linh-phu-kien">&raquo; Linh Kiện máy tính</a>
+												<ul class = "sub-ul">
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/ban-phim">Bàn phím</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/bo-phat-wifi">Bộ phát wifi</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/card-man-hinh">Card màn hình</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/case">CASE</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/chuot">Chuột</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/cpu">CPU</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/nguon">Nguồn</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/ram">Ram</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/pk-may-tinh">Phụ kiện máy tính</a>
+													</li>
+													<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/tb-may-tinh">Trọn bộ máy tính</a>
+													</li>
+												</ul>
 											</li>
 											<li>
 												<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy tính

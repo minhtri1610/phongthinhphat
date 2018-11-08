@@ -19,9 +19,9 @@
         </div>
         <div class="row">
             <div class="col-md-9 margintop15">
-                <h4><?php echo $title_mcc;?></h4>
+                <h4><?php echo nl2br($title_mcc);?></h4>
                 <div class="content">
-                    <?php echo  $description_mcc;?>
+                    <?php echo  nl2br($description_mcc);?>
                 </div>
                 <br>
             <div class="fb-share-button" 
@@ -67,9 +67,8 @@
                         </div>
                         <div class="col-md-9">
                             <div class="box-news">
-                                <div class="row tit-news"><h5><a href="<?php echo $link_lk;?>"><?php echo $title_lk;?></a></h5></div>
-                                <div class="row post-date"><p>Ngày đăng: <?php echo $date_post;?></p></div>
-                                
+                                <div class="row tit-news"><h5><a href="<?php echo $link_lk;?>"><?php echo nl2br($title_lk);?></a></h5></div>
+                                <div class="row post-date"><p>Ngày đăng: <?php echo nl2br($date_post);?></p></div>
                             </div>
                         </div>
                     </div>

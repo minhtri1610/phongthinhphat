@@ -15,7 +15,7 @@
 								$args_news = array(
 									'post_type' => 'news',
 									'post_status' => 'publish',
-									'posts_per_page' => '8'
+									'posts_per_page' => '12'
 								);
 								$products_loop_news = new WP_Query( $args_news  );
 								if ( $products_loop_news->have_posts() ) :
@@ -46,10 +46,35 @@
 							<li class = "li-sub">
 								<a href="<?php echo URL_ROOT;?>/camera-quan-sat">&raquo; Camera quan sát</a>
 								<ul class = "sub-ul">
-									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a></li>
-									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvison</a></li>
-									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a></li>
-									<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvison</a></li>
+									<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">Camera dahua</a>
+										<ul class = "sub2-ul">
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/camera-ip-dahua">Camera Ip</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/dau-ghi-dahua">Đầu ghi</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua/tvl-dahua">Tvl</a></li>
+										</ul>
+									</li>
+									<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">Camera hikvision</a>
+										<ul class = "sub2-ul">
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/camera-ip-hikvision">Camera Ip</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/dau-ghi-hikvision">Đầu ghi</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison/tvl-hikvision">Tvl</a></li>
+										</ul>
+									</li>
+									<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">Camera paragon</a>
+										<ul class = "sub2-ul">
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/camera-ip-paragon">Camera Ip</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/dau-ghi-paragon">Đầu ghi</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon/tvl-paragon">Tvl</a></li>
+										</ul>
+									</li>
+									<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">Camera kbvision</a>
+										<ul class = "sub2-ul">
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/camera-ip-kbvision">Camera Ip</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/dau-ghi-kbvision">Đầu ghi</a></li>
+											<li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison/tvl-kbvision">Tvl</a></li>
+										</ul>
+									</li>
+									<li class="li2-sub"><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-ip-da-nang">Camera IP đa năng</a>
 								</ul>
 							</li>
 							<li class = "li-sub">
@@ -59,8 +84,30 @@
 									<li><a href="<?php echo URL_ROOT;?>/may-cham-cong/may-cham-cong-the-giay">Máy thẻ giấy</a></li>
 								</ul>
 							</li>
-							<li>
+							<li class ="li-sub">
 								<a href="<?php echo URL_ROOT;?>/linh-phu-kien">&raquo; Linh Kiện máy tính</a>
+								<ul class = "sub-ul">
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/ban-phim">Bàn phím</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/bo-phat-wifi">Bộ phát wifi</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/card-man-hinh">Card màn hình</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/case">CASE</a>
+													</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/chuot">Chuột</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/cpu">CPU</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/nguon">Nguồn</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/ram">Ram</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/pk-may-tinh">Phụ kiện máy tính</a>
+									</li>
+									<li><a href="<?php echo URL_ROOT;?>/linh-phu-kien/tb-may-tinh">Trọn bộ máy tính</a>
+									</li>
+								</ul>
 							</li>
 							<li>
 								<a class="" href="<?php echo URL_ROOT;?>/sua-chua-may-tinh-may-in">&raquo; sửa chữa máy tính
@@ -82,7 +129,7 @@
 							$args_banner = array(
 								'post_type' => 'list_banner',
 								'post_status' => 'publish',
-								'posts_per_page' => '10'
+								'posts_per_page' => '12'
 							);
 							$list_banner = new WP_Query( $args_banner );
 
@@ -179,7 +226,7 @@
 					$args = array(
 						'post_type' => 'camera',
 						'post_status' => 'publish',
-						'posts_per_page' => '8'
+						'posts_per_page' => '12'
 					);
 					$products_loop = new WP_Query( $args );
 					if ( $products_loop->have_posts() ) :
@@ -246,6 +293,9 @@
 					endif;
 				?>
 			</div>
+			<div class="row xthem">
+				<a href="<?php echo URL_ROOT;?>/camera-quan-sat">&#8811; Xem thêm</a>
+			</div>
 		</section>
 		<!-- end camera quan sats -->
 
@@ -259,7 +309,7 @@
 					$args_mcc = array(
 						'post_type' => 'maychamcong',
 						'post_status' => 'publish',
-						'posts_per_page' => '8'
+						'posts_per_page' => '12'
 					);
 					$products_loop_mcc = new WP_Query( $args_mcc );
 					if ( $products_loop_mcc->have_posts() ) :
@@ -324,6 +374,9 @@
 					endif;
 				?>
 			</div>
+			<div class="row xthem">
+				<a href="<?php echo URL_ROOT;?>/may-cham-cong">&#8811; Xem thêm</a>
+			</div>
 		</section>
 		<!-- end máy chấm công  -->
 
@@ -337,7 +390,7 @@
 					$args_lk = array(
 						'post_type' => 'linhphukien',
 						'post_status' => 'publish',
-						'posts_per_page' => '8'
+						'posts_per_page' => '12'
 					);
 					$products_loop_lk = new WP_Query( $args_lk );
 					if ( $products_loop_lk->have_posts() ) :
@@ -394,6 +447,9 @@
 					endif;
 				?>
 			</div>
+			<div class="row xthem">
+				<a href="<?php echo URL_ROOT;?>/linh-phu-kien">&#8811; Xem thêm</a>
+			</div>
 		</section>
 		<!-- end linh phụ kiện  -->
 					
@@ -410,7 +466,7 @@
 						$args = array(
 							'post_type' => 'list_feedback',
 							'post_status' => 'publish',
-							'posts_per_page' => '8'
+							'posts_per_page' => '12'
 						);
 						$list_feedback = new WP_Query( $args );
 						if ( $list_feedback->have_posts() ) :
@@ -473,7 +529,7 @@
 					$args_da = array(
 						'post_type' => 'duan',
 						'post_status' => 'publish',
-						'posts_per_page' => '10'
+						'posts_per_page' => '12'
 					);
 					$products_loop_da = new WP_Query( $args_da );
 					$list_data = [];

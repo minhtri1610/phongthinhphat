@@ -14,12 +14,13 @@
                     <p class = "" >Camera quan sát</p>
                 </div>
                 <div class="row list-product">
-
                     <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
                         $args = array(
                             'post_type' => 'camera',
                             'post_status' => 'publish',
-                            'posts_per_page' => '8'
+                            'posts_per_page' => 9,
+                            'paged' => $paged
                         );
                         $products_loop = new WP_Query( $args );
                         if ( $products_loop->have_posts() ) :
@@ -78,7 +79,12 @@
                         
                     <?php
                         endwhile;
-                            wp_reset_postdata();
+                    ?>
+                    <div class="row pagination-list">
+                        <?php if (function_exists('devvn_wp_corenavi')) devvn_wp_corenavi($products_loop); ?>
+                    </div>
+                    <?php    
+                            wp_reset_query();
                         else:
                     ?>
                         <div>
@@ -87,56 +93,13 @@
                     <?php
                         endif;
                     ?>
-                    <!-- <div class="col-md-4 list-pro-pad-r">
-                        <div class="box-product">
-                            <div class="img-item">
-                                <img src="<?php echo URL_IMG;?>/product/camera.jpg" alt="">
-                            </div>
-                            <div class="title-item">
-                                <a href="<?php echo URL_ROOT?>/camera-quan-sat">Camera xxxx</a>
-                            </div>
-                            <div class="price-item">
-                                Giá: <span> 10000vnd </span>
-                            </div>
-                            <div class="buy-btn">
-                                <button>
-                                    Mua
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
-                    
                 </div>
             </div>
             <div class="col-md-3 sp-right">
                 <div class="linkien_title row" >
                     <p class = "" >Danh Mục</p>
                 </div>
-                <div class="row">
-                    <div class="list-camera-title">
-                        <ul>
-                            <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-dahua">&#8811; Camera DAHUA</a></li>
-                            <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-hikvison">&#8811; Camera HIKVISON</a></li>
-                            <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-paragon">&#8811; Camera PARAGON</a></li>
-                            <li><a href="<?php echo URL_ROOT;?>/camera-quan-sat/camera-kbvison">&#8811; Camera KBVISON</a></li>
-                        </ul>
-                        
-                    </div>
-                </div>
-
-                <div class="linkien_title row" >
-                    <p class = "" >Dịch vụ</p>
-                </div>
-                <div class="row">
-                    <div class="list-ser-cam">
-                        <ul>
-                            <li><a href="#">Tư vấn lắp đặt camera</a></li>
-                            <li><a href="#">Bảo trì camera</a></li>
-                            <li><a href="#">Sửa chữa camera</a></li>
-                        </ul>
-                        
-                    </div>
-                </div>
+                <?php get_template_part( 'init/danhmuccamera' ); ?>
                 
             </div>
             
